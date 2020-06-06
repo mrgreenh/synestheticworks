@@ -8,4 +8,4 @@ title: "My first blog post"
 
 And some text!
 
-With a link but I always forget the syntax for (links)[http://www.google.com]
+With a link but I always forget the syntax for [http://www.google.com](links)

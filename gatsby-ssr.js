@@ -4,4 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
+const FlowingWrapper = require('./src/components/flowingWrapper').default
+
+// Wraps every page in a component
+exports.wrapRootElement = ({ element, props }) => <FlowingWrapper>{element}</FlowingWrapper>;
