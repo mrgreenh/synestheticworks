@@ -24,15 +24,9 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <span className="layout">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <div>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
@@ -40,7 +34,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </span>
   )
 }
 
