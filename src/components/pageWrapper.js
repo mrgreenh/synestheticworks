@@ -15,7 +15,7 @@ const PageWrapper = (props) => {
   return (
     <>
       <SwitchTransition mode="out-in">
-        <CSSTransition key={props.path} in={true} timeout={500} classNames="page-transition">
+        <CSSTransition key={props.path} in={true} timeout={1000} classNames="page-transition">
           <span>{props.children}</span>
         </CSSTransition>
       </SwitchTransition>

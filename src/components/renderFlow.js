@@ -18,11 +18,15 @@ function doIt(readingTracker){
   var previousConfName = readingTracker.selectedConfName;
   var transitioningToConf = null;
   var offsetX = 0;
-  
+  var oldTimestamp = 0;
+  var targetFrameDuration = 1000/30;
+
   function paint(timestamp){
-    offsetX = offsetX + speedOffset;
+    // const frameDuration = timestamp - oldTimestamp;
+    const frameDuration = targetFrameDuration; // use the line above to ave framedrops instead of animation slowdowns
+    oldTimestamp = timestamp;
+    offsetX = offsetX + speedOffset * (frameDuration/targetFrameDuration);
     for(var i in flows){
-      console.log("Rendering frame")
       var currentFlow = flows[i];
       currentFlow._space.space.getContext("2d").clearRect(0,0,currentFlow._space.size.x,currentFlow._space.size.y)
       currentFlow.render(offsetX % 100);
@@ -60,7 +64,7 @@ function doIt(readingTracker){
     window.requestAnimationFrame(paint);
   }
 
-  paint();
+  window.requestAnimationFrame(paint);
 }
 
 function renderFlow(readingTracker) {

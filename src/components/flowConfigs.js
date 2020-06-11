@@ -91,6 +91,50 @@ var configurations = {
           }
         ],
     },
+    trianglesCrystals: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [0,0,0,0],
+            pointsColor: [0,255,0,0],
+            showForces: true,
+            pattern: TilesFlow.PATTERNS.brokenGlass,
+        },
+        speedOffset: -0.2,
+        forces: [
+            {
+             x: 110,
+             y: 15,
+             decay: "superGentle",
+             intensity: 190,
+             influencePosition: true,
+             influenceColor: true,
+             color: [100, 100, 100, 50],
+           },
+           {
+            x: 90,
+            y: 70,
+            decay: "sine",
+            intensity: 100,
+            influenceColor: true,
+            color: [100, 50, 50, 250],
+        },
+        {
+            x: 30,
+            y: 35,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+          },
+          {
+            x: 30,
+            y: -30,
+            decay: "gentle",
+            intensity: 120,
+            influenceColor: true,
+            color: [255, 0, 0, 255],
+          }
+        ],
+    },
     colors: {
         forces: [],
         visualConfig: {
