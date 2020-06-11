@@ -1,0 +1,261 @@
+import TilesFlow from './TilesFlow/TilesFlow.js';
+var configurations = {
+    points: {
+        forces: [
+            {
+             x: 110,
+             y: 90,
+             decay: "superGentle",
+             intensity: 190,
+             influencePosition: true,
+             influenceColor: false,
+             color: [100, 100, 100, 0],
+           },
+           {
+            x: 90,
+            y: 10,
+            decay: "sine",
+            intensity: 100,
+            influenceColor: false,
+            color: [100, 50, 50, 250],
+        },
+        {
+            x: 30,
+            y: 35,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+          },
+          {
+            x: 30,
+            y: 70,
+            decay: "gentle",
+            intensity: 120,
+            influenceColor: false,
+            color: [255, 0, 0, 255],
+          }
+        ],
+        visualConfig: {
+            pointsColor: [255,100,0,255]
+        },
+        speedOffset: -4
+    },
+    step: {
+        forces: [
+
+        ],
+        visualConfig: {
+            step: 50,
+            pointsColor: [0,0,0,255]
+        }
+    },
+    triangles: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [0,0,0,0],
+            pointsColor: [0,255,0,0],
+            showForces: true,
+        },
+        forces: [
+            {
+             x: 110,
+             y: 15,
+             decay: "superGentle",
+             intensity: 190,
+             influencePosition: true,
+             influenceColor: true,
+             color: [100, 100, 100, 100],
+           },
+           {
+            x: 90,
+            y: 70,
+            decay: "sine",
+            intensity: 100,
+            influenceColor: true,
+            color: [100, 50, 50, 250],
+        },
+        {
+            x: 30,
+            y: 35,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+          },
+          {
+            x: 30,
+            y: -30,
+            decay: "gentle",
+            intensity: 120,
+            influenceColor: true,
+            color: [255, 0, 0, 255],
+          }
+        ],
+    },
+    colors: {
+        forces: [],
+        visualConfig: {
+            stroke: [100,0,100,255],
+            pointsColor: [200,0,200,255],
+            baseColor: [250,250,0,100]
+        }
+    },
+    forces: {
+        forces: [
+            {
+             x: 50,
+             y: 40,
+             decay: "linear",
+             intensity: 100,
+             influencePosition: true
+           }
+        ],
+        visualConfig: {
+            stroke: [100,0,100,255],
+            pointsColor: [0,0,0,255],
+            baseColor: [250,250,0,100],
+            showForces: true,
+            padding: [0,4,1,0]
+        }
+    },
+    padding: {
+        forces: [
+            {
+             x: 50,
+             y: 40,
+             decay: "linear",
+             intensity: 100,
+             influencePosition: true
+           }
+        ],
+        visualConfig: {
+            stroke: [100,0,100,255],
+            baseColor: [250,250,0,100],
+            padding: [0,0,1,0]
+        }
+    },
+    forces_colors: {
+        forces:[
+            {
+                 x: 50,
+                 y: 40,
+                 decay: "linear",
+                 intensity: 100,
+                 influencePosition: true,
+                 influenceColor: true,
+                 color: [250, 0, 100, 250]
+           }
+       ],
+        visualConfig: {
+                stroke: [255,255,255,255],
+                pointsColor: [0,0,0,255],
+                baseColor: [50,100,50,50],
+                showForces: true,
+                padding: [0,0,1,0]
+        }
+    },
+    more_on_colors: {
+        forces:[
+            {
+                 x: 50,
+                 y: 40,
+                 decay: "linear",
+                 intensity: 100,
+                 influencePosition: true,
+                 influenceColor: true,
+                 color: [150, 0, 200, 0]
+           },
+           {
+                 x: 20,
+                 y: 60,
+                 decay: "cosine",
+                 intensity: 150,
+                 influenceColor: true,
+                 color: [100, 100, 50, 0]
+           },
+          {
+                 x: 80,
+                 y: -20,
+                 decay: "sine",
+                 intensity: 150,
+                 influenceColor: true,
+                 color: [100, 100, 50, 0]
+           },
+         {
+                 x: 60,
+                 y: 60,
+                 decay: "clipping_power",
+                 intensity: 200,
+                 influenceColor: true,
+                 color: [0, 200, 200, 0]
+           }
+
+       ],
+        visualConfig: {
+                stroke: [255,255,255,0],
+                baseColor: [255,255,255,255],
+                padding: [0,0,1,0],
+                colorInterpolationMode: "subtraction"
+        }
+    },
+    patterns: {
+        forces:[
+            {
+                 x: 50,
+                 y: 40,
+                 decay: "linear",
+                 intensity: 100,
+                 influencePosition: true,
+                 influenceColor: true,
+                 color: [150, 0, 200, 0]
+           },
+           {
+                 x: 35,
+                 y: 60,
+                 decay: "cosine",
+                 intensity: 80,
+                 influenceColor: true,
+                 color: [100, 100, 50, 0]
+           },
+          {
+                 x: 80,
+                 y: -20,
+                 decay: "sine",
+                 intensity: 90,
+                 influenceColor: true,
+                 color: [100, 100, 50, 0]
+           },
+         {
+                 x: 60,
+                 y: 60,
+                 decay: "clipping_power",
+                 intensity: 100,
+                 influenceColor: true,
+                 color: [0, 200, 200, 0]
+           },
+
+            {
+                 x: 55,
+                 y: 90,
+                 intensity: 100,
+                 influencePosition: true
+           },
+
+           {
+                 x: 30,
+                 y: 90,
+                 intensity: 100,
+                 influencePosition: true
+           }
+
+       ],
+        visualConfig: {
+                baseColor: [255,255,255,255],
+                stroke: [50,50,50,50],
+                padding: [0,2,0,0],
+                colorInterpolationMode: "subtraction",
+                pattern: TilesFlow.PATTERNS.brokenGlass
+        }
+    }
+};
+
+export default configurations;
