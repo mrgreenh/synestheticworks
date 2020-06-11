@@ -5,3 +5,10 @@ title: "My first blog post"
 ---
 
 # TEst test test!!!
+Boom boom
+![Hopper The Rabbit](../images/gatsby-astronaut.png)
+
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
