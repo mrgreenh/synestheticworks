@@ -3,10 +3,19 @@ import PointsMatrix from './PointsMatrix.js';
 import patterns from './patterns.js';
 import ForceField from './ForceField.js';
 import {CanvasSpace} from 'ptjs';
+import {debounce} from 'debounce';
 
 class TilesFlow {
 
     constructor(containerId, forceField, visualSettings){
+        const debouncedSetup = debounce(() => {
+            this.setup(containerId, forceField, visualSettings)
+        }, 1000);
+        window.addEventListener("resize", debouncedSetup);
+        this.setup(containerId, forceField, visualSettings);
+    }
+    
+    setup(containerId, forceField, visualSettings){
         this._space = new CanvasSpace('canvasElem_'+containerId.substr(1), '#fff').display(containerId);
         this._space.size.x = this._space.space.width;
         this._space.size.y = this._space.space.height;
