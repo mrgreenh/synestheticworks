@@ -5,6 +5,8 @@ import Header from "./header"
 import ReadingTracker from "./FlowReadingTracker"
 import TilesFlowContext from "./utils/TilesFlowContext"
 
+import "./generics.scss"
+
 const readingTracker = new ReadingTracker();
 
 const FlowingWrapper = ({ children }) => {
@@ -12,8 +14,10 @@ const FlowingWrapper = ({ children }) => {
     <>
       <TilesFlowContext.Provider value={readingTracker}>
         <TilesFlowComponent readingTracker={readingTracker}/>
-        <Header siteTitle="Synesthetic Works" />
-        <span>{children}</span>
+        <div id="site-content">
+          <Header siteTitle="Synesthetic Works" />
+          <div id="page-content">{children}</div>
+        </div>
       </TilesFlowContext.Provider>
     </>
   )

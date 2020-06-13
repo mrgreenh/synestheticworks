@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import "./layout.css"
+import "./layout.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
   return (
     <span className="layout">
       <div>
-        <main>{children}</main>
+        <main className="blog-post-content">{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

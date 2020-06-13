@@ -6,7 +6,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        includePaths: ["/components"],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -4,9 +4,7 @@ import React from "react"
 
 const Header = ({ siteTitle }) => (
   <header
-    style={{
-      marginBottom: `1.45rem`,
-    }}
+    className="website-header"
   >
     <div>
       <h1 style={{ margin: 0 }}>
