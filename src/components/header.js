@@ -1,24 +1,26 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Footer from "./Footer"
 
 const Header = ({ siteTitle }) => (
-  <header
-    className="website-header"
-  >
-    <div>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+  <span className="website-header">
+    <header>
+      <div>
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              textDecoration: `none`,
+            }}
+          >
+            {siteTitle}
+          </Link>
+        </h1>
+      </div>
+    </header>
+    <Footer />
+  </span>
 )
 
 Header.propTypes = {

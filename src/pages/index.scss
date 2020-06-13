@@ -1,0 +1,88 @@
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  .project-thumb {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    box-sizing: content-box;
+    float: left;
+    position: relative;
+    a {
+      display: block;
+    }
+    h3 {
+      margin: 5px;
+      position: absolute;
+      bottom: 0px;
+      color: #aaa;
+    }
+    .play-image {
+      display: none;
+    }
+    .thumb-overlay {
+      position: absolute;
+      display: none;
+      background-color: rgba(255, 255, 255, 0.8);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    &:hover {
+      h3{
+        color: #222;
+      }
+      .thumb-overlay {
+        display: block;
+      }
+      .play-image {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        .gatsby-image-wrapper {
+          width: 50%;
+          margin: auto;
+          top: calc(50% - 150px / 100 * 50);
+          opacity: 0.4;
+        }
+      } 
+    }
+  }
+}
+
+.posts-list {
+  margin-top: 20px;
+  width: 100%;
+  text-align: right;
+  ul {
+    text-align: right;
+    li {
+      display: inline-block;
+      max-width: 500px;    
+      a {
+        text-decoration: none;
+      }
+      h2 {
+        margin-bottom: 5px;
+      }
+      h4 {
+        margin-bottom: 5px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .carousel {
+    .project-thumb {
+      float: none;
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+}

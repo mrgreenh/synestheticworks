@@ -40,12 +40,20 @@ var configurations = {
         },
         speedOffset: -4
     },
-    step: {
+    circle: {
         forces: [
-
+            {
+                x: 0,
+                y: 0,
+                decay: "linear",
+                intensity: 150,
+                influencePosition: true,
+                influenceColor: true,
+                color: [150, 0, 200, 0]
+          },
         ],
         visualConfig: {
-            step: 50,
+            step: 100,
             pointsColor: [0,0,0,255]
         }
     },

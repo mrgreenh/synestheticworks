@@ -9,11 +9,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Footer from "./footer"
 
-import "./layout.scss"
+import "./footer.scss"
 
-const Layout = ({ children }) => {
+const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
       instagram: file(relativePath: { eq: "instagram.png" }) {
@@ -48,16 +47,23 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <span className="layout">
-      <div>
-        <main className="blog-post-content">{children}</main>
-      </div>
-    </span>
+    <footer>
+      <ul>
+        <li>
+          <a href="" title="Link to social media page"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
+        </li>
+        <li>
+          <a href="" title="Link to social media page"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
+        </li>
+        <li>
+          <a href="" title="Link to social media page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
+        </li>
+        <li>
+          <a href="" title="Link to social media page"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
+        </li>
+      </ul>
+    </footer>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+export default Footer

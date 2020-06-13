@@ -13,7 +13,7 @@ class ReadingTracker {
             "/": "triangles",
             "/page-2/": "points",
             "/blogarticle2/": "trianglesCrystals",
-            "/blog/my-first-post": "forces",
+            "/blog/jenny": "circle",
         }
 
         const name = pageToConfig[page] ?? "triangles";

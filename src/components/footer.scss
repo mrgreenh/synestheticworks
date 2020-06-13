@@ -1,0 +1,16 @@
+.website-header footer {
+  width: 100%;
+  text-align: left;
+  opacity: 0.8;
+  ul {
+    margin-left: 0;
+    li {
+      text-indent: 0;
+      float: left;
+      list-style-type: none;
+      width: 20%;
+      max-width: 30px;
+      margin: 0 5% 0 0;
+    }
+  }
+}

@@ -11,6 +11,10 @@ a {
 
 #site-content {
   width: 100%;
+  .layout footer {
+    position: fixed;
+    left: 0px;
+  }
 }
 
 .website-header {
@@ -27,14 +31,14 @@ a {
 }
 
 #page-content {
-  padding: $content-padding $content-padding 20px 18%;
-  float: right;
+  float: right; 
   width: $content-width;
   min-width: 600px;
   text-align: right;
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
   .blog-post-content {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
+    padding: $content-padding $content-padding 20px 18%;
     text-align: left;
     .gatsby-resp-image-wrapper {
       width: 100% !important;
@@ -48,46 +52,79 @@ a {
     text-align: right;
     h2 {
       margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    h3 {
+      font-weight: normal;
+      margin-top: 0;
       font-size: 0.8em;
     }
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .website-header {
     margin-bottom: 0px;
-    padding: 20px 0px 0px;
-    position: initial;
+    padding: 20px;
     width: 100%;
+    position: initial;
+    text-align: center;
+    h1 {
+      text-align: center;
+    }
+    footer {
+      overflow: hidden;
+      margin: 10px auto 0;
+      position: initial;
+      text-align: center;
+      ul li {
+        float: none;
+        display: inline-block;
+        width: 15px;
+        margin: 10px 15px;
+      }
+    }
   }
 
   #page-content {
-    padding: $mobile-padding 0px;
+    padding: 0px 0px;
     width: 100%;
     min-width: 0px;
     text-align: left;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) $mobile-padding, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%);
-    
-    .blog-header {
-      text-align: left;
-      position: initial;
-    }
-
-    .blog-post-content {
-      .gatsby-resp-image-wrapper {
-        width: 100% !important;
-        left: initial !important;
-        max-width: initial !important;
+    .layout {
+      padding: 0px;
+      .blog-header {
+        text-align: left;
+        position: initial;
+        h1, h2, h3, h4 {
+          padding: 0px 5px;
+        }
+      }
+      
+      .blog-post-content {
+        padding: 0px 5px 20px 5px;
+        background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) $mobile-padding, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%);
+        .gatsby-resp-image-wrapper {
+          width: 100% !important;
+          left: initial !important;
+          max-width: initial !important;
+        }
       }
     }
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   #site-content {
     h1 {
-      font-size: calc(30px + (30 - 30) * ((100vw - 300px) / (1600 - 300)));
+      font-size: calc(10px + (35 - 10) * ((100vw - 0px) / (1200 - 0)));
+    }
+    h2, #page-content h2 {
+      font-size: calc(10px + 18 * ((100vw - 0px) / (1200 - 0)));
+    }
+    h3 {
+      font-size: calc(10px + 12 * ((100vw - 0px) / (1200 - 0)));
     }
   }
 }

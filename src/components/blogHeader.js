@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const BlogHeader = (props) => 
     <span className="blog-header">
-      <h1>{props.title}</h1>
-      <h2>{props.date}</h2>
+      <h2>{props.title}</h2>
+      <h3>{props.date}</h3>
     </span>
 
 BlogHeader.propTypes = {
