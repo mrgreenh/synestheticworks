@@ -43,6 +43,13 @@ const Footer = () => {
           }
         }
       },
+      youtube: file(relativePath: { eq: "youtube.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
     }
   `)
 
@@ -57,6 +64,9 @@ const Footer = () => {
         </li>
         <li>
           <a href="" title="Link to social media page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
+        </li>
+        <li>
+          <a href="" title="Link to social media page"><Img fluid={data.youtube.childImageSharp.fluid}/></a>
         </li>
         <li>
           <a href="" title="Link to social media page"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>

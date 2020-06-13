@@ -49,9 +49,7 @@ const Layout = ({ children }) => {
 
   return (
     <span className="layout">
-      <div>
         <main className="blog-post-content">{children}</main>
-      </div>
     </span>
   )
 }

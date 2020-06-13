@@ -8,10 +8,11 @@ class TilesFlowComponent extends React.PureComponent {
     }
 
     render() {
-        return (<>
+        return (<div id="flowRoot">
             <div id="tilesflowContainer"></div>
             <div id="tilesflowContainer2"></div>
-        </>);
+            <div id="flowOverlay"/>
+        </div>);
     }
 }
 

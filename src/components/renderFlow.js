@@ -14,7 +14,7 @@ function doIt(readingTracker){
 
   var speedOffset = readingTracker.speedOffset;
   var transitionProgress = 0;
-  var transitionLength = 100;
+  var transitionLength = 50;
   var previousConfName = readingTracker.selectedConfName;
   var transitioningToConf = null;
   var offsetX = 0;

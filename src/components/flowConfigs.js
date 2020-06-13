@@ -62,7 +62,6 @@ var configurations = {
             padding: [0, 0, 5, 0],
             stroke: [0,0,0,0],
             pointsColor: [0,255,0,0],
-            showForces: true,
         },
         forces: [
             {
