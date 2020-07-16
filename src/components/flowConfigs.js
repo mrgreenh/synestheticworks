@@ -17,7 +17,7 @@ var configurations = {
             decay: "sine",
             intensity: 100,
             influenceColor: false,
-            color: [100, 50, 50, 250],
+            color: [100, 100, 100, 250],
         },
         {
             x: 30,
@@ -32,13 +32,13 @@ var configurations = {
             decay: "gentle",
             intensity: 120,
             influenceColor: false,
-            color: [255, 0, 0, 255],
+            color: [255, 255, 255, 0],
           }
         ],
         visualConfig: {
-            pointsColor: [255,100,0,255]
+            pointsColor: [100,100,100,255]
         },
-        speedOffset: -4
+        speedOffset: -2
     },
     circle: {
         forces: [
@@ -103,7 +103,7 @@ var configurations = {
             padding: [0, 0, 5, 0],
             stroke: [0,0,0,0],
             pointsColor: [0,255,0,0],
-            showForces: true,
+            showForces: false,
             pattern: TilesFlow.PATTERNS.brokenGlass,
         },
         speedOffset: -0.2,

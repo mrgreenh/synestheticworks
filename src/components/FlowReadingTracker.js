@@ -11,9 +11,13 @@ class ReadingTracker {
 
         const pageToConfig = {
             "/": "triangles",
-            "/page-2/": "points",
-            "/blogarticle2/": "trianglesCrystals",
-            "/blog/jenny": "circle",
+            "/synesthesia1/": "points",
+            "/abluedwarftale/": "trianglesCrystals",
+            "/blog/intro": "circle",
+            // "/": "triangles",
+            // "/page-2/": "points",
+            // "/blogarticle2/": "trianglesCrystals",
+            // "/blog/jenny": "circle",
         }
 
         const name = pageToConfig[page] ?? "triangles";

@@ -46,11 +46,11 @@ const IndexPage = () => {
         <div className="carousel">
           <ProjectThumb
             imageData={data.asteroidsField} 
-            href="/blogarticle2/" 
+            href="/abluedwarftale/" 
             title="A Blue Dwarf's Tale"/>
           <ProjectThumb
             imageData={data.synesthesia} 
-            href="/page-2/" 
+            href="/synesthesia1/"
             title="Synesthesia #1"/>
         </div>
         <div className="posts-list">
@@ -60,7 +60,7 @@ const IndexPage = () => {
               <Link to={edge.node.frontmatter.slug}>
                 <h2>{edge.node.frontmatter.title}</h2>
                 <h4>{edge.node.frontmatter.date}</h4>
-                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <p>{edge.node.frontmatter.summary}</p>
               </Link>
             </li>
           </ul>)}
