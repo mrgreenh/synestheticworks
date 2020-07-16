@@ -12,14 +12,14 @@ const IndexPage = () => {
   
   const data = useStaticQuery(graphql`
   query {
-    asteroidsField: file(relativePath: { eq: "asteroid-field-shading-final.png" }) {
+    asteroidsFieldCropped: file(relativePath: { eq: "asteroid-field-cropped.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     },
-    synesthesia: file(relativePath: { eq: "synesthesia.png" }) {
+    synesthesiaCropped: file(relativePath: { eq: "synesthesia_cropped.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
@@ -45,11 +45,11 @@ const IndexPage = () => {
     <Layout>
         <div className="carousel">
           <ProjectThumb
-            imageData={data.asteroidsField} 
+            imageData={data.asteroidsFieldCropped} 
             href="/abluedwarftale/" 
             title="A Blue Dwarf's Tale"/>
           <ProjectThumb
-            imageData={data.synesthesia} 
+            imageData={data.synesthesiaCropped} 
             href="/synesthesia1/"
             title="Synesthesia #1"/>
         </div>
