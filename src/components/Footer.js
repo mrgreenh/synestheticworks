@@ -57,19 +57,19 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <a href="" title="Link to social media page"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
+          <a href="https://bit.ly/synwrks-soundcloud" title="Link to Soundcloud page" target="_blank"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
         </li>
         <li>
-          <a href="" title="Link to social media page"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
+          <a href="https://bit.ly/synwrks-youtube" title="Link to Youtube page" target="_blank"><Img fluid={data.youtube.childImageSharp.fluid}/></a>
         </li>
         <li>
-          <a href="" title="Link to social media page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
+          <a href="https://bit.ly/synwrks-instagram" title="Link to Instagram page" target="_blank"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
         </li>
         <li>
-          <a href="" title="Link to social media page"><Img fluid={data.youtube.childImageSharp.fluid}/></a>
+          <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
         </li>
         <li>
-          <a href="" title="Link to social media page"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
+          <a href="https://bit.ly/synwrks-twitter" target="_blank" title="Link to Twitter page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
         </li>
       </ul>
     </footer>
