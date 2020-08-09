@@ -60,7 +60,7 @@ var configurations = {
     triangles: {
         visualConfig: {
             padding: [0, 0, 5, 0],
-            stroke: [0,0,0,0],
+            stroke: [0,0,0,100],
             pointsColor: [0,255,0,0],
         },
         forces: [
@@ -79,13 +79,13 @@ var configurations = {
             decay: "sine",
             intensity: 100,
             influenceColor: true,
-            color: [100, 50, 50, 250],
+            color: [50, 50, 50, 250],
         },
         {
             x: 30,
-            y: 35,
+            y: 70,
             decay: "superGentle",
-            intensity: 30,
+            intensity: 100,
             influencePosition: true,
           },
           {
@@ -94,7 +94,7 @@ var configurations = {
             decay: "gentle",
             intensity: 120,
             influenceColor: true,
-            color: [255, 0, 0, 255],
+            color: [70, 70, 70, 255],
           }
         ],
     },
@@ -115,7 +115,7 @@ var configurations = {
              intensity: 190,
              influencePosition: true,
              influenceColor: true,
-             color: [100, 100, 100, 50],
+             color: [100, 100, 100, 100],
            },
            {
             x: 90,
@@ -123,13 +123,13 @@ var configurations = {
             decay: "sine",
             intensity: 100,
             influenceColor: true,
-            color: [100, 50, 50, 250],
+            color: [50, 50, 50, 250],
         },
         {
             x: 30,
-            y: 35,
+            y: 70,
             decay: "superGentle",
-            intensity: 30,
+            intensity: 100,
             influencePosition: true,
           },
           {
@@ -138,7 +138,7 @@ var configurations = {
             decay: "gentle",
             intensity: 120,
             influenceColor: true,
-            color: [255, 0, 0, 255],
+            color: [70, 70, 70, 255],
           }
         ],
     },
