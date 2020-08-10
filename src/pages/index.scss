@@ -14,8 +14,9 @@
       margin: 5px;
       position: absolute;
       bottom: 0px;
-      -webkit-text-stroke-width: .3px;
-      -webkit-text-stroke-color: #aaa;
+      &.light {
+        color: #eee;
+      }
     }
     .play-image {
       display: none;

@@ -47,6 +47,7 @@ const IndexPage = () => {
           <ProjectThumb
             imageData={data.asteroidsFieldCropped} 
             href="/abluedwarftale/" 
+            light={true}
             title="A Blue Dwarf's Tale"/>
           <ProjectThumb
             imageData={data.synesthesiaCropped} 

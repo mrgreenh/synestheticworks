@@ -60,7 +60,7 @@ var configurations = {
     triangles: {
         visualConfig: {
             padding: [0, 0, 5, 0],
-            stroke: [0,0,0,100],
+            stroke: [0,0,0,20],
             pointsColor: [0,255,0,0],
         },
         forces: [
