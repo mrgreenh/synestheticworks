@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Synesthetic Works`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Collection of inner visions conjured by music and sound; a bedroom production.`,
+    author: `@synestheticworks`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

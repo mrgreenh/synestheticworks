@@ -109,13 +109,13 @@ var configurations = {
         speedOffset: -0.2,
         forces: [
             {
-             x: 110,
+             x: 100,
              y: 15,
              decay: "superGentle",
              intensity: 190,
              influencePosition: true,
              influenceColor: true,
-             color: [100, 100, 100, 100],
+             color: [255, 170, 150, 100],
            },
            {
             x: 90,
@@ -143,12 +143,49 @@ var configurations = {
         ],
     },
     colors: {
-        forces: [],
         visualConfig: {
-            stroke: [100,0,100,255],
-            pointsColor: [200,0,200,255],
-            baseColor: [250,250,0,100]
-        }
+            padding: [0, 0, 5, 0],
+            stroke: [0,0,0,0],
+            pointsColor: [0,0,0,0],
+        },
+        forces: [
+            {
+             x: 90,
+             y: 50,
+             decay: "superGentle",
+             intensity: 50,
+             influencePosition: true,
+             influenceColor: true,
+             color: [120, 50, 100, 50],
+           },
+           {
+            x: 30,
+            y: 70,
+            decay: "gentle",
+            intensity: 100,
+            influencePosition: true,
+            influenceColor: true,
+            color: [50, 100, 255, 250],
+        },
+        {
+            x: 0,
+            y: 40,
+            decay: "superGentle",
+            intensity: 60,
+            influencePosition: true,
+            influenceColor: true,
+            color: [255, 100, 100, 250],
+          },
+          {
+            x: 30,
+            y: -30,
+            decay: "gentle",
+            intensity: -30,
+            influenceColor: true,
+            color: [70, 200, 70, 50],
+          }
+        ],
+        speedOffset: -0.5
     },
     forces: {
         forces: [

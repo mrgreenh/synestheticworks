@@ -14,6 +14,7 @@ class ReadingTracker {
             "/synesthesia1/": "points",
             "/abluedwarftale/": "trianglesCrystals",
             "/blog/intro": "circle",
+            "/blog/2120_imagination_machine": "colors",
             // "/": "triangles",
             // "/page-2/": "points",
             // "/blogarticle2/": "trianglesCrystals",
