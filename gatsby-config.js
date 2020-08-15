@@ -3,6 +3,7 @@ module.exports = {
     title: `Synesthetic Works`,
     description: `Collection of inner visions conjured by music and sound; a bedroom production.`,
     author: `@synestheticworks`,
+    siteURL: 'https://www.synestheticworks.com/',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -43,6 +43,7 @@ const IndexPage = () => {
   
   return (
     <Layout>
+        <SEO title={"Home"}/>
         <div className="carousel">
           <ProjectThumb
             imageData={data.asteroidsFieldCropped} 
