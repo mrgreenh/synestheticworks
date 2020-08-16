@@ -10,7 +10,7 @@ import "./player.scss"
 
 const SecondPage = () => (
   <Layout>
-    <BlogHeader title="Synesthesia #1" date="April 2, 2018"/>
+    <BlogHeader title="Synesthesia #1" date="April 2, 2018" ogimage="/synesthesia.png"/>
     <h4>What does music "look" like?</h4>
     <i>Synesthesia #1 can be watched as a normal video, or it can be experienced in a VR headset. You'll find the normal video below. If instead you'd like to try it in VR, <a href="https://bit.ly/3gJTWYz" target="_blank">follow this link</a> to the VR video on Youtube. From there you can bookmark it and then reach it using the Youtube VR app on your headset of choice! In the 360 3D video, you will see the visualization unfold all around you. </i>
     <div className='player-wrapper'>

@@ -3,6 +3,7 @@ slug: "/blog/2120_imagination_machine"
 date: "2020-08-10"
 title: "The Imagination Machine [2120]"
 summary: "At every corner, shapes and patterns changed slightly, luring the eye to the fine repetitions of detail. Staring at any given inch of wall deserved minutes of contemplation, as if getting lost into an infinite fractal."
+ogimage: "/replicator.png"
 ---
 "Don't be afraid, it doesn't bite, get closer" said M, extending his hand.
 W hesitated, while taking in one more time the sight of the enormous organism growing high into the sky, its spirals of curvy branches projecting an intricate shadow as far-reaching as he could see. Fluorescent, puffy flowers where covering every inch of wood, making the gigantic structure look as if it could slowly float away at the first gust of wind. At its base, an entrance resembling a carnivorous plant was patiently waiting with its jaws wide open.
