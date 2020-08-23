@@ -1,5 +1,30 @@
 .movie-poster {
-  margin: 20px auto;
+  margin: 10px auto;
   max-width: calc( 100% / 2 );
   min-width: 300px;
+}
+
+.movie-screenshot {
+  margin-bottom: 10px;
+}
+
+.laurels {
+  text-align: center;
+  img {
+    max-height: 200px;
+    margin: 20px auto;
+    display: inline-block;
+   }
+}
+
+@media only screen and (max-width: 800px) {
+  .laurels img {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .laurels img {
+    height: 150px;
+  }
 }

@@ -24,33 +24,15 @@
     .thumb-overlay {
       position: absolute;
       display: none;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.3);
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
     }
     &:hover {
-      h3{
-        color: #222;
-      }
       .thumb-overlay {
         display: block;
-      }
-      .play-image {
-        display: block;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        .gatsby-image-wrapper {
-          width: 50%;
-          margin: auto;
-          top: calc(50% - 150px / 100 * 50);
-          opacity: 0.4;
-        }
       } 
     }
   }
