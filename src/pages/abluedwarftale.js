@@ -6,8 +6,10 @@ import SEO from "../components/seo"
 import BlogHeader from "../components/blogHeader"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import ReactPlayer from "react-player"
 
 import "./abluedwarfstale.scss"
+import "./player.scss"
 
 const SecondPage = () => {
   const data = useStaticQuery(graphql`
@@ -45,9 +47,19 @@ const SecondPage = () => {
       <img src={"/laurels/indiex.png"}/>
       <img src={"/laurels/indieshorts.png"}/>
     </div>
-    <Img className="movie-poster" fluid={data.syn2poster.childImageSharp.fluid}/>
+    <div style={{height: 200, width:"100%", position: "relative"}}>
+      <ReactPlayer
+          className='react-player'
+          style={{marginHorizontal: "auto"}}
+          config={{show_artwork: false}}
+          url='https://soundcloud.com/user-532945997/synesthesia-2-a-blue-dwarfs-tale-soundtrack'
+          width='100%'
+          height="100"
+          />
+    </div>
     <Img className={"movie-screenshot"} fluid={data.replicator.childImageSharp.fluid}/>
     <Img className={"movie-screenshot"} fluid={data.asteroids.childImageSharp.fluid}/>
+    <Img className="movie-poster" fluid={data.syn2poster.childImageSharp.fluid}/>
     
   </Layout>;
 }
