@@ -45,8 +45,8 @@ const SecondPage = () => {
     <p>This project is landing here soon. Follow on <a href="https://bit.ly/synwrks-facebook" target="_blank">Facebook</a>, <a href="https://bit.ly/synwrks-twitter" target="_blank">Twitter</a> or <a href="https://bit.ly/synwrks-instagram" target="_blank">Instagram</a> to stay tuned!</p>
     <div className="laurels">
       <img src={"/laurels/indiex.png"}/>
-      <img src={"/laurels/indieshorts.png"}/>
       <img src={"/laurels/californiainternationalshorts.png"}/>
+      <img src={"/laurels/indieshorts.png"}/>
     </div>
     <div style={{height: 200, width:"100%", position: "relative"}}>
       <ReactPlayer
