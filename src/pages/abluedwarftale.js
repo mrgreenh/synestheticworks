@@ -47,6 +47,7 @@ const SecondPage = () => {
       <img src={"/laurels/indiex.png"}/>
       <img src={"/laurels/californiainternationalshorts.png"}/>
       <img src={"/laurels/indieshorts.png"}/>
+      <img src={"/laurels/sanfranindependentshorts.png"}/>
     </div>
     <div style={{height: 200, width:"100%", position: "relative"}}>
       <ReactPlayer
