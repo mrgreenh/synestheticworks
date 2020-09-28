@@ -41,28 +41,33 @@ const SecondPage = () => {
 
   return <Layout>
     <BlogHeader ogimage="/asteroids.png" title="A Blue Dwarf's Tale [Synesthesia #2]" date="August 11, 2020" />
-    <i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i>
-    <p>This project is landing here soon. Follow on <a href="https://bit.ly/synwrks-facebook" target="_blank">Facebook</a>, <a href="https://bit.ly/synwrks-twitter" target="_blank">Twitter</a> or <a href="https://bit.ly/synwrks-instagram" target="_blank">Instagram</a> to stay tuned!</p>
     <div className="laurels">
       <img src={"/laurels/indiex.png"}/>
       <img src={"/laurels/californiainternationalshorts.png"}/>
       <img src={"/laurels/indieshorts.png"}/>
+      <div className=".separator"/>
       <img src={"/laurels/sanfranindependentshorts.png"}/>
+      <img src={"/laurels/socal.png"}/>
     </div>
-    <div style={{height: 200, width:"100%", position: "relative"}}>
+    <div className='player-wrapper'>
+      <div className="placeholder">
+        Loading Player...
+      </div>
       <ReactPlayer
-          className='react-player'
-          style={{marginHorizontal: "auto"}}
-          config={{show_artwork: false}}
-          url='https://soundcloud.com/user-532945997/synesthesia-2-a-blue-dwarfs-tale-soundtrack'
-          width='100%'
-          height="100"
-          />
-    </div>
-    <Img className={"movie-screenshot"} fluid={data.replicator.childImageSharp.fluid}/>
+        controls={true}
+        className='react-player'
+        url='https://youtu.be/u6u-NTJGmqs'
+        width='100%'
+        height="100%"
+        />
+    </div>    
+    <i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i>
+    <p>The VR version of this video will also be added to this page soon :)</p>
+    <p>Check out the <a target="_blank" href="https://bit.ly/synwrks-soundcloud">SynestheticWorks Soundcloud</a> where you can find the original soundtrack, or the <a target="_blank" href="https://bit.ly/synwrks-instagram">Instragram</a> and <a target="_blank" href="https://bit.ly/synwrks-facebook">Facebook</a> pages where you can find updates, additional artwork, and perhaps more synesthesias.</p>
+    <i>- Carlo</i>
+    {/* <Img className={"movie-screenshot"} fluid={data.replicator.childImageSharp.fluid}/>
     <Img className={"movie-screenshot"} fluid={data.asteroids.childImageSharp.fluid}/>
-    <Img className="movie-poster" fluid={data.syn2poster.childImageSharp.fluid}/>
-    
+    <Img className="movie-poster" fluid={data.syn2poster.childImageSharp.fluid}/> */}
   </Layout>;
 }
 
