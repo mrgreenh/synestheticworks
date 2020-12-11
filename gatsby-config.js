@@ -7,6 +7,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-anchor-links`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
