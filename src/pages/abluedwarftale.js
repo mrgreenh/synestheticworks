@@ -17,8 +17,8 @@ const SecondPage = () => {
     query {
       otv_syn2_instructions: file(relativePath: { eq: "otv_syn2_instructions_ink_cropped.jpg" }) {
         childImageSharp {
-          fixed(width: 800) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
           }
         }
       },
@@ -58,7 +58,7 @@ const SecondPage = () => {
       <li>Oculus TV (best visual quality): <a href="https://bit.ly/synesthesia2" title="Oculus VR video" target="_blank">save this video</a>, then find it in your Oculus headset (Go, Quest) > Oculus TV > Saved</li>
       <ul>
         <li>For the <b>best visual quality</b>, when you find the video in the headset, tap on the 3 dots and select "Cache High Quality". Allow time for the download > enjoy!</li>
-        <li><Img fixed={data.otv_syn2_instructions.childImageSharp.fixed}/></li>
+        <li><Img fluid={data.otv_syn2_instructions.childImageSharp.fluid}/></li>
       </ul>
     </ul>
     </p>
