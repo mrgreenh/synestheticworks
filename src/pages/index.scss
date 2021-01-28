@@ -1,10 +1,12 @@
 .carousel {
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   .project-thumb {
     width: calc(50% - 10px);
     box-sizing: content-box;
-    float: right;
     position: relative;
     a {
       display: block;
