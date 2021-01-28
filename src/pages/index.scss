@@ -8,6 +8,8 @@
     width: calc(50% - 10px);
     box-sizing: content-box;
     position: relative;
+    margin: 0;
+    img {margin: 0px;}
     a {
       display: block;
     }
@@ -66,7 +68,6 @@
   .carousel {
     .project-thumb {
       float: none;
-      margin: 10px 0;
       width: 100%;
     }
   }
