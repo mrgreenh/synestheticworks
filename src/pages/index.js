@@ -46,14 +46,14 @@ const IndexPage = () => {
         <SEO title={"Home"} image={"/home.png"}/>
         <div className="carousel">
           <ProjectThumb
+            imageData={data.synesthesiaCropped} 
+            href="/synesthesia1/"
+            title="Synesthesia #1"/>
+          <ProjectThumb
             imageData={data.asteroidsFieldCropped} 
             href="/abluedwarftale/" 
             light={true}
             title="A Blue Dwarf's Tale"/>
-          <ProjectThumb
-            imageData={data.synesthesiaCropped} 
-            href="/synesthesia1/"
-            title="Synesthesia #1"/>
         </div>
         <div className="posts-list">
           {data.allMarkdownRemark.edges.map(edge => 

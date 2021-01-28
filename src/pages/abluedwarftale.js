@@ -44,8 +44,9 @@ const SecondPage = () => {
     </div>    
     <div className="laurels">
       <img src={"/laurels/indiex.png"}/>
-      <img src={"/laurels/californiainternationalshorts.png"}/>
       <img src={"/laurels/indieshorts.png"}/>
+      <img src={"/laurels/jelly.png"}/>
+      <img src={"/laurels/californiainternationalshorts.png"}/>
       <div className=".separator"/>
       <img src={"/laurels/sanfranindependentshorts.png"}/>
       <img src={"/laurels/socal.png"}/>

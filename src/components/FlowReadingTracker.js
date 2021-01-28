@@ -10,11 +10,10 @@ class ReadingTracker {
         console.log("flowing to page "+page);
 
         const pageToConfig = {
-            "/": "triangles",
-            "/synesthesia1/": "points",
+            "/": "colors",
+            "/synesthesia1/": "circle",
             "/abluedwarftale/": "trianglesCrystals",
-            "/blog/intro": "circle",
-            "/blog/2120_imagination_machine": "colors",
+            "/blog/2120_imagination_machine": "smoke",
             // "/": "triangles",
             // "/page-2/": "points",
             // "/blogarticle2/": "trianglesCrystals",

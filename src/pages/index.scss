@@ -3,9 +3,8 @@
   overflow: hidden;
   .project-thumb {
     width: calc(50% - 10px);
-    margin-right: 10px;
     box-sizing: content-box;
-    float: left;
+    float: right;
     position: relative;
     a {
       display: block;
