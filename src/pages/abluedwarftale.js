@@ -50,6 +50,7 @@ const SecondPage = () => {
       <div className=".separator"/>
       <img src={"/laurels/sanfranindependentshorts.png"}/>
       <img src={"/laurels/socal.png"}/>
+      <img src={"/laurels/goldenstate.png"}/>
     </div>
     <a name="vr_instructions"/>
     <h3>How to view in VR</h3>
