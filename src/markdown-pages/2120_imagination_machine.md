@@ -26,4 +26,4 @@ W was still next to him, however they were now sitting in a meadow. M looked in 
 
 Coming back was never pleasant. You'd feel a dull pain gradually onsetting in your neck, due to the weight of the helmet you had been wearing for so long, then your muscles and bones would start feeling stiff, as your real body's sensations took over. Lifting that mess of wires and electrodes off your head always came with a relief: public services weren't prioritizing flashiness over the more functional characteristics of the Imagination Machine. Before standing up, M and W looked at each other from across the room. They incurred that usual, annoying realization that a thick wall had been placed back between the two. Their inner worlds where now completely invisible to each other, and no closing of eyes, or magic gestures, would allow them to materialize their thoughts for one another to see. What they found in each other's eyes was however changed, as the depth of their pupils now felt like a window to a parallel universe of colors, stories and emotions. They hugged each other, then walked out into a world that we, today, couldn't even imagine.
 
-*- Carlo*
+*- Yours Truly*
