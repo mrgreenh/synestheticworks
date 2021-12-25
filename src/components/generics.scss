@@ -45,6 +45,7 @@ a {
   float: right; 
   width: $content-width;
   min-width: 600px;
+  max-width: 1200px;
   text-align: right;
   .blog-post-content {
     padding: $content-padding $content-padding 20px 18%;
@@ -114,6 +115,7 @@ a {
         position: initial;
         h2 {
           font-size: 1.3rem;
+          text-align: left;
         }
         h1, h2, h3, h4 {
           padding: 0px 5px;
