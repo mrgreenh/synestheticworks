@@ -3,29 +3,16 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectThumb from "../components/ProjectThumb"
 import { useStaticQuery, graphql } from "gatsby"
 
 import "./index.scss"
+import ShortsMosaic from "../components/mosaics/ShortsMosaic"
+import MixesMosaic from "../components/mosaics/MixesMosaic"
 
 const IndexPage = () => {
   
   const data = useStaticQuery(graphql`
   query {
-    asteroidsFieldCropped: file(relativePath: { eq: "asteroid-field-cropped.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    },
-    synesthesiaCropped: file(relativePath: { eq: "synesthesia_cropped.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     allMarkdownRemark (sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
@@ -44,17 +31,10 @@ const IndexPage = () => {
   return (
     <Layout>
         <SEO title={"Home"} image={"/home.png"}/>
-        <div className="carousel">
-          <ProjectThumb
-            imageData={data.asteroidsFieldCropped} 
-            href="/abluedwarftale/" 
-            light={true}
-            title="A Blue Dwarf's Tale"/>
-          <ProjectThumb
-            imageData={data.synesthesiaCropped} 
-            href="/synesthesia1/"
-            title="Synesthesia #1"/>
-        </div>
+        <h2>Shorts & VR</h2>
+        <ShortsMosaic/>
+        <h2>Visual Mixes</h2>
+        <MixesMosaic/>
         <div className="posts-list">
           {data.allMarkdownRemark.edges.map(edge => 
           <ul key={edge.node.frontmatter.slug}>
