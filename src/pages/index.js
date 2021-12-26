@@ -8,6 +8,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import "./index.scss"
 import ShortsMosaic from "../components/mosaics/ShortsMosaic"
 import MixesMosaic from "../components/mosaics/MixesMosaic"
+import NFTsMosaic from "../components/mosaics/NFTsMosaic"
 
 const IndexPage = () => {
   
@@ -35,6 +36,8 @@ const IndexPage = () => {
         <ShortsMosaic/>
         <h2>Visual Mixes</h2>
         <MixesMosaic/>
+        <h2>NFTs</h2>
+        <NFTsMosaic/>
         <div className="posts-list">
           {data.allMarkdownRemark.edges.map(edge => 
           <ul key={edge.node.frontmatter.slug}>

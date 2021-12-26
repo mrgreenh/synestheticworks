@@ -9,7 +9,7 @@ const Mosaic = (props) => <div className={classNames({
     "carousel": true,
     "small-thumbs": props.thumbnailSize == "small",
   })}>
-  {props.items.map(item => <ProjectThumb {...item}/>)}
+  {props.items.map(item => <ProjectThumb {...item} title={props.showTitles ? item.title : null}/>)}
 </div>;
 
 Mosaic.propTypes = {
@@ -20,12 +20,14 @@ Mosaic.propTypes = {
     light: PropTypes.bool,
     external: PropTypes.bool,
   })),
-  thumbnailSize: PropTypes.oneOf(['small', 'large'])
+  thumbnailSize: PropTypes.oneOf(['small', 'large']),
+  showTitles: PropTypes.bool,
 }
 
 Mosaic.defaultProps = {
   items: [],
-  thumbnailSize: 'large'
+  thumbnailSize: 'large',
+  showTitles: true
 }
 
 export default Mosaic;

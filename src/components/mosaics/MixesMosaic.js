@@ -22,7 +22,7 @@ const MixesMosaic = () => {
   }
   `)
 
-  const shorts =[
+  const mixes =[
     {
       title: "Journey Within",
       imageData: data.journeyWithin,
@@ -39,7 +39,7 @@ const MixesMosaic = () => {
     },
   ]
 
-  return <Mosaic items={shorts}/>
+  return <Mosaic items={mixes}/>
 };
 
 export default MixesMosaic;

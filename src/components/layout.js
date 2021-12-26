@@ -14,39 +14,6 @@ import Footer from "./footer"
 import "./layout.scss"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      instagram: file(relativePath: { eq: "instagram.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      },
-      facebook: file(relativePath: { eq: "facebook.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      },
-      twitter: file(relativePath: { eq: "twitter.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      },
-      soundcloud: file(relativePath: { eq: "soundcloud.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      },
-    }
-  `)
-
   return (
     <span className="layout">
         <main className="blog-post-content">{children}</main>

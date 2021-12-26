@@ -6,11 +6,10 @@ import SEO from "../components/seo"
 import BlogHeader from "../components/blogHeader"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import ReactPlayer from "react-player"
+import MediaPlayer from "../components/MediaPlayer"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import "./abluedwarfstale.scss"
-import "./player.scss"
 
 const SecondPage = () => {
   const data = useStaticQuery(graphql`
@@ -30,18 +29,13 @@ const SecondPage = () => {
     <p><i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i><br/>
     [Jump to: <AnchorLink to="/abluedwarftale#vr_instructions" title="Instructions for VR viewing">How to view in VR</AnchorLink>]
     </p>
-    <div className='player-wrapper'>
-      <div className="placeholder">
-        Loading Player...
-      </div>
-      <ReactPlayer
-        controls={true}
-        className='react-player'
-        url='https://youtu.be/u6u-NTJGmqs'
-        width='100%'
-        height="100%"
-        />
-    </div>    
+    <MediaPlayer
+      controls={true}
+      className='react-player'
+      url='https://youtu.be/u6u-NTJGmqs'
+      width='100%'
+      height="100%"
+    />
     <div className="laurels">
       <img src={"/laurels/indiex.png"}/>
       <img src={"/laurels/indieshorts.png"}/>
