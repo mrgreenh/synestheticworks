@@ -10,10 +10,13 @@
 
 .laurels {
   text-align: center;
+  flex: wrap;
+  flex-direction: row;
   img {
+    flex-grow: 1;
+    max-width: 20%;
     max-height: 150px;
     margin: 20px auto;
-    display: inline-block;
    }
   .separator {
     width: 100%;

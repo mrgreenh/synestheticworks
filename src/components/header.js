@@ -13,6 +13,7 @@ const Header = ({ siteTitle }) => (
             style={{
               textDecoration: `none`,
             }}
+            id="top-of-page-anchor"
           >
             {siteTitle}
           </Link>

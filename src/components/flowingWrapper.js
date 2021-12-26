@@ -16,7 +16,10 @@ const FlowingWrapper = ({ children }) => {
         <TilesFlowComponent readingTracker={readingTracker}/>
         <div id="site-content">
           <Header siteTitle="Synesthetic Works" />
-          <div id="page-content">{children}</div>
+          <div id="page-content">
+            {children}
+            <a href="#top-of-page-anchor" className="back-to-top">Back to top</a>
+          </div>
         </div>
       </TilesFlowContext.Provider>
     </>

@@ -65,7 +65,7 @@ const SecondPage = () => {
   return <Layout>
     <NFTLayout ogimage="/nfts/planetary_tunnels_daytime1.png" title="Planetary Tunnels" date="December 12, 2021">
       <FramedPlayer
-        controls={false}
+        controls={true}
         className='react-player'
         url='/nfts/harvester-nightfall1.mp4'
         width='100%'
@@ -73,6 +73,7 @@ const SecondPage = () => {
         loop={true}
         playing={true}
         muted={true}
+        playsinline={true}
       >
         Some long text goes here about bla bla bla with <b>bold text</b> and all...
         Some long text goes here about bla bla bla with <b>bold text</b> and all...

@@ -7,11 +7,13 @@ import './NFTLayout.scss'
 export default (props) => {
     return <>
         <BlogHeader {...props} />
+        <div className="nft-layout">
         {props.children}
+        </div>
         
         <div className="footer-text">
             <hr/>
-            See also:
+            See also
         </div>
         <NFTsMosaic/>
     </>

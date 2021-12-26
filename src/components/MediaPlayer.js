@@ -8,13 +8,7 @@ export default (props) => <div className='player-wrapper'>
         Loading Player...
     </div>
     <ReactPlayer
-        controls={false}
+        {...props}
         className='react-player'
-        url={props.url}
-        width='100%'
-        height="100%"
-        loop={true}
-        playing={true}
-        muted={true}
     />
 </div>    

@@ -28,6 +28,10 @@ a {
   }
 }
 
+h2, h3, h4 {
+  color: #333
+}
+
 .website-header {
   margin-bottom: 1.45em;
   position: fixed;
@@ -92,6 +96,10 @@ a {
       }
     }
   }
+
+  .back-to-top {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -127,11 +135,16 @@ a {
     width: 100%;
     min-width: 0px;
     text-align: left;
+    h2, h3 {
+      font-size: 1.2rem;
+    }
     .layout {
       padding: 0px;
       .blog-header {
         .back-button {
-          display: none;
+          font-size: 3rem;
+          top: 9px;
+          position: absolute;
         }
         text-align: left;
         position: initial;
@@ -154,26 +167,32 @@ a {
           max-width: initial !important;
         }
       }
+
+    }
+    .back-to-top {
+      display: block;
+      background-color: white;
+      width:100%;
+      text-align: center;
+      padding-bottom: 20px; // Give some space at bottom
     }
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  #page-content {
-    h1 {
-      font-size: calc(10px + (35 - 10) * ((100vw - 0px) / (1200 - 0)));
-    }
-    h2, #page-content h2 {
-      font-size: calc(10px + 18 * ((100vw - 0px) / (1200 - 0)));
-    }
-    h3 {
-      font-size: calc(10px + 12 * ((100vw - 0px) / (1200 - 0)));
-    }
-    .blog-header {
-      .back-button {
-        font-size: 3rem;
-        top: 65px;
-      }
+  h1 {
+    font-size: calc(10px + (35 - 10) * ((100vw - 0px) / (1200 - 0)));
+  }
+  h2, h2 {
+    font-size: calc(10px + 18 * ((100vw - 0px) / (1200 - 0)));
+  }
+  h3 {
+    font-size: calc(10px + 12 * ((100vw - 0px) / (1200 - 0)));
+  }
+  #page-content .blog-header {
+    .back-button {
+      font-size: 3rem;
+      top: 65px;
     }
   }
 
