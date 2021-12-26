@@ -33,11 +33,9 @@ const SecondPage = () => {
       width='100%'
       height="100%"
     >
-      <i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i>
+      <i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i> <br/>
+      <AnchorLink to="/abluedwarftale#vr_instructions" title="Instructions for VR viewing">How to view in VR</AnchorLink>
     </FramedPlayer>
-    <p>
-    [Jump to: <AnchorLink to="/abluedwarftale#vr_instructions" title="Instructions for VR viewing">How to view in VR</AnchorLink>]
-    </p>
     <div className="laurels">
       <img src={"/laurels/indiex.png"}/>
       <img src={"/laurels/indieshorts.png"}/>
