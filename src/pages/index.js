@@ -14,14 +14,20 @@ const IndexPage = () => {
   return (
     <Layout>
         <SEO title={"Home"} image={"/home.png"}/>
-        <h2>Shorts & VR</h2>
-        <ShortsMosaic/>
-        <h2>Visual Mixes</h2>
-        <MixesMosaic/>
+        <div className="home-mosaic-container">
+          <ShortsMosaic/>
+          <h2 className={"inset"}>Shorts & VR</h2>
+        </div>
+        <div className="home-mosaic-container">
+          <MixesMosaic/>
+          <h2 className={"inset"}>Visual Mixes</h2>
+        </div>
         {/* <h2>NFTs</h2>
         <NFTsMosaic/> */}
-        <h2>Blog</h2>
-        <BlogContents count={2} includeDescriptions={false}/>
+        <div className="home-mosaic-container">
+          <h2>Blog</h2>
+        </div>
+        <BlogContents count={3} includeDescriptions={true}/>
     </Layout>
   )
 }

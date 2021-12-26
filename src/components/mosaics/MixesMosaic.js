@@ -24,14 +24,14 @@ const MixesMosaic = () => {
 
   const mixes =[
     {
-      title: "Journey Within",
+      title: "House #1",
       imageData: data.journeyWithin,
       href: "https://youtu.be/LL4K5gzHX3U",
       external: true,
       light: true,
     },
     {
-      title: "Booster Shot",
+      title: "House #2",
       imageData: data.boosterShot,
       href: "https://youtu.be/pd1PbuJSums",
       external: true,
