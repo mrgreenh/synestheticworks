@@ -16,12 +16,14 @@
     text-align: right;
     li {
       display: inline-block;
+      margin: 0px;
       max-width: 500px;    
       a {
         text-decoration: none;
       }
       h2 {
         margin-bottom: 5px;
+        font-size: 1.2rem;
       }
       h4 {
         margin-bottom: 5px;
