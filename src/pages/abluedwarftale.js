@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import BlogHeader from "../components/blogHeader"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import MediaPlayer from "../components/MediaPlayer"
+import FramedPlayer from "../components/FramedPlayer"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import "./abluedwarfstale.scss"
@@ -26,16 +26,18 @@ const SecondPage = () => {
 
   return <Layout>
     <BlogHeader ogimage="/asteroids.png" title="A Blue Dwarf's Tale [Synesthesia #2]" date="August 11, 2020" />
-    <p><i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i><br/>
-    [Jump to: <AnchorLink to="/abluedwarftale#vr_instructions" title="Instructions for VR viewing">How to view in VR</AnchorLink>]
-    </p>
-    <MediaPlayer
+    <FramedPlayer
       controls={true}
       className='react-player'
       url='https://youtu.be/u6u-NTJGmqs'
       width='100%'
       height="100%"
-    />
+    >
+      <i>A mysterious, far away star will pull you through the parallel universe where music and space-time are entangled.</i>
+    </FramedPlayer>
+    <p>
+    [Jump to: <AnchorLink to="/abluedwarftale#vr_instructions" title="Instructions for VR viewing">How to view in VR</AnchorLink>]
+    </p>
     <div className="laurels">
       <img src={"/laurels/indiex.png"}/>
       <img src={"/laurels/indieshorts.png"}/>

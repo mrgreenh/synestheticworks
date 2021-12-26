@@ -59,10 +59,21 @@ a {
   }
   
   .blog-header {
-    text-align: right;
-    h2, h3 {
-      padding-right: $content-padding;
+    .back-button {
+      position: fixed;
+      left: 20px;
+      top: 70px;
+      font-size: 4rem;
+      a {
+        text-decoration: none;
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
     }
+
+    text-align: right;
     h2 {
       margin-top: 5px;
       margin-bottom: 5px;
@@ -71,6 +82,14 @@ a {
       font-weight: normal;
       margin-top: 0;
       font-size: 0.8em;
+    }
+  }
+
+  .blog-post {
+    .blog-header {
+      h2, h3 {
+        padding-right: $content-padding;
+      }
     }
   }
 }
@@ -111,6 +130,9 @@ a {
     .layout {
       padding: 0px;
       .blog-header {
+        .back-button {
+          display: none;
+        }
         text-align: left;
         position: initial;
         h2 {
@@ -146,6 +168,12 @@ a {
     }
     h3 {
       font-size: calc(10px + 12 * ((100vw - 0px) / (1200 - 0)));
+    }
+    .blog-header {
+      .back-button {
+        font-size: 3rem;
+        top: 65px;
+      }
     }
   }
 
