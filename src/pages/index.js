@@ -36,8 +36,8 @@ const IndexPage = () => {
         <ShortsMosaic/>
         <h2>Visual Mixes</h2>
         <MixesMosaic/>
-        <h2>NFTs</h2>
-        <NFTsMosaic/>
+        {/* <h2>NFTs</h2>
+        <NFTsMosaic/> */}
         <div className="posts-list">
           {data.allMarkdownRemark.edges.map(edge => 
           <ul key={edge.node.frontmatter.slug}>
