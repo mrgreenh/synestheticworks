@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import BlogHeader from "../components/blogHeader"
+import BlogContents from '../components/blogContents'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -19,6 +20,12 @@ export default function Template({
           />
         </div>
       </div>
+      <hr/>
+      <BlogContents
+        exclude={frontmatter.title} 
+        includeDescriptions={false}
+        includeOthersButton={true} 
+        count={2}/>
     </Layout>
   )
 }

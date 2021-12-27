@@ -20,10 +20,11 @@ const BlogContents = (props) => {
   }
   `)
 
+  const filteredArticles = data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.title !== props.exclude)
 
   return <>
       <div className="posts-list">
-        {data.allMarkdownRemark.edges.map(edge => 
+        {filteredArticles.map(edge => 
           <ul key={edge.node.frontmatter.slug}>
             <li>
               <Link to={edge.node.frontmatter.slug}>
@@ -38,7 +39,7 @@ const BlogContents = (props) => {
           })
         }
         {!!props.count
-          && data.allMarkdownRemark.edges.length > props.count 
+          && filteredArticles.length > props.count 
           && <Link to="/blog" alt="Go to complete list of articles.">...and other ramblings</Link>}
       </div>
   </> 
@@ -48,6 +49,7 @@ BlogContents.propTypes = {
   count: PropTypes.number,
   includeDescriptions: PropTypes.bool,
   includeOthersButton: PropTypes.bool,
+  exclude: PropTypes.string,
 }
 
 BlogContents.defaultProps = {

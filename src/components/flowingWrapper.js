@@ -4,6 +4,7 @@ import TilesFlowComponent from './TilesFlowComponent'
 import Header from "./header"
 import ReadingTracker from "./FlowReadingTracker"
 import TilesFlowContext from "./utils/TilesFlowContext"
+import {Link} from 'gatsby'
 
 import "./generics.scss"
 
@@ -18,7 +19,10 @@ const FlowingWrapper = ({ children }) => {
           <Header siteTitle="Synesthetic Works" />
           <div id="page-content">
             {children}
-            <a href="#top-of-page-anchor" className="back-to-top">Back to top</a>
+            <div className="mobile-footer">
+              <Link to="/" className="back-to-top">Home</Link>| 
+              <a href="#top-of-page-anchor" className="back-to-top">Back to top</a>
+            </div>
           </div>
         </div>
       </TilesFlowContext.Provider>

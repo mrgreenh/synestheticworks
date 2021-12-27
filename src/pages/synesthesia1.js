@@ -2,9 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import BlogHeader from "../components/blogHeader"
 import FramedPlayer from "../components/FramedPlayer"
+import ShortsMosaic from '../components/mosaics/ShortsMosaic'
+
 
 const SecondPage = () => (
   <Layout>
@@ -24,7 +25,8 @@ const SecondPage = () => (
     <p>I've been asked before "what does the anthropomorphic piano represent"? It's difficult to express, as it represents a collection of emotions. This is what I love about "bedroom productions": it's just you, and the clay, and your very own visceral feelings. This being the first video I made out of and about music itself, I wanted there to be a representation of my relationship with that art form.</p>
     <p>For the technicalities involved in the creation of this video, I'll defer to posts I'll be writing in <Link to="/">the blog</Link>.</p>
     <p>Check out the <a target="_blank" href="https://bit.ly/synwrks-soundcloud">SynestheticWorks Soundcloud</a> where you can find the original soundtrack, or the <a target="_blank" href="https://bit.ly/synwrks-instagram">Instragram</a> and <a target="_blank" href="https://bit.ly/synwrks-facebook">Facebook</a> pages where you can find additional artwork, and perhaps more synesthesias.</p>
-    <i>- Yours Truly</i>
+    <hr/>
+    <ShortsMosaic/>
   </Layout>
 )
 
