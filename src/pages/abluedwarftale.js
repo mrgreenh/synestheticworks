@@ -63,6 +63,7 @@ const SecondPage = () => {
       This is a 180 3D video, so don't forget to look around. Use headphones if you can ;) 
     </p>
     <p>Check out the <a target="_blank" href="https://bit.ly/synwrks-soundcloud">SynestheticWorks Soundcloud</a> where you can find the original soundtrack, or the <a target="_blank" href="https://bit.ly/synwrks-instagram">Instragram</a> and <a target="_blank" href="https://bit.ly/synwrks-facebook">Facebook</a> pages where you can find updates, additional artwork, and perhaps more synesthesias.</p>
+    <span style={{fontStyle: "italic"}}>- C</span>
     <hr/>
     <ShortsMosaic/>
   </Layout>;

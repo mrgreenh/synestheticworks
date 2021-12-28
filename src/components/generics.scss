@@ -138,7 +138,6 @@ h2, h3, h4 {
   }
 
   .subscribe-form {
-    background-color: white;
     position: fixed;
     bottom: 0px;
     left: $content-padding;
@@ -257,6 +256,7 @@ h2, h3, h4 {
       padding-right: 0px;
     }
     .subscribe-form {
+      background-color: white;
       position: relative;
       bottom: 0px;
       left: 0px;
@@ -264,6 +264,9 @@ h2, h3, h4 {
       width: 70%;
       text-align: center;
       margin: 0 auto;
+      input {
+        opacity: 1;
+      }
       button {
         opacity: 1;
       }
