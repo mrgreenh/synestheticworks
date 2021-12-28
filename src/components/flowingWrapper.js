@@ -23,6 +23,7 @@ const FlowingWrapper = ({ children }) => {
               <Link to="/" className="back-to-top">Home</Link>| 
               <a href="#top-of-page-anchor" className="back-to-top">Back to top</a>
             </div>
+            <div className="copyright-footer">Copyright © 2020, Synesthetic Works</div>
           </div>
         </div>
       </TilesFlowContext.Provider>
