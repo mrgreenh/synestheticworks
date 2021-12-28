@@ -4,6 +4,7 @@ import TilesFlowComponent from './TilesFlowComponent'
 import Header from "./header"
 import ReadingTracker from "./FlowReadingTracker"
 import TilesFlowContext from "./utils/TilesFlowContext"
+import MailchimpForm from "./MailchimpForm"
 import {Link} from 'gatsby'
 
 import "./generics.scss"
@@ -23,7 +24,10 @@ const FlowingWrapper = ({ children }) => {
               <Link to="/" className="back-to-top">Home</Link>| 
               <a href="#top-of-page-anchor" className="back-to-top">Back to top</a>
             </div>
-            <div className="copyright-footer">Copyright © 2020, Synesthetic Works</div>
+            <MailchimpForm/>
+            <div className="copyright-footer">
+              Copyright © 2020, Synesthetic Works
+            </div>
           </div>
         </div>
       </TilesFlowContext.Provider>

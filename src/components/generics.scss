@@ -136,6 +136,45 @@ h2, h3, h4 {
       text-align: right;
       padding-right: $content-padding;
   }
+
+  .subscribe-form {
+    background-color: white;
+    position: fixed;
+    bottom: 0px;
+    left: $content-padding;
+    display: block;
+    width: 20%;
+    text-align: left;
+
+    .screen-reader-text, .message {
+      font-size: 0.8rem;
+      display: block;
+    }
+    input, button {
+      display: inline;
+      width: 100%;
+      transition-property: opacity;
+      transition-duration: .5s;
+    }
+    input {
+      opacity: .3;
+    }
+    button {
+      opacity: 0;
+    }
+    button {
+      background-color: black;
+      color: white;
+      font-size: 1rem;
+      // line-height: 1rem;
+    }
+    &:hover button, &:hover input {
+      opacity:1;
+    }
+    .message {
+      color: #f77;
+    }
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -217,6 +256,18 @@ h2, h3, h4 {
       background-color: white;
       padding-right: 0px;
     }
+    .subscribe-form {
+      position: relative;
+      bottom: 0px;
+      left: 0px;
+      display: block;
+      width: 70%;
+      text-align: center;
+      margin: 0 auto;
+      button {
+        opacity: 1;
+      }
+    }  
   }
 }
 
