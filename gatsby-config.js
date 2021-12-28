@@ -6,6 +6,12 @@ module.exports = {
     siteURL: 'https://www.synestheticworks.com/',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: 'https://synestheticworks.us20.list-manage.com/subscribe/post?u=44bb194d2a93b310c0f0d7fa1&amp;id=e7bc0bd8ce'
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-anchor-links`,
     {
