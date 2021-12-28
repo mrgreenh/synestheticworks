@@ -41,7 +41,10 @@ h2, h3, h4 {
   min-height: 1.3rem; // Hack for the Blog title
   &>h2, &>h3 {
     position: absolute;
-    top: 0;
+    top: -7px;
+    border-style: none none solid solid;
+    border-width: 0 0 3px 3px;
+    border-color: rgb(255, 255, 255);
     right: -$content-padding;
     background-color: black;
     color: white;
