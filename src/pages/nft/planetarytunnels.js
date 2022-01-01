@@ -74,7 +74,7 @@ const SecondPage = () => {
       <FramedPlayer
         controls={true}
         className='react-player'
-        url='/nfts/planetary_tunnels.mp4'
+        url='/nfts/planetary_tunnels_full_ffmpeg.mp4'
         width='100%'
         height="100%"
         loop={true}
