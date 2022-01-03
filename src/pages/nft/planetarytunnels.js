@@ -26,43 +26,7 @@ const SecondPage = () => {
 
   const hec_colorways = [
     {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.planetaryTunnels,
-      href: "https://hicetnunc.art/objkt/571720",
-      external:true
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.planetaryTunnels,
-      href: "https://hicetnunc.art/objkt/571720",
-      external:true
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.planetaryTunnels,
-      href: "https://hicetnunc.art/objkt/571720",
-      external:true
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.planetaryTunnels,
-      href: "https://hicetnunc.art/objkt/571720",
-      external:true
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.planetaryTunnels,
-      href: "https://hicetnunc.art/objkt/571720",
-      external:true
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.planetaryTunnels,
-      href: "https://hicetnunc.art/objkt/571720",
-      external:true
-    },
-    {
-      title: "Planetary Tunnels",
+      title: "Planetary Bridges",
       imageData: thumbnails.planetaryTunnels,
       href: "https://hicetnunc.art/objkt/571720",
       external:true
@@ -70,7 +34,7 @@ const SecondPage = () => {
   ]
 
   return <Layout>
-    <NFTLayout ogimage="/nfts/planetary_tunnels_daytime1.png" title="Planetary Tunnels" date="December 12, 2021">
+    <NFTLayout ogimage="/nfts/planetary_tunnels_daytime1.png" title="Planetary Bridges" date="December 5, 2021">
       <FramedPlayer
         controls={true}
         className='react-player'
@@ -82,14 +46,15 @@ const SecondPage = () => {
         muted={true}
         playsinline={true}
       >
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
+        <p>
+          It was no secret among maritime merchants that structures of unfathomable size could be sighted in the distant horizons. These stretched through the skies so far that, on a clear day, they could be seen touching the gods.
+        </p>
+        <p>
+          It was observed by those knowledgeable about the ways of the Granting Voice, that intense lightings often propagated through the constructions just after the voice was exercised.
+        </p>
+
       </FramedPlayer>
       <h3>Colorways minted on <strong>Hic Et Nunc</strong></h3>
-      <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} />
-      <h3>Colorways minted on <strong>Open Sea</strong></h3>
       <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} />
     </NFTLayout>
   </Layout>;

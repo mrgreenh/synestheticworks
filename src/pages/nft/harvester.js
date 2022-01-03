@@ -26,48 +26,19 @@ const SecondPage = () => {
 
   const hec_colorways = [
     {
-      title: "Planetary Tunnels",
+      title: "Harvester - nightfall 1",
       imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
-    },
-    {
-      title: "Planetary Tunnels",
-      imageData: thumbnails.harvester,
-      href: "/nft/harvester/",
+      href: "https://hicetnunc.art/objkt/571684",
+      external: true,
     },
   ]
 
   return <Layout>
-    <NFTLayout ogimage="/nfts/planetary_tunnels_daytime1.png" title="Planetary Tunnels" date="December 12, 2021">
+    <NFTLayout ogimage="/nfts/harvester_nightfall1.png" title="Harvester" date="December 5, 2021">
       <FramedPlayer
         controls={true}
         className='react-player'
-        url='/nfts/harvester-nightfall1.mp4'
+        url='/nfts/harvester_full_ffmpeg.mp4'
         width='100%'
         height="100%"
         loop={true}
@@ -75,10 +46,14 @@ const SecondPage = () => {
         muted={true}
         playsinline={true}
       >
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
-        Some long text goes here about bla bla bla with <b>bold text</b> and all...
+        <p>
+          There were only two types of civilization in the universe: those on the right side and those on the wrong side of the Granting Voice. The former only comprised the Blessed Children, while the latter extended to any other present and future form of life within the light cone of the Granting Voice's birth.
+
+        </p>
+
+        <p>
+          Harvesters only understood the above distinction when it came to selecting celestial bodies to mine for resources. While the vast majority of targets where inert rocks, it sometimes happened that alien life would quietly succumb to the ecological effects of certain minerals being removed from their ecosystems.
+        </p>
       </FramedPlayer>
       <h3>Colorways minted on <strong>Hic Et Nunc</strong></h3>
       <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} />
