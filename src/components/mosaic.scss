@@ -63,7 +63,7 @@
   #page-content .carousel {
     padding-left: 0px;
     .project-thumb {
-      font-size: calc(6px + 18 * ((100vw - 0px) / (1200 - 0)));
+      font-size: calc(4px + 18 * ((100vw - 0px) / (1200 - 0)));
     }
     &.small-thumbs .project-thumb {
       max-width: 33%;

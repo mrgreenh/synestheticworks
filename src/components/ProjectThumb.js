@@ -33,4 +33,8 @@ ProjectThumb.propTypes = {
   external: PropTypes.bool,
 }
 
+ProjectThumb.defaultProps = {
+  light: true,
+}
+
 export default ProjectThumb;

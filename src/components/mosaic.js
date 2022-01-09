@@ -27,7 +27,7 @@ Mosaic.propTypes = {
 Mosaic.defaultProps = {
   items: [],
   thumbnailSize: 'large',
-  showTitles: true
+  showTitles: true,
 }
 
 export default Mosaic;
