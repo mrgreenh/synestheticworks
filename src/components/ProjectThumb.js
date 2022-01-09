@@ -9,7 +9,7 @@ const ProjectThumb = (props) => {
   const children = <>
     <Img fluid={props.imageData.childImageSharp.fluid}/>
     <div className="thumb-overlay"/>
-    <h3 className={classNames({"light": !!props.light})}>{props.title}</h3>
+    {!!props.title && <h3 className={classNames({"light": !!props.light})}>{props.title}</h3>}
     <PlayImage/>
   </>;
 
