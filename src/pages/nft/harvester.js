@@ -46,14 +46,16 @@ const SecondPage = () => {
         muted={true}
         playsinline={true}
       >
-        <p>
-          There were only two types of civilization in the universe: those on the right side and those on the wrong side of the Granting Voice. The former only comprised the Blessed Children, while the latter extended to any other present and future form of life within the light cone of the Granting Voice's birth.
+        <i>
+          <p>
+            There were only two types of civilization in the universe: those on the right side and those on the wrong side of the Granting Voice. The former only comprised the Blessed Children, while the latter extended to any other present and future form of life within the light cone of the Granting Voice's birth.
 
-        </p>
+          </p>
 
-        <p>
-          Harvesters only understood the above distinction when it came to selecting celestial bodies to mine for resources. While the vast majority of targets where inert rocks, it sometimes happened that alien life would quietly succumb to the ecological effects of certain minerals being removed from their ecosystems.
-        </p>
+          <p>
+            Harvesters only understood the above distinction when it came to selecting celestial bodies to mine for resources, placing all forms of life but one in the path of destruction.
+          </p>
+        </i>
       </FramedPlayer>
       <h3>Colorways minted on <strong>Hic Et Nunc</strong></h3>
       <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} />

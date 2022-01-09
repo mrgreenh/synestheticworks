@@ -46,13 +46,14 @@ const SecondPage = () => {
         muted={true}
         playsinline={true}
       >
-        <p>
-          It was no secret among maritime merchants that structures of unfathomable size could be sighted in the distant horizons. These stretched through the skies so far that, on a clear day, they could be seen touching the gods.
-        </p>
-        <p>
-          It was observed by those knowledgeable about the ways of the Granting Voice, that intense lightings often propagated through the constructions just after the voice was exercised.
-        </p>
-
+        <i>
+          <p>
+            It was no secret among maritime merchants that structures of unfathomable size could be sighted in the distant horizons. These stretched through the skies so far that, on a clear day, they could be seen touching the gods.
+          </p>
+          <p>
+            It was observed by those knowledgeable about the ways of the Granting Voice, that intense lightings often propagated through the constructions just after the voice was exercised.
+          </p>
+        </i>
       </FramedPlayer>
       <h3>Colorways minted on <strong>Hic Et Nunc</strong></h3>
       <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} />

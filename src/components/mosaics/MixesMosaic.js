@@ -37,6 +37,13 @@ const MixesMosaic = () => {
       external: true,
       light: true,
     },
+    // {
+    //   title: "Psytrance #1",
+    //   imageData: data.journeyWithin,
+    //   href: "https://youtu.be/LL4K5gzHX3U",
+    //   external: true,
+    //   light: true,
+    // },
   ]
 
   return <Mosaic items={mixes}/>
