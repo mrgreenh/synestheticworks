@@ -5,14 +5,14 @@ import { useStaticQuery, graphql } from "gatsby"
 const NFTsMosaic = () => {
   const data = useStaticQuery(graphql`
   query {
-    planetaryTunnels: file(relativePath: { eq: "nft_thumbs/planetary_tunnels_daytime1.png" }) {
+    planetaryTunnels: file(relativePath: { eq: "nft_thumbs/planetary_bridges_full.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
     },
-    harvester: file(relativePath: { eq: "nft_thumbs/harvester_nightfall1.png" }) {
+    harvester: file(relativePath: { eq: "nft_thumbs/harvester_full.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
@@ -24,9 +24,9 @@ const NFTsMosaic = () => {
 
   const shorts =[
     {
-      title: "Planetary Tunnels",
+      title: "Planetary Bridges",
       imageData: data.planetaryTunnels,
-      href: "/nft/planetarytunnels/",
+      href: "/nft/planetarybridges/",
       light: true,
     },
     {
@@ -38,7 +38,7 @@ const NFTsMosaic = () => {
 
   ]
 
-  return <Mosaic showTitles={false} items={shorts}/>
+  return <Mosaic showTitles={true} items={shorts}/>
 };
 
 export default NFTsMosaic;

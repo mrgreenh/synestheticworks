@@ -19,10 +19,24 @@ const MixesMosaic = () => {
         }
       }
     }
+    psytrance1: file(relativePath: { eq: "psytrance_1_mix.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
   `)
 
   const mixes =[
+    {
+      title: "Psytrance #1",
+      imageData: data.psytrance1,
+      href: "https://youtu.be/DUwFmC_DLdw",
+      external: true,
+      light: true,
+    },
     {
       title: "House #1",
       imageData: data.journeyWithin,
@@ -37,13 +51,6 @@ const MixesMosaic = () => {
       external: true,
       light: true,
     },
-    // {
-    //   title: "Psytrance #1",
-    //   imageData: data.journeyWithin,
-    //   href: "https://youtu.be/LL4K5gzHX3U",
-    //   external: true,
-    //   light: true,
-    // },
   ]
 
   return <Mosaic items={mixes}/>
