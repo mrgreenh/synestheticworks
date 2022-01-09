@@ -34,7 +34,7 @@ const SecondPage = () => {
   ]
 
   return <Layout>
-    <NFTLayout ogimage="/nfts/planetary_tunnels_daytime1.png" title="Planetary Bridges" date="December 5, 2021">
+    <NFTLayout ogimage="/nfts/planetary_bridges_full.png" title="Planetary Bridges" date="December 5, 2021">
       <FramedPlayer
         controls={true}
         className='react-player'

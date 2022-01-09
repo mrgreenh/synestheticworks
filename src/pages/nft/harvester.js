@@ -34,7 +34,7 @@ const SecondPage = () => {
   ]
 
   return <Layout>
-    <NFTLayout ogimage="/nfts/harvester_nightfall1.png" title="Harvester" date="December 5, 2021">
+    <NFTLayout ogimage="/nfts/harvester_full.png" title="Harvester" date="December 5, 2021">
       <FramedPlayer
         controls={true}
         className='react-player'
