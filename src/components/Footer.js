@@ -72,6 +72,7 @@ const Footer = () => {
           <a href="https://bit.ly/synwrks-twitter" target="_blank" title="Link to Twitter page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
         </li>
       </ul>
+      <p className="newsletter-link"><a href="http://eepurl.com/hQ3rAn" target="_blank">Newsletter</a></p>
     </footer>
   )
 }

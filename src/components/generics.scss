@@ -12,6 +12,16 @@ a {
   }
 }
 
+footer {
+  .newsletter-link { 
+    display: none;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: .8rem;
+    text-align: center;
+  }
+}
+
 #flowOverlay {
   z-index: -1;
   position: fixed;
@@ -139,7 +149,7 @@ h2, h3, h4 {
 
   .subscribe-form {
     position: fixed;
-    bottom: 0px;
+    bottom: 50px;
     left: $content-padding;
     display: block;
     width: 20%;
@@ -181,6 +191,15 @@ h2, h3, h4 {
     display: none;
   }
 
+  footer {
+    ul {
+      margin-bottom: 10px;
+      height: 1rem;
+    }  
+    .newsletter-link { 
+      display: block;
+    }  
+  }
   .website-header {
     margin-bottom: 0px;
     padding: 20px;
@@ -254,6 +273,7 @@ h2, h3, h4 {
       text-align: center;
       background-color: white;
       padding-right: 0px;
+      padding-bottom:  130px;
     }
     .subscribe-form {
       background-color: white;
