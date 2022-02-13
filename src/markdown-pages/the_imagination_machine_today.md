@@ -14,7 +14,7 @@ This same translation process is incurred by any artifact, be that functional ga
 The inspiration for portraying a landscape often comes from examining the tiny water flows and detailed crevices on a mountain that has always, and obviously, been there for everyone to see. The portrait does not reveal the existence of the mountain, but rather depicts a way to see it by choice of a specific lighting and the underlining of specific details. Let this be one portrait of nowadays' creative process. And if it speaks to you, let it be a source of inspiration.
 
 ## Superpowers
-[The Imagination Machine 2121](https://www.synestheticworks.com/blog/2120_imagination_machine) describes technology allowing two people to experience each other's imagination. While that device only lives in science-fiction, it constitutes a reasonable future milestone for a present-day trend. This trend is the improvement of our creative tools and processes thanks to technology.
+[The Imagination Machine 2121](2120_imagination_machine) describes technology allowing two people to experience each other's imagination. While that device only lives in science-fiction, it constitutes a reasonable future milestone for a present-day trend. This trend is the improvement of our creative tools and processes thanks to technology.
 
 The focus of Synesthetic Works on digital art and electronic music derives from a fascination towards the immense freedom and precision of expression granted by these forms of art. It allows the art piece to represent the original thought, as it lived in the artist's imagination, with incredibly high fidelity.
 
@@ -36,35 +36,21 @@ The enabling and multiplying effect digital tools have on one's expressive abili
 These are all however distinct specializations of the same magic: the ability to describe thinking itself.
 
 ## Thinking Replicas
-What sets digital art aside from any predecessor, is that it provides tools for the automation of thinking. Thinking replicas are not a new thing: if for example you bought a synthesizer in the 80s, you would be relying on a similar form of automation. Somebody had found a way to capture a way to think about something - the parameters by which you could describe sounds with specific tones, timbres and dynamics - and captured it into a box with knobs: oscillators, filters, effects and more. The synthesizer would repeat that thinking process indefinitely for you to represent thoughts with: a melody, a noise, a robot voice... This can be said of other automation scenarios, even with more practical ends. ~~When it comes to approximating our imagination, the modulation of electricity seems to present the most compelling use cases. And in fact, what are thoughts if not electric signals themselves?~~
+What sets digital art aside from any predecessor, is that it provides tools for the automation of thinking. Thinking replicas are not a new thing: if for example you bought a synthesizer in the 80s, you would be relying on a similar form of automation. Somebody had found a way to capture a way to think about something - the parameters by which you could describe sounds with specific tones, timbres and dynamics - and captured it into a box with knobs: oscillators, filters, effects and more. The synthesizer would repeat that thinking process indefinitely for you to represent thoughts with: a melody, a noise, a robot voice... This can be said of other automation scenarios, even with more practical ends.
 
-Computers immensely improved that process by making it easy and accessible to describe the way we think through coding. ~~Effectively this reduces the immensely complex step of the automation of thought to the stupidly simple act of typing on a keyboard.~~ As we have seen in the examples about producing images or melodies, our thinking process can be broken down into a series of abstractions, which can be described through code for a machine to execute. It is no longer necessary to understand electrical or mechanical engineering, source materials, open a factory and hire employees to build the machine that "gets it". All of that has been reduced to writing some words on a laptop.
+Computers immensely improved that process by making it easy and accessible to describe the way we think through coding. As we have seen in the examples about producing images or melodies, our thinking process can be broken down into a series of abstractions, which can be described through code for a machine to execute. It is no longer necessary to understand electrical or mechanical engineering, source materials, open a factory and hire employees to build the machine that "gets it". All of that has been reduced to writing some words on a laptop.
 
 And that is why code can be seen as a new form of poetry, and perhaps a very intimate form of it. So intimate that it requires us to pierce through the surface of our conscious thoughts, and question their very nature. It requires us to learn to explain how a poem is born, rather than pinning down one possible outcome. What you produce is a replica of a portion of yourself, parts of you that you recognize in the art you make.
 
 While these flowcharts are not representative of every artistic process, they can help represent the paradigm shift from the representation of thought:
-```mermaid
-graph LR
-YourBrain(Artist)
-Experience --> YourBrain --> Art
+![](/imagination_machine_today_mermaid1-1.png)
 
-```
 To the automation of it:
-```mermaid
-graph LR
-Experience --> YourBrain
-YourBrain(Artist)
-YourBrain --designs--> Replica(Thinking Replica)
-Input(Input 1) --> Replica --> Art
-YourBrain --> Input
-Data["Data or Sensors"] --> Input2(Input 2) --> Replica
-Someone["Another Artist"] --> Input3(Input 3) --> Replica
-Etc(...) --> Input4(Input 4) --> Replica
-```
+![](/imagination_machine_today_mermaid2-1.png)
 
 Replace "Thinking Replica" above with "Music Sequencer", or "3D Modeling Software" and you might quickly find yourself in the map. The artist could also coincide with the software developer, which is perhaps the opportunity this article tries to advertise. Input could be generated by a creative, but also by the audience engaging with an interactive installation. Once thought is automated it can have a life of its own: meeting new people, taking part to their projects or entertaining them. 
 
-It is important to note that the automation of thought itself leverages and produces a continuum of abstractions. In this context, an "abstraction" can be seen as a facade of sorts: a choice is made on how to "represent" a collection of possibilities through fewer, simpler ones. When you describe what the skin of an apple looks like, you'd rather not have to write the mathematical formula that given the position and characteristics of the light, and its projection on the surface of the apple, outputs numbers for the red, green and blue channels of a pixel. You'd probably just prefer to explain how the material of the apple's skin varies between a number of colors, with certain random imperfections in its reflectivity and bumpiness. The latter can be considered as an abstraction to the former. You'd probably describe this material by connecting colorful blocks together, dragging levers and picking shades of red from a rainbow wheel: these themselves are abstraction, maybe built using a scripting language like Python. Python itself offers a simple syntax and a few handy utilities in the effort to abstract away more complicated aspects of computer programming that are instead surfaced in lower-level (or less "abstracted") alternatives. This exemplification pyramid can grow indefinitely in either direction.
+It is important to note that the automation of thought itself leverages and produces a continuum of abstractions. In this context, an "abstraction" can be seen as a facade of sorts: a choice is made on how to "represent" a collection of possibilities through fewer, simpler ones. When you describe what the skin of an apple looks like, you'd rather not have to write the mathematical formula that given the position and characteristics of the light, and its projection on the surface of the apple, outputs numbers for the red, green and blue channels of a pixel. You'd probably just prefer to explain how the material of the apple's skin varies between a number of colors, with certain random imperfections in its reflectivity and bumpiness. The latter can be considered as an abstraction to the former. You'd probably describe this material by connecting colorful blocks together, dragging levers and picking shades of red from a rainbow wheel: these themselves are abstraction, maybe built using a scripting language like Python. Python itself offers a simple syntax and a few handy utilities in the effort to abstract away more complicated aspects of computer programming that are instead surfaced in lower-level alternatives. This exemplification pyramid can grow indefinitely in either direction.
 
 If you are a digital artist, you are no longer using an instrument or tool. You are using a meta-tool, which allows you to expand your creative agency in the direction of building the tools themselves. Building tools, in this context, means describing your thinking itself, rather than one of its outcomes. Automating your thinking helps you better and more rapidly approximate your thoughts, feelings and imagination.
 

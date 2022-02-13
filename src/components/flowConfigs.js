@@ -235,6 +235,51 @@ var configurations = {
         ],
         speedOffset: -0.5
     },
+    green_smoke: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [0,150,0,50],
+            pointsColor: [0,150,0,100],
+        },
+        forces: [
+            {
+             x: 90,
+             y: 50,
+             decay: "superGentle",
+             intensity: 50,
+             influencePosition: true,
+             influenceColor: true,
+             color: [70, 150, 70, 150],
+           },
+           {
+            x: 30,
+            y: 70,
+            decay: "gentle",
+            intensity: 100,
+            influencePosition: true,
+            influenceColor: true,
+            color: [200, 250, 200, 250],
+        },
+        {
+            x: 0,
+            y: 30,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+            influenceColor: true,
+            color: [50, 150, 50, 250],
+          },
+          {
+            x: 30,
+            y: 0,
+            decay: "gentle",
+            intensity: -30,
+            influenceColor: true,
+            color: [50, 255, 50, 200],
+          }
+        ],
+        speedOffset: -0.5
+    },
     forces: {
         forces: [
             {
