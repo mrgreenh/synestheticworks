@@ -238,8 +238,8 @@ var configurations = {
     green_smoke: {
         visualConfig: {
             padding: [0, 0, 5, 0],
-            stroke: [0,150,0,50],
-            pointsColor: [0,150,0,100],
+            stroke: [0,150,0,20],
+            pointsColor: [0,150,0,50],
         },
         forces: [
             {
@@ -249,7 +249,7 @@ var configurations = {
              intensity: 50,
              influencePosition: true,
              influenceColor: true,
-             color: [70, 150, 70, 150],
+             color: [100, 150, 100, 150],
            },
            {
             x: 30,
@@ -275,7 +275,7 @@ var configurations = {
             decay: "gentle",
             intensity: -30,
             influenceColor: true,
-            color: [50, 255, 50, 200],
+            color: [100, 255, 100, 200],
           }
         ],
         speedOffset: -0.5

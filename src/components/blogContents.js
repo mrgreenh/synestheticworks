@@ -40,7 +40,7 @@ const BlogContents = (props) => {
         }
         {!!props.count
           && filteredArticles.length > props.count 
-          && <Link to="/blog" alt="Go to complete list of articles.">...and other ramblings</Link>}
+          && <Link className='more-ramblings' to="/blog" alt="Go to complete list of articles.">...and other ramblings</Link>}
       </div>
   </> 
 }
