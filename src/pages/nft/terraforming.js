@@ -48,10 +48,10 @@ const SecondPage = () => {
       >
         <i>
           <p>
-            Were you to ask any of the Blessed Children whether they were part of a multiplanetary civilization, they wouldn't understand the meaning of your question. They wouldn't know their home to be artificial planet #163, orbiting artificial sun #9.
+            Were you to ask any of the Blessed Children whether they were part of a multi-planetary civilization, they wouldn't understand the meaning of your question. They wouldn't know their home to be Artificial Planet #163 (AP163), orbiting Artificial Sun #9 (AS9).
           </p>
           <p>
-            They would however invite you to enjoy the beauty of the grass field, and its hypnotic motion. One of millions of identical fields, nobody had ever set eyes on, waiting to be inhabited; waving in the wind.
+            They would however invite you to enjoy the beauty of the grass field and its hypnotic motion. One of millions of identical fields that nobody had ever set eyes on, waiting to be inhabited, waving in the wind.
           </p>
         </i>
       </FramedPlayer>
