@@ -5,6 +5,13 @@ import { useStaticQuery, graphql } from "gatsby"
 const NFTsMosaic = () => {
   const data = useStaticQuery(graphql`
   query {
+    terraforming: file(relativePath: { eq: "nft_thumbs/ancient_path_purple.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    },
     planetaryTunnels: file(relativePath: { eq: "nft_thumbs/planetary_bridges_full.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
@@ -23,6 +30,12 @@ const NFTsMosaic = () => {
   `)
 
   const shorts =[
+    {
+      title: "Terraforming",
+      imageData: data.terraforming,
+      href: "/nft/terraforming/",
+      light: true,
+    },
     {
       title: "Planetary Bridges",
       imageData: data.planetaryTunnels,
