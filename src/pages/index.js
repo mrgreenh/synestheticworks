@@ -25,7 +25,7 @@ const IndexPage = () => {
         <div className="home-mosaic-container">
           <h2>Blog</h2>
         </div>
-        <BlogContents count={1} includeDescriptions={true}/>
+        <BlogContents count={2} includeDescriptions={true}/>
         <div className="home-mosaic-container">
           <NFTsMosaic/>
           <h2 className={"inset"}>NFTs</h2>

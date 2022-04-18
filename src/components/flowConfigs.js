@@ -235,6 +235,67 @@ var configurations = {
         ],
         speedOffset: -0.5
     },
+    red_smoke: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [0,150,0,20],
+            pointsColor: [150,0,0,50],
+        },
+        forces: [
+            {
+             x: 90,
+             y: 50,
+             decay: "superGentle",
+             intensity: 50,
+             influencePosition: true,
+             influenceColor: true,
+             color: [150, 100, 100, 150],
+           },
+           {
+            x: 30,
+            y: 70,
+            decay: "gentle",
+            intensity: 100,
+            influencePosition: true,
+            influenceColor: true,
+            color: [250, 200, 200, 250],
+            },
+            {
+            x: 0,
+            y: 30,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+            influenceColor: true,
+            color: [150, 50, 50, 250],
+            },
+            {
+            x: 30,
+            y: 0,
+            decay: "gentle",
+            intensity: -30,
+            influenceColor: true,
+            color: [255, 100, 100, 200],
+            }
+        ],
+        speedOffset: -0.5
+        },
+        padding: {
+            forces: [
+                {
+                x: 50,
+                y: 40,
+                decay: "linear",
+                intensity: 100,
+                influencePosition: true
+            }
+            ],
+            visualConfig: {
+                stroke: [100,0,100,255],
+                baseColor: [250,250,0,100],
+                padding: [0,0,1,0]
+            }
+    },
     green_smoke: {
         visualConfig: {
             padding: [0, 0, 5, 0],
@@ -259,8 +320,8 @@ var configurations = {
             influencePosition: true,
             influenceColor: true,
             color: [200, 250, 200, 250],
-        },
-        {
+            },
+            {
             x: 0,
             y: 30,
             decay: "superGentle",
@@ -268,51 +329,33 @@ var configurations = {
             influencePosition: true,
             influenceColor: true,
             color: [50, 150, 50, 250],
-          },
-          {
+            },
+            {
             x: 30,
             y: 0,
             decay: "gentle",
             intensity: -30,
             influenceColor: true,
             color: [100, 255, 100, 200],
-          }
+            }
         ],
         speedOffset: -0.5
-    },
-    forces: {
-        forces: [
-            {
-             x: 50,
-             y: 40,
-             decay: "linear",
-             intensity: 100,
-             influencePosition: true
-           }
-        ],
-        visualConfig: {
-            stroke: [100,0,100,255],
-            pointsColor: [0,0,0,255],
-            baseColor: [250,250,0,100],
-            showForces: true,
-            padding: [0,4,1,0]
-        }
-    },
-    padding: {
-        forces: [
-            {
-             x: 50,
-             y: 40,
-             decay: "linear",
-             intensity: 100,
-             influencePosition: true
-           }
-        ],
-        visualConfig: {
-            stroke: [100,0,100,255],
-            baseColor: [250,250,0,100],
-            padding: [0,0,1,0]
-        }
+        },
+        padding: {
+            forces: [
+                {
+                x: 50,
+                y: 40,
+                decay: "linear",
+                intensity: 100,
+                influencePosition: true
+            }
+            ],
+            visualConfig: {
+                stroke: [100,0,100,255],
+                baseColor: [250,250,0,100],
+                padding: [0,0,1,0]
+            }
     },
     forces_colors: {
         forces:[
