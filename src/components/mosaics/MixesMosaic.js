@@ -26,10 +26,24 @@ const MixesMosaic = () => {
         }
       }
     }
+    quickSpacewalk: file(relativePath: { eq: "a_quick_spacewalk.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
   `)
 
   const mixes =[
+    {
+      title: "Quick Spacewalk",
+      imageData: data.quickSpacewalk,
+      href: "https://youtu.be/geIABX7JHSI",
+      external: true,
+      light: true,
+    },
     {
       title: "Psytrance #1",
       imageData: data.psytrance1,
@@ -53,7 +67,7 @@ const MixesMosaic = () => {
     },
   ]
 
-  return <Mosaic items={mixes}/>
+  return <Mosaic items={mixes} thumbnailSize="small"/>
 };
 
 export default MixesMosaic;

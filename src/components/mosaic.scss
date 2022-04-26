@@ -17,6 +17,7 @@
       display: block;
     }
     h3 {
+      z-index: 10;
       margin: 0px;
       position: absolute;
       bottom: -8px;
@@ -55,7 +56,7 @@
     }
   }
   &.small-thumbs .project-thumb {
-    max-width: 20%;
+    max-width: 33%;
   }
 }
 
