@@ -15,12 +15,12 @@ const IndexPage = () => {
     <Layout>
         <SEO title={"Home"} image={"/home.png"}/>
         <div className="home-mosaic-container">
-          <ShortsMosaic/>
-          <h2 className={"inset"}>VR & Music Videos</h2>
-        </div>
-        <div className="home-mosaic-container">
           <MixesMosaic/>
           <h2 className={"inset"}>Visual Mixes</h2>
+        </div>
+        <div className="home-mosaic-container">
+          <ShortsMosaic/>
+          <h2 className={"inset"}>VR & Music Videos</h2>
         </div>
         <div className="home-mosaic-container">
           <h2>Blog</h2>
