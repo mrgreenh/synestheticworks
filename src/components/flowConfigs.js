@@ -101,48 +101,58 @@ var configurations = {
     trianglesCrystals: {
         visualConfig: {
             padding: [0, 0, 5, 0],
-            stroke: [0,0,0,0],
+            stroke: [100,100,100,100],
             pointsColor: [0,255,0,0],
             showForces: false,
-            pattern: TilesFlow.PATTERNS.brokenGlass,
+            pattern: TilesFlow.PATTERNS.cells,
         },
         speedOffset: 0.2,
         forces: [
             {
-             x: 20,
-             y: 5,
-             decay: "superGentle",
-             intensity: 50,
+             x: 60,
+             y: 100,
+             decay: "linear",
+             intensity: 170,
              influencePosition: true,
              influenceColor: true,
-             color: [255, 50, 50, 150],
+             color: [100, 100, 100, 150],
            },
            {
-            x: 90,
-            y: 90,
-            decay: "linear",
-            intensity: 100,
-            influencePosition: true,
-            influenceColor: true,
-            color: [200, 200, 200, 250],
-        },
-        {
-            x: 0,
-            y: 30,
+            x: 20,
+            y: 5,
             decay: "superGentle",
-            intensity: 30,
-            influencePosition: true,
+            intensity: 50,
+            influencePosition: false,
             influenceColor: true,
-            color: [150, 50, 50, 250],
+            color: [255, 50, 50, 150],
           },
           {
-            x: 30,
-            y: 0,
-            decay: "gentle",
-            intensity: -30,
-            influenceColor: true,
-            color: [255, 50, 50, 200],
-          }
+           x: 90,
+           y: 90,
+           decay: "linear",
+           intensity: 100,
+           influencePosition: false,
+           influenceColor: true,
+           color: [250, 200, 200, 250],
+       },
+       {
+           x: 0,
+           y: 30,
+           decay: "superGentle",
+           intensity: 30,
+           influencePosition: false,
+           influenceColor: true,
+           color: [150, 50, 50, 250],
+         },
+         {
+           x: 30,
+           y: 0,
+           decay: "gentle",
+           intensity: -30,
+           influencePosition: false,
+           influenceColor: true,
+           color: [255, 50, 50, 200],
+         }
         ],
     },
     colors: {
@@ -479,7 +489,136 @@ var configurations = {
                 colorInterpolationMode: "subtraction",
                 pattern: TilesFlow.PATTERNS.brokenGlass
         }
-    }
+    },
+    firstflight: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [100,100,100,100],
+            pointsColor: [0,255,0,0],
+            showForces: false,
+            pattern: TilesFlow.PATTERNS.cells,
+        },
+        speedOffset: 0.2,
+        forces: [
+            {
+             x: 60,
+             y: 100,
+             decay: "gentle",
+             intensity: 170,
+             influencePosition: true,
+             influenceColor: true,
+             color: [100, 100, 100, 150],
+           },
+        ],
+    },
+    blog: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [0,0,0,0],
+            pointsColor: [0,0,0,0],
+            pattern: TilesFlow.PATTERNS.cells,
+        },
+        forces: [
+            {
+             x: 90,
+             y: 50,
+             decay: "superGentle",
+             intensity: 50,
+             influencePosition: true,
+             influenceColor: true,
+             color: [70, 70, 70, 150],
+           },
+           {
+            x: 30,
+            y: 70,
+            decay: "gentle",
+            intensity: 100,
+            influencePosition: true,
+            influenceColor: true,
+            color: [200, 200, 200, 250],
+        },
+        {
+            x: 0,
+            y: 30,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+            influenceColor: true,
+            color: [150, 50, 50, 250],
+          },
+          {
+            x: 30,
+            y: 0,
+            decay: "gentle",
+            intensity: -30,
+            influenceColor: true,
+            color: [255, 50, 50, 200],
+          }
+        ],
+        speedOffset: -0.5
+    },
+    nft: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [0,150,0,20],
+            pointsColor: [150,0,0,50],
+            pattern: TilesFlow.PATTERNS.cells,
+        },
+        forces: [
+            {
+             x: 90,
+             y: 50,
+             decay: "superGentle",
+             intensity: 50,
+             influencePosition: true,
+             influenceColor: true,
+             color: [150, 100, 100, 150],
+           },
+           {
+            x: 30,
+            y: 70,
+            decay: "gentle",
+            intensity: 100,
+            influencePosition: true,
+            influenceColor: true,
+            color: [250, 200, 200, 250],
+            },
+            {
+            x: 0,
+            y: 30,
+            decay: "superGentle",
+            intensity: 30,
+            influencePosition: true,
+            influenceColor: true,
+            color: [150, 50, 50, 250],
+            },
+            {
+            x: 30,
+            y: 0,
+            decay: "gentle",
+            intensity: -30,
+            influenceColor: true,
+            color: [255, 100, 100, 200],
+            }
+        ],
+        speedOffset: 0.2
+        },
+        padding: {
+            forces: [
+                {
+                x: 50,
+                y: 40,
+                decay: "linear",
+                intensity: 100,
+                influencePosition: true
+            }
+            ],
+            visualConfig: {
+                stroke: [100,0,100,255],
+                baseColor: [250,250,0,100],
+                padding: [0,0,1,0]
+            }
+    },
 };
 
 export default configurations;

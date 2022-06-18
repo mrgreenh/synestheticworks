@@ -18,11 +18,23 @@ const ShortsMosaic = () => {
           ...GatsbyImageSharpFluid
         }
       }
+    },
+    firstFlightCropped: file(relativePath: { eq: "promenade.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
   `)
 
   const shorts =[
+    {
+      title: "First Flight",
+      imageData: data.firstFlightCropped,
+      href: "/firstflight/",
+    },
     {
       title: "A Blue Dwarf's Tale",
       imageData: data.asteroidsFieldCropped,

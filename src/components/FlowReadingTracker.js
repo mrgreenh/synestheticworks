@@ -13,13 +13,14 @@ class ReadingTracker {
             "/": "colors",
             "/synesthesia1/": "circle",
             "/abluedwarftale/": "trianglesCrystals",
+            "/firstflight/": "firstflight",
+            "/blog/": "blog",
             "/blog/2120_imagination_machine": "smoke",
             "/blog/the_imagination_machine_today": "green_smoke",
             "/blog/about_the_method": "red_smoke",
-            // "/": "triangles",
-            // "/page-2/": "points",
-            // "/blogarticle2/": "trianglesCrystals",
-            // "/blog/jenny": "circle",
+            "/nft/planetarybridges/": "nft",
+            "/nft/terraforming/": "nft",
+            "/nft/harvester/": "nft",
         }
 
         const name = pageToConfig[page] ?? "triangles";
