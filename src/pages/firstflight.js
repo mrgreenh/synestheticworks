@@ -31,6 +31,9 @@ const ThirdPage = () => {
     It's easy! Two ways really:
     <ul>
       <li>If you have an Oculus Quest Headset, you can easily save it at this link, and find it in the "Saved" tab in Oculus TV: <a target="_blank" href="https://www.oculus.com/experiences/media/519477833195639/">Oculus TV Link</a></li>
+      <ul>
+        <li><strong>For best visual quality</strong>: click on the 3 dots icon on the video's thumbnail, and select "Cache High Quality".</li>
+      </ul>
       <li>If you have... well any headset really (I think?) then you can watch it on YouTube VR, add it to a playlist to find it more easily: <a target="_blank" href="https://youtu.be/9sl8W2wsNPs">Youtube VR Link</a></li>
     </ul>
     <p>

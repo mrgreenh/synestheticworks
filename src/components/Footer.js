@@ -29,6 +29,13 @@ const Footer = () => {
           }
         }
       },
+      spotify: file(relativePath: { eq: "spotify.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
       twitter: file(relativePath: { eq: "twitter.png" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
@@ -66,8 +73,11 @@ const Footer = () => {
           <a href="https://www.instagram.com/synwrks/" title="Link to Instagram page" target="_blank"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
         </li>
         <li>
-          <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
+          <a href="https://open.spotify.com/artist/1IkV119B5J0dgRzNiyu3FK?si=yazckQCFSemWAT1aoIpLrQ" title="Link to Spotify artist page" target="_blank"><Img fluid={data.spotify.childImageSharp.fluid}/></a>
         </li>
+        {/* <li>
+          <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
+        </li> */}
         <li>
           <a href="https://bit.ly/synwrks-twitter" target="_blank" title="Link to Twitter page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
         </li>
