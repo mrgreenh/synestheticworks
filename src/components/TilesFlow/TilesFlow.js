@@ -22,7 +22,7 @@ class TilesFlow {
         this._windowHeight = window.outerHeight;
         this._space = new CanvasSpace('canvasElem_'+containerId.substr(1), '#fff').display(containerId);
         this._space.size.x = this._space.space.width;
-        this._space.size.y = this._space.space.height;
+        this._space.size.y = Math.max(this._space.space.height,800);
         this._forceField = new ForceField(forceField, this._space.size.y, this._space.size.x);
         this._visualSettings = visualSettings;
     }
