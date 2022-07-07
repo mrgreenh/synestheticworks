@@ -30,7 +30,7 @@ const BlogContents = (props) => {
               <Link to={edge.node.frontmatter.slug}>
                 <h2>{edge.node.frontmatter.title}</h2>
                 <h4>{edge.node.frontmatter.date}</h4>
-                {props.includeDescriptions && <p>{edge.node.frontmatter.summary}</p>}
+                {props.includeDescriptions && <p className={props.descOnMobile && "desc-on-mobile"}>{edge.node.frontmatter.summary}</p>}
               </Link>
             </li>
           </ul>).filter((v, i) => {
@@ -49,6 +49,7 @@ BlogContents.propTypes = {
   count: PropTypes.number,
   includeDescriptions: PropTypes.bool,
   includeOthersButton: PropTypes.bool,
+  descOnMobile: PropTypes.bool,
   exclude: PropTypes.string,
 }
 

@@ -33,3 +33,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .posts-list {
+    p { display: none }
+    p.desc-on-mobile { display: block }
+  }
+}

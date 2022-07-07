@@ -65,6 +65,8 @@
     padding-left: 0px;
     .project-thumb {
       font-size: calc(4px + 18 * ((100vw - 0px) / (1200 - 0)));
+      max-width: 50%;
+      min-width: 50%;
     }
     &.small-thumbs .project-thumb {
       max-width: 33%;

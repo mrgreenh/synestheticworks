@@ -10,7 +10,7 @@ const IndexPage = () => {
   return (
     <Layout>
         <BlogHeader ogimage="/home.png" title="All the ramblings"/>
-        <BlogContents count={0} includeDescriptions={true}/>
+        <BlogContents count={0} includeDescriptions={true} descOnMobile={true}/>
     </Layout>
   )
 }
