@@ -65,22 +65,25 @@ const LinksRoot = () => {
     <Layout>
         <ul className="links-list">
             <li>
-            <a href="https://soundcloud.com/synwrks" title="Link to Soundcloud page" target="_blank"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
+                <a href="https://bit.ly/synwrks-youtube" title="Link to Youtube page" target="_blank"><Img fluid={data.youtube.childImageSharp.fluid}/></a>
             </li>
             <li>
-            <a href="https://bit.ly/synwrks-youtube" title="Link to Youtube page" target="_blank"><Img fluid={data.youtube.childImageSharp.fluid}/></a>
+                <a href="https://www.instagram.com/synwrks/" title="Link to Instagram page" target="_blank"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
             </li>
             <li>
-            <a href="https://www.instagram.com/synwrks/" title="Link to Instagram page" target="_blank"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
+                <a href="https://open.spotify.com/artist/1IkV119B5J0dgRzNiyu3FK?si=yazckQCFSemWAT1aoIpLrQ" title="Link to Spotify artist page" target="_blank"><Img fluid={data.spotify.childImageSharp.fluid}/></a>
             </li>
             <li>
-            <a href="https://open.spotify.com/artist/1IkV119B5J0dgRzNiyu3FK?si=yazckQCFSemWAT1aoIpLrQ" title="Link to Spotify artist page" target="_blank"><Img fluid={data.spotify.childImageSharp.fluid}/></a>
+                <a href="https://soundcloud.com/synwrks" title="Link to Soundcloud page" target="_blank"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
             </li>
-            {/* <li>
-            <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
-            </li> */}
             <li>
-            <a href="https://bit.ly/synwrks-twitter" target="_blank" title="Link to Twitter page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
+                <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
+            </li>
+            <li>
+                <a href="https://bit.ly/synwrks-twitter" target="_blank" title="Link to Twitter page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
+            </li>
+            <li>
+                <a href="https://synwrks.com/" title="Link to Blog page" target="_blank"><h1>Blog</h1></a>
             </li>
             <li className="qrcode">
                 <Img className="qrcode" fluid={data.links_qrcode.childImageSharp.fluid}/>
