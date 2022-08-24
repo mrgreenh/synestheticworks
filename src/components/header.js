@@ -1,10 +1,19 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, {useState, useEffect, useContext} from "react"
 import Footer from "./Footer"
+import TilesFlowContext from "./utils/TilesFlowContext";
 
-const Header = ({ siteTitle }) => (
-  <span className="website-header">
+const Header = ({ siteTitle }) => {
+  const readingTracker = useContext(TilesFlowContext);
+  const [page, setPage] = useState(null);
+  console.log("And the page is... "+page)
+
+  useEffect(() => {
+    readingTracker.registerPageChange(setPage)
+  }, [])
+
+  return <span className="website-header">
     <header>
       <div>
         <h1 style={{ margin: 0 }}>
@@ -20,9 +29,9 @@ const Header = ({ siteTitle }) => (
         </h1>
       </div>
     </header>
-    <Footer />
+    {page !== "/links/" && <Footer />}
   </span>
-)
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

@@ -1,0 +1,18 @@
+.links-list {
+    display: block;
+    text-align: center;
+    list-style: none;
+    max-width: 300px;
+    margin: 0px auto;
+    li {
+        margin: 10px auto;
+        text-align: center;
+        display: block;
+        width: 100px;
+        &.qrcode {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+    clear: both;
+}
