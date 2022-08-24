@@ -96,13 +96,12 @@ h2, h3, h4 {
     .back-button {
       position: fixed;
       left: 20px;
-      top: 70px;
+      top: 25px;
       font-size: 4rem;
       a {
         text-decoration: none;
         &:hover {
-          background-color: black;
-          color: white;
+          color: #a55;
         }
       }
     }
@@ -307,7 +306,7 @@ h2, h3, h4 {
   #page-content .blog-header {
     .back-button {
       font-size: 3rem;
-      top: 65px;
+      top: 32px;
     }
   }
 

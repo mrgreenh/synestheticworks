@@ -19,7 +19,7 @@ const FlowingWrapper = ({ children }) => {
       <TilesFlowContext.Provider value={readingTracker}>
         <TilesFlowComponent readingTracker={readingTracker}/>
         <div id="site-content">
-          <Header siteTitle="Synesthetic Works" />
+          <Header siteTitle="synwrks" />
           <div id="page-content">
             {children}
             <div className="mobile-footer">
@@ -28,7 +28,7 @@ const FlowingWrapper = ({ children }) => {
             </div>
             <MailchimpForm/>
             <div className="copyright-footer">
-              Copyright © 2020, Synesthetic Works
+              Copyright © 2020, synwrks (Synesthetic Works)
             </div>
           </div>
         </div>

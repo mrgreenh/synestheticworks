@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Synesthetic Works`,
+    title: `synwrks`,
     description: `Collection of inner visions conjured by music and sound; a bedroom production.`,
     author: `@synestheticworks`,
     siteURL: 'https://www.synestheticworks.com/',
