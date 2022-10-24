@@ -6,7 +6,7 @@ http://www.synestheticworks.com
 - Make sure development tools are installed: `npm --add-python-to-path='true' --debug install --global windows-build-tools`
 - Make sure the python env variable is actually set: `npm config set python "C:\Users\carloandreaconte\.windows-build-tools\python27\python.exe"` (run a search in the filesystem to figure out where it is, follow symlinks to their actual destination, drill down to the .exe)
 - make sure to install the gatsby-cli globally: `npm install -g gatsby-cli`
-- `gatsby develop` and when ready `gatsby deploy`
+- `gatsby develop` and when ready `npm run deploy`
 
 ## If you had to run windows in a VM
 - Just make sure to run git, gatsby etc from the terminal in windows
