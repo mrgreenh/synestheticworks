@@ -6,8 +6,7 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import "./footer.scss"
@@ -15,6 +14,13 @@ import "./footer.scss"
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
+      youtube: file(relativePath: { eq: "youtube.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
       instagram: file(relativePath: { eq: "instagram.png" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
@@ -22,7 +28,7 @@ const Footer = () => {
           }
         }
       },
-      facebook: file(relativePath: { eq: "facebook.png" }) {
+      twitch: file(relativePath: { eq: "twitch.png" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid
@@ -30,6 +36,13 @@ const Footer = () => {
         }
       },
       spotify: file(relativePath: { eq: "spotify.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      facebook: file(relativePath: { eq: "facebook.png" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid
@@ -50,7 +63,7 @@ const Footer = () => {
           }
         }
       },
-      youtube: file(relativePath: { eq: "youtube.png" }) {
+      open_links: file(relativePath: { eq: "links.png" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid
@@ -64,23 +77,29 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <a href="https://soundcloud.com/synwrks" title="Link to Soundcloud page" target="_blank"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
+          <a href="https://www.instagram.com/synwrks/" title="Link to Instagram page" target="_blank"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
+        </li>
+        <li>
+          <a href="https://www.twitch.tv/synwrks/" title="Link to Twitch page" target="_blank"><Img fluid={data.twitch.childImageSharp.fluid}/></a>
         </li>
         <li>
           <a href="https://bit.ly/synwrks-youtube" title="Link to Youtube page" target="_blank"><Img fluid={data.youtube.childImageSharp.fluid}/></a>
         </li>
         <li>
-          <a href="https://www.instagram.com/synwrks/" title="Link to Instagram page" target="_blank"><Img fluid={data.instagram.childImageSharp.fluid}/></a>
-        </li>
-        <li>
           <a href="https://open.spotify.com/artist/1IkV119B5J0dgRzNiyu3FK?si=yazckQCFSemWAT1aoIpLrQ" title="Link to Spotify artist page" target="_blank"><Img fluid={data.spotify.childImageSharp.fluid}/></a>
+        </li>
+        {/* <li>
+          <a href="https://soundcloud.com/synwrks" title="Link to Soundcloud page" target="_blank"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
+        </li> */}
+        <li>
+          <Link to="/links" alt="All social accounts."><Img fluid={data.open_links.childImageSharp.fluid}/></Link>
         </li>
         {/* <li>
           <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
         </li> */}
-        <li>
+        {/* <li>
           <a href="https://bit.ly/synwrks-twitter" target="_blank" title="Link to Twitter page"><Img fluid={data.twitter.childImageSharp.fluid}/></a>
-        </li>
+        </li> */}
       </ul>
       <p className="newsletter-link"><a href="http://eepurl.com/hQ3rAn" target="_blank">Newsletter</a></p>
     </footer>

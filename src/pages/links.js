@@ -37,6 +37,13 @@ const LinksRoot = () => {
             }
             }
         },
+        twitch: file(relativePath: { eq: "twitch.png" }) {
+            childImageSharp {
+            fluid(maxWidth: 100) {
+                ...GatsbyImageSharpFluid
+            }
+            }
+        },
         soundcloud: file(relativePath: { eq: "soundcloud.png" }) {
             childImageSharp {
             fluid(maxWidth: 100) {
@@ -75,6 +82,9 @@ const LinksRoot = () => {
             </li>
             <li>
                 <a href="https://soundcloud.com/synwrks" title="Link to Soundcloud page" target="_blank"><Img fluid={data.soundcloud.childImageSharp.fluid}/></a>
+            </li>
+            <li>
+                <a href="https://twitch.tv/synwrks" title="Link to Twitch page" target="_blank"><Img fluid={data.twitch.childImageSharp.fluid}/></a>
             </li>
             <li>
                 <a href="https://bit.ly/synwrks-facebook" title="Link to Facebook page" target="_blank"><Img fluid={data.facebook.childImageSharp.fluid}/></a>
