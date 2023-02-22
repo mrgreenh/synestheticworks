@@ -5,6 +5,20 @@ import { useStaticQuery, graphql } from "gatsby"
 const MixesMosaic = () => {
   const data = useStaticQuery(graphql`
   query {
+    secretPsychedelica: file(relativePath: { eq: "secret_psychedelica_2023_draft.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    },
+    fridayGlide: file(relativePath: { eq: "friday_glide.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    },
     journeyWithin: file(relativePath: { eq: "journey_within_mix.png" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
@@ -38,6 +52,20 @@ const MixesMosaic = () => {
 
   const mixes =[
     {
+      title: "Secret Psychedelica",
+      imageData: data.secretPsychedelica,
+      href: "https://www.youtube.com/live/TwQ5kF9Hfeo?feature=share",
+      external: true,
+      light: true,
+    },
+    {
+      title: "Friday Glide",
+      imageData: data.fridayGlide,
+      href: "https://www.youtube.com/live/KM5AtFCFBvU?feature=share",
+      external: true,
+      light: true,
+    },
+    {
       title: "Quick Spacewalk",
       imageData: data.quickSpacewalk,
       href: "https://youtu.be/geIABX7JHSI",
@@ -52,15 +80,8 @@ const MixesMosaic = () => {
       light: true,
     },
     {
-      title: "House #1",
-      imageData: data.journeyWithin,
-      href: "https://youtu.be/LL4K5gzHX3U",
-      external: true,
-      light: true,
-    },
-    {
       title: "House #2",
-      imageData: data.boosterShot,
+      imageData: data.journeyWithin,
       href: "https://youtu.be/pd1PbuJSums",
       external: true,
       light: true,
