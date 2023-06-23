@@ -26,6 +26,13 @@ const NFTsMosaic = () => {
         }
       }
     },
+    portalpeaks: file(relativePath: { eq: "nft_thumbs/portal_peaks_daytime.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    },
   }
   `)
 
@@ -46,6 +53,12 @@ const NFTsMosaic = () => {
       title: "Harvester",
       imageData: data.harvester,
       href: "/nft/harvester/",
+      light: true,
+    },
+    {
+      title: "Portal Peaks",
+      imageData: data.portalpeaks,
+      href: "/nft/portalpeaks/",
       light: true,
     },
 
