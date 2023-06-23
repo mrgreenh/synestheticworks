@@ -29,6 +29,7 @@ class ReadingTracker {
             "/nft/planetarybridges/": "nft",
             "/nft/terraforming/": "nft",
             "/nft/harvester/": "nft",
+            "/nft/portalpeaks/": "nft",
         }
 
         const name = pageToConfig[page] ?? "triangles";
