@@ -61,7 +61,7 @@ const MixesMosaic = () => {
       light: false,
     },
     {
-      title: "~recordings",
+      title: "Recordings >>>",
       imageData: data.youtube,
       href: YOUTUBE_PLAYLIST_LINK,
       external: true,
