@@ -13,7 +13,10 @@ const ProjectThumb = (props) => {
     <PlayImage/>
   </>;
 
-  return <div className="project-thumb">
+  const dynamicClasses = (props.className || []).reduce((acc, v) => {acc[v] = true; return acc}, { "project-thumb": true })
+
+  console.log(dynamicClasses)
+  return <div className={classNames(dynamicClasses)}>
     {!props.external ? 
       <Link to={props.href}>
         {children}
@@ -31,6 +34,7 @@ ProjectThumb.propTypes = {
   href: PropTypes.string,
   light: PropTypes.bool,
   external: PropTypes.bool,
+  className: PropTypes.array,
 }
 
 ProjectThumb.defaultProps = {

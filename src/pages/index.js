@@ -8,6 +8,7 @@ import "./index.scss"
 import ShortsMosaic from "../components/mosaics/ShortsMosaic"
 import MixesMosaic from "../components/mosaics/MixesMosaic"
 import NFTsMosaic from "../components/mosaics/NFTsMosaic"
+import MiscMosaic from "../components/mosaics/MiscMosaic"
 import BlogContents from "../components/blogContents"
 
 const IndexPage = () => {  
@@ -17,6 +18,9 @@ const IndexPage = () => {
         <div className="home-mosaic-container">
           <MixesMosaic/>
           <h2 className={"inset"}>Visual DJ Mixes</h2>
+        </div>
+        <div className="home-mosaic-container">
+          <MiscMosaic/>
         </div>
         <div className="home-mosaic-container">
           <ShortsMosaic/>

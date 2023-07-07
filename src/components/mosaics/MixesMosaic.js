@@ -12,7 +12,7 @@ const MixesMosaic = () => {
       }
       }
     },
-    twitch: file(relativePath: { eq: "twitch_thumb2.png" }) {
+    twitch: file(relativePath: { eq: "twitch_thumb.png" }) {
       childImageSharp {
       fluid(maxWidth: 100) {
           ...GatsbyImageSharpFluid

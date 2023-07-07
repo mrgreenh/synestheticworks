@@ -22,6 +22,7 @@ class ReadingTracker {
             "/abluedwarftale/": "trianglesCrystals",
             "/firstflight/": "firstflight",
             "/blog/": "blog",
+            "/about/": "blog",
             "/blog/2120_imagination_machine": "smoke",
             "/blog/the_imagination_machine_today": "green_smoke",
             "/blog/about_the_method": "red_smoke",

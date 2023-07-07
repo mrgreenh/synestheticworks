@@ -57,6 +57,19 @@
   }
   &.small-thumbs .project-thumb {
     max-width: 33%;
+    &.website-logo {
+      padding: 2%;
+      &.nopadding {
+        padding: 0
+      }
+      box-sizing: border-box;
+      &:nth-child(2n) {
+        background-color:#d7d7d7; 
+      }
+      background-color:#e9e9e9; 
+      max-width: 15%;
+      min-width: 15%;
+    }
   }
 }
 

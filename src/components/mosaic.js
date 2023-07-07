@@ -19,6 +19,7 @@ Mosaic.propTypes = {
     href: PropTypes.string,
     light: PropTypes.bool,
     external: PropTypes.bool,
+    className: PropTypes.array,
   })),
   thumbnailSize: PropTypes.oneOf(['small', 'large']),
   showTitles: PropTypes.bool,
