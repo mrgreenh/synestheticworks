@@ -5,18 +5,18 @@ import { useStaticQuery, graphql } from "gatsby"
 const MixesMosaic = () => {
   const data = useStaticQuery(graphql`
   query {
-    secretPsychedelica: file(relativePath: { eq: "secret_psychedelica_2023_draft.png" }) {
+    youtube: file(relativePath: { eq: "youtube_thumb.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+      fluid(maxWidth: 100) {
           ...GatsbyImageSharpFluid
-        }
+      }
       }
     },
-    fridayGlide: file(relativePath: { eq: "friday_glide.png" }) {
+    twitch: file(relativePath: { eq: "twitch_thumb2.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+      fluid(maxWidth: 100) {
           ...GatsbyImageSharpFluid
-        }
+      }
       }
     },
     journeyWithin: file(relativePath: { eq: "journey_within_mix.png" }) {
@@ -50,39 +50,38 @@ const MixesMosaic = () => {
   }
   `)
 
+  const YOUTUBE_PLAYLIST_LINK = "blablabla"
+
   const mixes =[
     {
-      title: "Secret Psychedelica",
-      imageData: data.secretPsychedelica,
-      href: "https://www.youtube.com/live/TwQ5kF9Hfeo?feature=share",
+      title: "Live!",
+      imageData: data.twitch,
+      href: "https://www.twitch.tv/synwrks",
       external: true,
-      light: true,
+      light: false,
     },
     {
-      title: "Friday Glide",
-      imageData: data.fridayGlide,
-      href: "https://www.youtube.com/live/KM5AtFCFBvU?feature=share",
+      title: "~recordings",
+      imageData: data.youtube,
+      href: YOUTUBE_PLAYLIST_LINK,
       external: true,
-      light: true,
+      light: false,
     },
     {
-      title: "Quick Spacewalk",
-      imageData: data.quickSpacewalk,
-      href: "https://youtu.be/geIABX7JHSI",
-      external: true,
-      light: true,
-    },
-    {
-      title: "Psytrance #1",
-      imageData: data.psytrance1,
-      href: "https://youtu.be/DUwFmC_DLdw",
-      external: true,
-      light: true,
-    },
-    {
-      title: "House #2",
       imageData: data.journeyWithin,
-      href: "https://youtu.be/pd1PbuJSums",
+      href: YOUTUBE_PLAYLIST_LINK,
+      external: true,
+      light: true,
+    },
+    {
+      imageData: data.psytrance1,
+      href: YOUTUBE_PLAYLIST_LINK,
+      external: true,
+      light: true,
+    },
+    {
+      imageData: data.quickSpacewalk,
+      href: YOUTUBE_PLAYLIST_LINK,
       external: true,
       light: true,
     },
