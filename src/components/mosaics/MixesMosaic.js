@@ -54,7 +54,7 @@ const MixesMosaic = () => {
 
   const mixes =[
     {
-      title: "Live!",
+      title: "Live! ^^^",
       imageData: data.twitch,
       href: "https://www.twitch.tv/synwrks",
       external: true,
