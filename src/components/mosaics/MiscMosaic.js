@@ -76,7 +76,7 @@ const NFTsMosaic = () => {
     {
       title: "Events >>",
       imageData: data.twitch,
-      href: "https://twitch.tv/synwrks",
+      href: "https://www.twitch.tv/synwrks/schedule",
       light: true,
       external: true,
       className: ["website-logo"]

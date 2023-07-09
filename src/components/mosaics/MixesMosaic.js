@@ -50,7 +50,7 @@ const MixesMosaic = () => {
   }
   `)
 
-  const YOUTUBE_PLAYLIST_LINK = "blablabla"
+  const YOUTUBE_PLAYLIST_LINK = "https://youtube.com/playlist?list=PL7gzsMg4b2X4iWNK8AsWMRBaGOgxruCe7"
 
   const mixes =[
     {
