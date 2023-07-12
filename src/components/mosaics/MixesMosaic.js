@@ -67,12 +67,12 @@ const MixesMosaic = () => {
       external: true,
       light: false,
     },
-    {
-      imageData: data.journeyWithin,
-      href: YOUTUBE_PLAYLIST_LINK,
-      external: true,
-      light: true,
-    },
+    // {
+    //   imageData: data.journeyWithin,
+    //   href: YOUTUBE_PLAYLIST_LINK,
+    //   external: true,
+    //   light: true,
+    // },
     {
       imageData: data.psytrance1,
       href: YOUTUBE_PLAYLIST_LINK,
@@ -87,7 +87,7 @@ const MixesMosaic = () => {
     },
   ]
 
-  return <Mosaic items={mixes} thumbnailSize="small"/>
+  return <Mosaic items={mixes}/>
 };
 
 export default MixesMosaic;

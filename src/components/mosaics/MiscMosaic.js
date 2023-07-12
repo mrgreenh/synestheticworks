@@ -52,21 +52,6 @@ const NFTsMosaic = () => {
 
   const shorts =[
     {
-      title: "Original Music",
-      imageData: data.soundcloud,
-      href: "https://soundcloud.com/synwrks",
-      light: true,
-      external: true,
-      className: ["website-logo"]
-    },
-    {
-      imageData: data.spotify,
-      href: "https://open.spotify.com/artist/1IkV119B5J0dgRzNiyu3FK?si=yazckQCFSemWAT1aoIpLrQ",
-      light: true,
-      external: true,
-      className: ["website-logo"]
-    },
-    {
       title: "About",
       imageData: data.about,
       href: "/about/",
@@ -91,6 +76,21 @@ const NFTsMosaic = () => {
     {
       imageData: data.facebook,
       href: "https://bit.ly/synwrks-facebook",
+      light: true,
+      external: true,
+      className: ["website-logo"]
+    },
+    {
+      title: "Tracks >>",
+      imageData: data.soundcloud,
+      href: "https://soundcloud.com/synwrks",
+      light: true,
+      external: true,
+      className: ["website-logo"]
+    },
+    {
+      imageData: data.spotify,
+      href: "https://open.spotify.com/artist/1IkV119B5J0dgRzNiyu3FK?si=yazckQCFSemWAT1aoIpLrQ",
       light: true,
       external: true,
       className: ["website-logo"]
