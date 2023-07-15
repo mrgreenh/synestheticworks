@@ -55,8 +55,8 @@ const SecondPage = () => {
           </p>
         </i>
       </FramedPlayer>
-      <h3>Colorways minted on <strong>Hic Et Nunc</strong></h3>
-      <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} />
+      {/* <h3>Colorways minted on <strong>Hic Et Nunc</strong></h3>
+      <Mosaic items={hec_colorways} thumbnailSize='small' showTitles={false} /> */}
     </NFTLayout>
   </Layout>;
 }
