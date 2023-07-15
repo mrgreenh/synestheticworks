@@ -18,7 +18,7 @@ class ReadingTracker {
 
         const pageToConfig = {
             "/": "colors",
-            "/synesthesia1/": "circle",
+            "/synesthesia1/": "synesthesia1",
             "/abluedwarftale/": "trianglesCrystals",
             "/firstflight/": "firstflight",
             "/blog/": "blog",

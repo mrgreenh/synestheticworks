@@ -164,6 +164,72 @@ var configurations = {
          }
         ],
     },
+    synesthesia1: {
+        visualConfig: {
+            padding: [0, 0, 5, 0],
+            stroke: [100,100,100,100],
+            pointsColor: [0,255,0,0],
+            showForces: false,
+            pattern: TilesFlow.PATTERNS.cells,
+        },
+        speedOffset: 0.2,
+        forces: [
+        {
+            x: 50,
+            y: 80,
+            decay: "gentle",
+            intensity: 120,
+            influencePosition: true,
+            influenceColor: true,
+            color: [100, 100, 255, 150],
+            },
+            {
+            x: 0,
+            y: -40,
+            decay: "gentle",
+            intensity: 150,
+            influencePosition: true,
+            influenceColor: true,
+            color: [100, 100, 100, 150],
+            },
+           {
+            x: 20,
+            y: 5,
+            decay: "superGentle",
+            intensity: 50,
+            influencePosition: false,
+            influenceColor: true,
+            color: [0, 0, 255, 150],
+          },
+          {
+           x: 120,
+           y: 90,
+           decay: "linear",
+           intensity: 100,
+           influencePosition: false,
+           influenceColor: true,
+           color: [50, 50, 250, 250],
+       },
+       {
+           x: 0,
+           y: 30,
+           decay: "superGentle",
+           intensity: 30,
+           influencePosition: false,
+           influenceColor: true,
+           color: [250, 250, 0, 50],
+         },
+         {
+           x: 30,
+           y: 0,
+           decay: "gentle",
+           intensity: -30,
+           influencePosition: false,
+           influenceColor: true,
+           color: [255, 50, 50, 200],
+         }
+        ],
+    },
     colors: {
         visualConfig: {
             padding: [0, 0, 5, 0],
