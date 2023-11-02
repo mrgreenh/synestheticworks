@@ -7,19 +7,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: 'UA-175518114-1',
-          cookieName: 'gatsby-gdpr-google-analytics', // default
-          // Setting this parameter is optional
-          anonymize: true
-        },
-        // Defines the environments where the tracking should be available  - default is ["production"]
-        environments: ['production']
-      },
-    },
-    {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
           endpoint: 'https://synestheticworks.us20.list-manage.com/subscribe/post?u=44bb194d2a93b310c0f0d7fa1&amp;id=e7bc0bd8ce'
@@ -27,12 +14,6 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-anchor-links`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: "UA-175518114-1",
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
