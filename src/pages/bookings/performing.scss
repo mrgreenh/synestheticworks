@@ -1,0 +1,59 @@
+#performing_options {
+    display: flex;
+    .performing_column {
+        flex-grow: 1;
+        border-radius: 10px;
+        &#DJing {
+            background-color: rgba(137, 160, 255, 0.27);
+        }
+        &#VJing {
+            background-color: rgba(255, 137, 137, 0.27);
+        }
+        &.highlighted {
+            background-color: rgba(228, 136, 251, 0.27);
+        }
+        padding: 15px;
+        margin: 0 10px;
+        h2, h3 {
+            text-align: center;
+        }
+        h3 {
+            font-size: 0.7em;
+        }
+    }
+}
+
+// declare a scss variable for padding
+$padding: 20%;
+
+.bookings_intro .framed {
+    color: white;
+    background-image: url("/style/secret_psychedelica_live.jpeg");
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    background-size: contain;
+    border-width: 0;
+    -webkit-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.45); 
+    box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.45);
+    border-radius: 10px;
+    background-color: black;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    .text_with_gradient {
+        // a background gradient that is transparent on the left 10% and black on the right
+        padding: 10px 10px 10px $padding;
+        background: linear-gradient(to right, transparent 12%, black $padding, black 100%);
+    }
+    a, a:hover, a:visited, a:active {
+        color: white;
+        font-size: 1.2em;
+    }
+  }
+
+// Override the framed class when on mobile
+@media only screen and (max-width: 800px) {
+    .framed {
+        padding-left: 20%;
+    }
+}

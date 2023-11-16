@@ -61,7 +61,6 @@ const NFTsMosaic = () => {
       href: "/nft/portalpeaks/",
       light: true,
     },
-
   ]
 
   return <Mosaic showTitles={true} items={shorts}/>
