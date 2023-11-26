@@ -15,7 +15,7 @@ const About = () => {
         <BlogHeader ogimage="/home.png" />
         <BookingsIntro/>
         <BookingsMosaic/>
-        <h3 className="big-label">For more art: <Link to="/">Home</Link></h3>
+        <h3 className="big-label">Check out the <Link to="/">Home</Link> for more 🚀</h3>
         {/* <MixesMosaic/> */}
     </Layout>;
 }

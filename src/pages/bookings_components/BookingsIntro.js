@@ -9,7 +9,7 @@ const BookingsIntro = () => {
             <div class="framed">
                 <a className="play-button" alt="watch full video" href="https://youtu.be/uyqBv9A9Hpg" target="_blank"/>
                 <MediaPlayer
-                    url='/promo_loop.webm'
+                    url='/promo_video_h264.mp4'
                     width='100%'
                     height='100%'
                     loop={true}
