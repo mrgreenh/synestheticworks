@@ -1,0 +1,104 @@
+.bookings_intro {
+    margin-left: 8px;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    .framed {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        color:rgb(224, 224, 224);
+        overflow: hidden;
+        border-width: 0px 3px 3px 0px;
+        border-color: rgb(255, 22, 22);
+        border-radius: 0px;
+        border-style: none solid solid none;
+        background-color: black;
+        // repeated image background
+        background-image: url(/pixel_noise.jpeg);
+        background-repeat: repeat;
+
+        // add a play button on top of the contents in the bottom-left corner
+        .play-button {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            width: 40px;
+            height: 40px;
+            z-index: 10;
+            background-image: url(/play_button.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            opacity: 1;
+            box-sizing: content-box;
+            &:hover {
+                bottom: 2px; // so it doesn't jump
+                border-width: 0px 3px 3px 0px;
+                border-color: white;
+                border-radius: 0px;
+                border-style: none solid solid none;        
+            }
+        }
+
+        .text_with_gradient {
+            flex: 1;
+            padding: 10px 20px;
+        }
+
+        a, a:hover, a:visited, a:active {
+            color: white;
+        }
+        
+        .player-wrapper {
+            flex: 0.6;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: stretch;
+
+            .placeholder {
+                display: none;
+            }
+
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.big-label {
+    background-color: rgb(255,255,255);
+    padding: 2px;
+    padding-left: 5px;
+    border-style: solid none none solid;
+    border-color: black;
+    border-width: 1px 0 0px 1px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.bookings-mosaic {
+    position: relative;
+    h3.choose-vibe {
+        font-size: 2rem;
+        position: absolute;
+        z-index: 10;
+        top:-10px;
+        // center horizontally
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+// Override the framed class when on mobile
+@media only screen and (max-width: 800px) {
+    .bookings_intro {
+        font-size: 0.7em;
+        line-height: 1.2em;
+    }
+}
