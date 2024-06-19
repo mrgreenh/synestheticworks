@@ -16,7 +16,7 @@ const About = () => {
 
     <p>My works include original music, VR music videos, looping visuals and "synesthetic" DJ sets (hours-long DJ sets that are fully visualized to precisely match the beats and feeling of each track). I create through abundant use of software prototypes and procedurally re-combining my work, which mostly involves 3D animation with dashes of generative AI here and there.</p>
 
-    <p>I am a resident DJ and VJ at the psytrance-focused monthly <i>Secret Psychedelica</i> parties held in DNA Lounge, an iconic San Francisco venue. I also perform at other events as the occasions present themselves, ranging from block parties and festivals like How Weird Street Faire or Neotropolis to lovely gatherings in nature like Bare Burn. Additionally, you can find me streaming every week on Twitch raid trains together with other artists.</p>
+    <p>I am a resident DJ and VJ at the psytrance-focused monthly <i>Secret Psychedelica</i> parties held in DNA Lounge, an iconic San Francisco venue. I also perform at other events as the occasions present themselves, ranging from city parties and festivals like How Weird Street Faire, Acid Rain or Neotropolis to lovely gatherings in nature like Bare Burn. Additionally, you can find me streaming every week on Twitch raid trains together with other artists.</p>
 
     <p>If you'd like to see me perform in a venue or event near you, check out the <Link to="/bookings">Bookings</Link> page for more information!</p>
   </Layout>;
