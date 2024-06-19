@@ -70,7 +70,7 @@ const BookingsMosaic = () => {
     {
       title: "Hyperdrive Psytrance Demo",
       imageData: data.journeyWithin,
-      href: "https://www.youtube.com/watch?v=__jfLNiNVtc&list=PL7gzsMg4b2X4iWNK8AsWMRBaGOgxruCe7&index=6",
+      href: "https://youtu.be/fICLKB0IfBo?si=uQRpuUP7DQm2sNLu",
       light: true,
       external: true,
     },
