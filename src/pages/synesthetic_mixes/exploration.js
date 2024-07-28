@@ -12,7 +12,7 @@ const Exploration = () => {
   const data = useStaticQuery(graphql`
     query {
       introspection: file(
-        relativePath: { eq: "introspection_transparent.png" }
+        relativePath: { eq: "introspection_transparent_play.png" }
       ) {
         childImageSharp {
           fluid(maxWidth: 1080) {
@@ -20,14 +20,18 @@ const Exploration = () => {
           }
         }
       }
-      exploration: file(relativePath: { eq: "exploration_transparent.png" }) {
+      exploration: file(
+        relativePath: { eq: "exploration_transparent_play.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      just_weird: file(relativePath: { eq: "just_weird_transparent.png" }) {
+      just_weird: file(
+        relativePath: { eq: "just_weird_transparent_play.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1080) {
             ...GatsbyImageSharpFluid
@@ -39,7 +43,7 @@ const Exploration = () => {
 
   return (
     <Layout>
-      <BlogHeader ogimage="/home.png" title="Mix: Exploration" />
+      <BlogHeader ogimage="/home.png" title="Synesthetic Mix: Exploration" />
 
       <a
         href="https://youtu.be/fICLKB0IfBo?si=tl2o0WCsQOacrX4h"
