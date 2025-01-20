@@ -21,6 +21,7 @@ class ReadingTracker {
       "/synesthesia1/": "synesthesia1",
       "/abluedwarftale/": "trianglesCrystals",
       "/firstflight/": "firstflight",
+      "/thebookoftea/": "bookoftea",
       "/blog/": "blog",
       "/about/": "circle",
       "/blog/2120_imagination_machine": "smoke",
