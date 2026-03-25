@@ -1,13 +1,13 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+"use client"
+
+import Link from "next/link"
 import React, {useState, useEffect, useContext} from "react"
 import Footer from "./Footer"
-import TilesFlowContext from "./utils/TilesFlowContext";
+import TilesFlowContext from "./utils/TilesFlowContext"
 
 const Header = ({ siteTitle }) => {
   const readingTracker = useContext(TilesFlowContext);
   const [page, setPage] = useState(null);
-  console.log("And the page is... "+page)
 
   useEffect(() => {
     readingTracker.registerPageChange(setPage)
@@ -18,7 +18,7 @@ const Header = ({ siteTitle }) => {
       <div>
         <h1 style={{ margin: 0 }}>
           <Link
-            to="/"
+            href="/"
             style={{
               textDecoration: `none`,
             }}
@@ -31,14 +31,6 @@ const Header = ({ siteTitle }) => {
     </header>
     {page !== "/links/" && <Footer />}
   </span>
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header

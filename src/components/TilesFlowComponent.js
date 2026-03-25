@@ -1,6 +1,7 @@
+"use client"
+
 import React from 'react';
 import renderFlow from './renderFlow.js';
-import "./tilesFlow.css";
 
 class TilesFlowComponent extends React.PureComponent {
     componentDidMount() {

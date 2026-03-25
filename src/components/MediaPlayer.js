@@ -1,9 +1,9 @@
+"use client"
+
 import React from "react"
 import ReactPlayer from "react-player"
 
-import "./player.scss"
-
-export default (props) => <div className='player-wrapper'>
+const MediaPlayer = (props) => <div className='player-wrapper'>
     <div className="placeholder">
         Loading Player...
     </div>
@@ -11,4 +11,6 @@ export default (props) => <div className='player-wrapper'>
         {...props}
         className='react-player'
     />
-</div>    
+</div>
+
+export default MediaPlayer

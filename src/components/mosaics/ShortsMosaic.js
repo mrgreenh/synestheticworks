@@ -1,65 +1,29 @@
+"use client"
+
 import React from "react"
 import Mosaic from "../mosaic"
-import { useStaticQuery, graphql } from "gatsby"
 
 const ShortsMosaic = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      asteroidsFieldCropped: file(
-        relativePath: { eq: "asteroid-field-cropped.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      synesthesiaCropped: file(
-        relativePath: { eq: "synesthesia_cropped.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      firstFlightCropped: file(relativePath: { eq: "promenade.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      bookOfTeaCropped: file(relativePath: { eq: "thebookoftea.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   const shorts = [
     {
       title: "The Book of Tea",
-      imageData: data.bookOfTeaCropped,
+      imageSrc: "/images/thebookoftea.jpg",
       href: "/thebookoftea/",
     },
     {
       title: "First Flight",
-      imageData: data.firstFlightCropped,
+      imageSrc: "/images/promenade.png",
       href: "/firstflight/",
     },
     {
       title: "A Blue Dwarf's Tale",
-      imageData: data.asteroidsFieldCropped,
+      imageSrc: "/images/asteroid-field-cropped.png",
       href: "/abluedwarftale/",
       light: true,
     },
     {
       title: "Synesthesia #1",
-      imageData: data.synesthesiaCropped,
+      imageSrc: "/images/synesthesia_cropped.png",
       href: "/synesthesia1/",
     },
   ]

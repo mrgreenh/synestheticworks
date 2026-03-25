@@ -18,27 +18,29 @@ class ReadingTracker {
 
     const pageToConfig = {
       "/": "colors",
-      "/synesthesia1/": "synesthesia1",
-      "/abluedwarftale/": "trianglesCrystals",
-      "/firstflight/": "firstflight",
-      "/thebookoftea/": "bookoftea",
-      "/blog/": "blog",
-      "/about/": "circle",
+      "/synesthesia1": "synesthesia1",
+      "/abluedwarftale": "trianglesCrystals",
+      "/firstflight": "firstflight",
+      "/thebookoftea": "bookoftea",
+      "/blog": "blog",
+      "/about": "circle",
       "/blog/2120_imagination_machine": "smoke",
       "/blog/the_imagination_machine_today": "green_smoke",
       "/blog/about_the_method": "red_smoke",
-      "/links/": "red_smoke",
-      "/nft/planetarybridges/": "nft",
-      "/nft/terraforming/": "nft",
-      "/nft/harvester/": "nft",
-      "/nft/portalpeaks/": "nft",
-      "/bookings/": "red_smoke",
-      "/synesthetic_mixes/introspection/": "red",
-      "/synesthetic_mixes/just_weird/": "green",
-      "/synesthetic_mixes/exploration/": "blue",
+      "/links": "red_smoke",
+      "/nft/planetarybridges": "nft",
+      "/nft/terraforming": "nft",
+      "/nft/harvester": "nft",
+      "/nft/portalpeaks": "nft",
+      "/bookings": "red_smoke",
+      "/synesthetic_mixes/introspection": "red",
+      "/synesthetic_mixes/just_weird": "green",
+      "/synesthetic_mixes/exploration": "blue",
     }
 
-    const name = pageToConfig[page] ?? "triangles"
+    // Normalize: strip trailing slash for consistent lookup (except root "/")
+    const normalizedPage = page !== "/" ? page.replace(/\/+$/, "") : page
+    const name = pageToConfig[normalizedPage] ?? "triangles"
 
     if (configurations[name]) {
       this.forceField = configurations[name].forces

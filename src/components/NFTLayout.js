@@ -1,16 +1,16 @@
+"use client"
+
 import React from 'react'
-import BlogHeader from "../components/blogHeader"
+import BlogHeader from "./blogHeader"
 import NFTsMosaic from './mosaics/NFTsMosaic'
 
-import './NFTLayout.scss'
-
-export default (props) => {
+const NFTLayout = (props) => {
     return <>
         <BlogHeader {...props} />
         <div className="nft-layout">
         {props.children}
         </div>
-        
+
         <div className="footer-text">
             <hr/>
             See also
@@ -18,3 +18,5 @@ export default (props) => {
         <NFTsMosaic/>
     </>
 }
+
+export default NFTLayout

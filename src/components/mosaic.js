@@ -1,34 +1,14 @@
+"use client"
+
 import React from 'react';
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import ProjectThumb from './ProjectThumb';
 
-import './mosaic.scss';
-
-const Mosaic = (props) => <div className={classNames({
+const Mosaic = ({ items = [], thumbnailSize = 'large', showTitles = true }) => <div className={classNames({
     "carousel": true,
-    "small-thumbs": props.thumbnailSize == "small",
+    "small-thumbs": thumbnailSize == "small",
   })}>
-  {props.items.map(item => <ProjectThumb {...item} title={props.showTitles ? item.title : null}/>)}
+  {items.map((item, i) => <ProjectThumb key={i} {...item} title={showTitles ? item.title : null}/>)}
 </div>;
-
-Mosaic.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    imageData: PropTypes.object,
-    title: PropTypes.string,
-    href: PropTypes.string,
-    light: PropTypes.bool,
-    external: PropTypes.bool,
-    className: PropTypes.array,
-  })),
-  thumbnailSize: PropTypes.oneOf(['small', 'large']),
-  showTitles: PropTypes.bool,
-}
-
-Mosaic.defaultProps = {
-  items: [],
-  thumbnailSize: 'large',
-  showTitles: true,
-}
 
 export default Mosaic;

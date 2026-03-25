@@ -1,55 +1,80 @@
-import React from 'react';
-import addToMailchimp from 'gatsby-plugin-mailchimp';
+"use client"
 
-export default class SubscribeForm extends React.Component {
-  state = {
-    email: '',
-    message: '',
-    showPlanB: false,
-    loading: false
-  };
+import React, { useState, useRef } from "react"
 
-  handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
-    });
-  };
+const MAILCHIMP_URL =
+  "https://synestheticworks.us20.list-manage.com/subscribe/post"
+const MAILCHIMP_U = "44bb194d2a93b310c0f0d7fa1"
+const MAILCHIMP_ID = "e7bc0bd8ce"
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    this.setState({showPlanB: false});
+export default function SubscribeForm() {
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
+  const iframeRef = useRef(null)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    if (!email) return
+    setLoading(true)
+    setMessage("")
+
+    // Submit via hidden iframe to avoid page navigation
+    const form = document.createElement("form")
+    form.method = "POST"
+    form.action = MAILCHIMP_URL
+    form.target = "mailchimp-iframe"
+
+    const fields = { u: MAILCHIMP_U, id: MAILCHIMP_ID, EMAIL: email }
+    for (const [key, value] of Object.entries(fields)) {
+      const input = document.createElement("input")
+      input.type = "hidden"
+      input.name = key
+      input.value = value
+      form.appendChild(input)
+    }
+
+    document.body.appendChild(form)
+    form.submit()
+    form.remove()
+
+    // We can't read the iframe response (cross-origin), so just show success after a delay
     setTimeout(() => {
-      this.setState({showPlanB: true, loading: false});
-    }, 2000);
-    this.setState({loading: true, message: ''})
-    const result = await addToMailchimp(this.state.email);
-    this.setState({ message: result.msg, loading: false });
-  };
+      setMessage("Thanks for subscribing!")
+      setLoading(false)
+      setEmail("")
+    }, 2000)
+  }
 
-  render() {
-    return (
-      <form name="subscribeForm" method="POST" id="subscribe-form" className="subscribe-form" onSubmit={this.handleSubmit}>
-        {!this.state.loading && <div className="message" dangerouslySetInnerHTML={{ __html: this.state.message}} />}
-        {this.state.loading && <div className="message">Loading...</div>}
-        {!!this.state.showPlanB 
-          && !this.state.message.length 
-          && <div className="message">
-              Seems like something is not working. Try subscribe from the <a href="http://eepurl.com/hQ3rAn" target="_blank">
-                Mailchimp page directly</a>. Sorryyy :'(
-            </div>}
+  return (
+    <>
+      <iframe
+        ref={iframeRef}
+        name="mailchimp-iframe"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        aria-hidden="true"
+      />
+      <form
+        name="subscribeForm"
+        id="subscribe-form"
+        className="subscribe-form"
+        onSubmit={handleSubmit}
+      >
+        {!loading && message && <div className="message">{message}</div>}
+        {loading && <div className="message">Loading...</div>}
         <div className="form-row">
           <label>
-            <span className="screen-reader-text">Keep up with rare updates:</span>
+            <span className="screen-reader-text">
+              Keep up with rare updates:
+            </span>
             <input
               className="subscribe-email"
               type="email"
               name="email"
               placeholder="Email Address"
-              value={this.state.email}
-              onChange={this.handleInputChange}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
           </label>
         </div>
@@ -57,6 +82,6 @@ export default class SubscribeForm extends React.Component {
           Subscribe
         </button>
       </form>
-    );
-  }
+    </>
+  )
 }

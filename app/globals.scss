@@ -1,0 +1,27 @@
+// Consolidated global styles for Next.js migration
+// Order matters: base reset first, then component styles, then page styles
+
+// Base reset and typography (from Gatsby's layout.scss)
+@import "../src/components/layout.scss";
+
+// Generic styles (links, footer, overlays, site layout, responsive)
+@import "../src/components/generics.scss";
+
+// Component styles
+@import "../src/components/footer.scss";
+@import "../src/components/mosaic.scss";
+@import "../src/components/player.scss";
+@import "../src/components/NFTLayout.scss";
+@import "../src/components/tilesFlow.css";
+@import "../src/components/transition.css";
+
+// Shared styles
+@import "../src/styles/vr_instructions_box.scss";
+
+// Page styles
+@import "../src/styles/pages/index.scss";
+@import "../src/styles/pages/links.scss";
+@import "../src/styles/pages/firstflight.scss";
+@import "../src/styles/pages/abluedwarfstale.scss";
+@import "../src/styles/pages/thebookoftea.scss";
+@import "../src/components/bookings/bookings.scss";

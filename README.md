@@ -1,14 +1,73 @@
 http://www.synestheticworks.com
 
-## Setup Notes
-- Use nvm-windows since the env is old and won't install on M1 macs..........
-- Use npm v16.18.0
-- Make sure development tools are installed: `npm --add-python-to-path='true' --debug install --global windows-build-tools`
-- Make sure the python env variable is actually set: `npm config set python "C:\Users\carloandreaconte\.windows-build-tools\python27\python.exe"` (run a search in the filesystem to figure out where it is, follow symlinks to their actual destination, drill down to the .exe)
-- make sure to install the gatsby-cli globally: `npm install -g gatsby-cli`
-- `gatsby develop` and when ready `npm run deploy`
+## Tech Stack
 
-## If you had to run windows in a VM
-- Just make sure to run git, gatsby etc from the terminal in windows
-- Mount the network drive from mac explore so you can navigate to it in terminal, open in vscode etc...
-- Find the IP address in windows with `Ipconfig` and open `<address>:8000` in browser on Mac to preview
+The whole website was one-shot-migrated to Next js with Opus 4.6 from a Gatsby project.
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router) with static export
+- **Styling**: SCSS (global, imported via `app/globals.scss`)
+- **Blog**: Markdown files in `content/`, processed with gray-matter + remark
+- **Hosting**: GitHub Pages (static HTML deployed to the `master` branch)
+
+## Project Structure
+
+```
+app/                  # Next.js App Router pages and layouts
+content/              # Markdown blog posts
+lib/                  # Utilities (markdown processing)
+public/               # Static assets (images, videos, CNAME)
+src/components/       # React components
+src/styles/           # SCSS stylesheets
+```
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+The dev server starts at [http://localhost:3000](http://localhost:3000).
+
+## Build
+
+```bash
+npm run build
+```
+
+This generates a static export in the `out/` directory. The site uses `output: 'export'` in `next.config.js`, so no Node.js server is needed at runtime.
+
+## Deploy to GitHub Pages
+
+```bash
+npm run deploy
+```
+
+This builds the site and pushes the `out/` directory to the `master` branch using `gh-pages`. The `source` branch holds the source code; `master` holds the deployed static files.
+
+## Adding a Blog Post
+
+1. Create a new `.md` file in `content/`
+2. Add frontmatter:
+
+   ```yaml
+   ---
+   slug: "/blog/your-post-slug"
+   date: "2024-01-15"
+   title: "Post Title"
+   summary: "A short description for the blog listing."
+   ---
+
+   ```
+
+3. Write the post body in Markdown below the frontmatter
+4. The post will automatically appear on `/blog/` and at its slug URL
+
+## Flow Animation Configs
+
+The animated background on the left side of the page changes per route. To add or modify configs, edit the `pageToConfig` map in `src/components/FlowReadingTracker.js`.
