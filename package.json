@@ -27,7 +27,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && gh-pages -d out -b master --nojekyll --dotfiles -r https://github.com/mrgreenh/synestheticworks",
+    "deploy": "next build && gh-pages -t true -d out -b master -r https://github.com/mrgreenh/synestheticworks",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   }
 }
