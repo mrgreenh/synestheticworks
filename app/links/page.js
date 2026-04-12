@@ -13,7 +13,7 @@ const links = [
     symbol: "🔊",
   },
   {
-    url: "https://bit.ly/synwrks-youtube",
+    url: "https://www.youtube.me/synwrks",
     title: "YouTube",
     description: "Original music videos, VR & V-DJ sets recordings",
     icon: "/images/youtube.png",
@@ -43,13 +43,13 @@ const links = [
     icon: "/images/twitch.png",
   },
   {
-    url: "https://bit.ly/synwrks-facebook",
+    url: "https://www.facebook.com/synestheticworks",
     title: "Facebook",
     description: "Art & updates",
     icon: "/images/facebook.png",
   },
   {
-    url: "https://bit.ly/synwrks-twitter",
+    url: "https://x.com/synwrks",
     title: "X",
     description: "Quick updates",
     icon: "/images/twitter.png",
