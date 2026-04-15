@@ -2,7 +2,7 @@
 
 import Layout from "../../src/components/layout"
 import BlogHeader from "../../src/components/blogHeader"
-import Image from "next/image"
+import Image from "next-image-export-optimizer"
 import FramedPlayer from "../../src/components/FramedPlayer"
 import ShortsMosaic from '../../src/components/mosaics/ShortsMosaic'
 
@@ -31,16 +31,17 @@ export default function ABlueDwarfsTalePage() {
     </div>
     <a name="vr_instructions"/>
     <h3>How to view in VR</h3>
-    <p><b>This looks even better in VR!</b> If you have a headset, there are a couple ways to watch:
+    <div><b>This looks even better in VR!</b> If you have a headset, there are a couple ways to watch:
     <ul>
       <li>Youtube (best audio-video sync): <a href="https://bit.ly/2GZUtJa" title="Youtube VR video" target="_blank">save this video</a> to a playlist, then find it in your headset on the Youtube VR app!</li>
-      <li>Oculus TV (best visual quality): <a href="https://bit.ly/synesthesia2" title="Oculus VR video" target="_blank">save this video</a>, then find it in your Oculus headset (Go, Quest) &gt; Oculus TV &gt; Saved</li>
-      <ul>
-        <li>For the <b>best visual quality</b>, when you find the video in the headset, tap on the 3 dots and select &quot;Cache High Quality&quot;. Allow time for the download &gt; enjoy!</li>
-        <li><Image src="/images/otv_syn2_instructions_ink_cropped.jpg" alt="VR Instructions" width={800} height={450} style={{ width: '100%', height: 'auto' }}/></li>
-      </ul>
+      <li>Oculus TV (best visual quality): <a href="https://bit.ly/synesthesia2" title="Oculus VR video" target="_blank">save this video</a>, then find it in your Oculus headset (Go, Quest) &gt; Oculus TV &gt; Saved
+        <ul>
+          <li>For the <b>best visual quality</b>, when you find the video in the headset, tap on the 3 dots and select &quot;Cache High Quality&quot;. Allow time for the download &gt; enjoy!</li>
+          <li><Image src="/images/otv_syn2_instructions_ink_cropped.jpg" alt="VR Instructions" width={800} height={450} style={{ width: '100%', height: 'auto' }}/></li>
+        </ul>
+      </li>
     </ul>
-    </p>
+    </div>
     <p>
       This is a 180 3D video, so don&apos;t forget to look around. Use headphones if you can ;)
     </p>

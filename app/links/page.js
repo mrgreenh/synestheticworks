@@ -1,5 +1,5 @@
 import Layout from "../../src/components/layout"
-import Image from "next/image"
+import Image from "next-image-export-optimizer"
 
 export const metadata = {
   title: 'Links',

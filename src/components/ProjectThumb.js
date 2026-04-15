@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import PlayImage from './PlayImage'
 import classNames from "classnames";
 

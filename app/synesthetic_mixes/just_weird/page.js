@@ -3,7 +3,7 @@
 import Layout from "../../../src/components/layout"
 import BlogHeader from "../../../src/components/blogHeader"
 import PillsMixesMosaic from "../../../src/components/bookings/PillsMixesMosaic"
-import Image from "next/image"
+import Image from "next-image-export-optimizer"
 import Link from "next/link"
 
 export default function JustWeirdPage() {
