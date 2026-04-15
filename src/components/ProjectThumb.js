@@ -7,7 +7,10 @@ import PlayImage from './PlayImage'
 import classNames from "classnames";
 
 const ProjectThumb = (props) => {
-  const imageSizes = props.sizes || "(max-width: 800px) 50vw, 50vw"
+  const isSmallThumb = (props.className || []).includes("website-logo")
+  const imageSizes = props.sizes || (isSmallThumb
+    ? "(max-width: 800px) 33vw, 130px"
+    : "(max-width: 800px) 50vw, 25vw")
 
   const children = <>
     <Image
@@ -16,7 +19,7 @@ const ProjectThumb = (props) => {
       width={props.imageWidth || 800}
       height={props.imageHeight || 450}
       sizes={imageSizes}
-      quality={props.quality || 75}
+      quality={props.quality || 65}
       style={{ width: '100%', height: 'auto' }}
     />
     <div className="thumb-overlay"/>
