@@ -7,12 +7,6 @@ export const metadata = {
 
 const links = [
   {
-    url: "https://distrokid.com/hyperfollow/synwrks/the-book-of-tea",
-    title: "Listen to my latest release:",
-    description: '"The Book of Tea"',
-    symbol: "🔊",
-  },
-  {
     url: "https://www.youtube.me/synwrks",
     title: "YouTube",
     description: "Original music videos, VR & V-DJ sets recordings",
