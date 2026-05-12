@@ -14,7 +14,7 @@ This same translation process is incurred by any artifact, be that functional ga
 The inspiration for portraying a landscape often comes from examining the tiny water flows and detailed crevices on a mountain that has always, and obviously, been there for everyone to see. The portrait does not reveal the existence of the mountain, but rather depicts a way to see it by choice of a specific lighting and the underlining of specific details. Let this be one portrait of nowadays' creative process. And if it speaks to you, let it be a source of inspiration.
 
 ## Superpowers
-[The Imagination Machine 2121](2120_imagination_machine) describes technology allowing two people to experience each other's imagination. While that device only lives in science-fiction, it constitutes a reasonable future milestone for a present-day trend. This trend is the improvement of our creative tools and processes thanks to technology.
+[The Imagination Machine 2120](/blog/2120_imagination_machine/) describes technology allowing two people to experience each other's imagination. While that device only lives in science-fiction, it constitutes a reasonable future milestone for a present-day trend. This trend is the improvement of our creative tools and processes thanks to technology.
 
 The focus of Synesthetic Works on digital art and electronic music derives from a fascination towards the immense freedom and precision of expression granted by these forms of art. It allows the art piece to represent the original thought, as it lived in the artist's imagination, with incredibly high fidelity.
 
