@@ -71,3 +71,5 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 .vscode/settings.json
+
+.claude/worktrees

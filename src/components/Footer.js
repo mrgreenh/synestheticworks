@@ -3,11 +3,15 @@
 import React from "react"
 import Link from "next/link"
 import Image from "next-image-export-optimizer"
+import ThemeToggle from "./ThemeToggle"
 
 const Footer = () => {
   return (
     <footer>
       <ul>
+        <li className="theme-toggle-item">
+          <ThemeToggle />
+        </li>
         <li>
           <a href="https://www.instagram.com/synwrks/" title="Link to Instagram page" target="_blank"><Image src="/images/instagram.png" alt="Instagram" width={100} height={100} style={{ width: '100%', height: 'auto' }}/></a>
         </li>

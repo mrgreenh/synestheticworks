@@ -1,6 +1,9 @@
 // Consolidated global styles for Next.js migration
 // Order matters: base reset first, then component styles, then page styles
 
+// Theme variables (must come first so everything below can use them)
+@import "../src/styles/theme.scss";
+
 // Base reset and typography (from Gatsby's layout.scss)
 @import "../src/components/layout.scss";
 

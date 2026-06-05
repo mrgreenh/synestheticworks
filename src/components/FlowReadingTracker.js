@@ -1,9 +1,18 @@
 import configurations from "./flowConfigs.js"
+import neonizeFlowConfig from "./neonizeFlowConfig.js"
 
 class ReadingTracker {
   constructor(configurations, patternChangeEmitter) {
     this.selectedConfName = undefined
     this.callbacks = []
+    this.currentPage = "/"
+    // Re-pick colors when the theme toggles (dispatched by ThemeToggle).
+    // The theme suffix on selectedConfName makes renderFlow cross-fade.
+    if (typeof window !== "undefined") {
+      window.addEventListener("themechange", () =>
+        this.onPageChange(this.currentPage)
+      )
+    }
     this.onPageChange("triangles")
   }
 
@@ -13,8 +22,14 @@ class ReadingTracker {
     }
   }
 
+  isDarkTheme() {
+    if (typeof document === "undefined") return true // dark is the default
+    return document.documentElement.getAttribute("data-theme") !== "light"
+  }
+
   onPageChange(page) {
     console.log("flowing to page " + page)
+    this.currentPage = page
 
     const pageToConfig = {
       "/": "colors",
@@ -43,10 +58,14 @@ class ReadingTracker {
     const name = pageToConfig[normalizedPage] ?? "triangles"
 
     if (configurations[name]) {
-      this.forceField = configurations[name].forces
-      this.visualSettings = configurations[name].visualConfig
-      this.selectedConfName = name
-      this.speedOffset = configurations[name].speedOffset ?? 0.5
+      const dark = this.isDarkTheme()
+      const config = dark
+        ? neonizeFlowConfig(configurations[name])
+        : configurations[name]
+      this.forceField = config.forces
+      this.visualSettings = config.visualConfig
+      this.selectedConfName = name + (dark ? "@dark" : "@light")
+      this.speedOffset = config.speedOffset ?? 0.5
     }
 
     // This is read by other components that need to know the page

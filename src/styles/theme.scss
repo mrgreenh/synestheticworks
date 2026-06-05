@@ -1,0 +1,127 @@
+// Theme variables.
+// Dark is the default theme; light restores the site's original appearance.
+// The active theme is set as data-theme on <html> by an inline script in
+// app/layout.js (before first paint) and toggled by ThemeToggle.
+
+:root {
+  color-scheme: dark;
+  --bg: #131313;
+  --bg-rgb: 19, 19, 19;
+  --text: hsla(0, 0%, 100%, 0.82);
+  --heading: #cccccc;
+  --link: white;
+  --link-hover: #aaaaaa;
+  --muted: #aaaaaa;
+  --code-bg: hsla(0, 0%, 100%, 0.08);
+  --rule: hsla(0, 0%, 100%, 0.25);
+  --rule-light: hsla(0, 0%, 100%, 0.15);
+  // Inverse "chip" (section labels, subscribe button)
+  --chip-bg: #e8e8e8;
+  --chip-text: #131313;
+  --label-border: white;
+  --logo-tile-bg: #2c2c2c;
+  --logo-tile-bg-alt: #3a3a3a;
+  --frame: #2a2a2a;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: white;
+  --bg-rgb: 255, 255, 255;
+  --text: hsla(0, 0%, 0%, 0.8);
+  --heading: #333333;
+  --link: black;
+  --link-hover: #555555;
+  --muted: #555555;
+  --code-bg: hsla(0, 0%, 0%, 0.04);
+  --rule: hsla(0, 0%, 0%, 0.2);
+  --rule-light: hsla(0, 0%, 0%, 0.12);
+  --chip-bg: black;
+  --chip-text: white;
+  --label-border: black;
+  --logo-tile-bg: #e9e9e9;
+  --logo-tile-bg-alt: #d7d7d7;
+  --frame: white;
+}
+
+// In dark mode the flow animation colors are remapped to neon variants at
+// the data level (see neonizeFlowConfig.js); a final CSS boost on the
+// canvases amplifies the glow.
+:root:not([data-theme="light"]) {
+  #tilesflowContainer,
+  #tilesflowContainer2 {
+    filter: saturate(1.4) brightness(1.6);
+  }
+
+  // Social icons are dark glyphs drawn for a white page — flip them.
+  .website-header footer img {
+    filter: invert(1);
+  }
+
+  // Monochrome logo tiles in the carousel (padded .website-logo); the
+  // full-color logos use .nopadding and are left untouched.
+  .project-thumb.website-logo:not(.nopadding) img {
+    filter: invert(1);
+  }
+
+  // Social glyphs on the /links page (the QR code is left alone — inverted
+  // QR codes can fail to scan).
+  .links-list .icon-container img {
+    filter: invert(1);
+  }
+
+  // Transparent diagrams in blog posts (e.g. mermaid charts) were drawn for
+  // a light page — give them a light backdrop. Opaque photos are unaffected.
+  // (.blog-post-content is now exclusively the markdown body of blog posts;
+  // generic pages use .page-content-main.)
+  .blog-post-content img,
+  .laurels img {
+    background-color: #e3e3e3;
+  }
+
+  // QR codes need dark modules on a light ground to scan — never invert,
+  // always back with white.
+  .qrcode-container img {
+    background-color: white;
+    padding: 8px;
+  }
+}
+
+// Theme toggle button
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  &:hover {
+    border-color: var(--text);
+  }
+}
+
+// In the socials row: sits to the left of the icons, separated by a
+// vertical line.
+.website-header footer ul li.theme-toggle-item {
+  flex: 0 0 auto;
+  max-width: none;
+  border-right: 1px solid var(--rule);
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .website-header footer ul li.theme-toggle-item {
+    width: auto;
+    padding-right: 18px;
+  }
+  .theme-toggle {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+}

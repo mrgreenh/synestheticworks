@@ -2,9 +2,9 @@ $content-padding: 50px;
 $content-width: 90%;
 
 a {
-  color: black;
+  color: var(--link);
   &:hover {
-    color: #555
+    color: var(--link-hover)
   }
   &:active, &:focus {
     outline: none;
@@ -28,8 +28,8 @@ footer {
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 100%);
+  background: var(--bg);
+  background: linear-gradient(90deg, rgba(var(--bg-rgb),0) 0%, rgba(var(--bg-rgb),1) 35%, rgba(var(--bg-rgb),1) 100%);
 }
 
 #site-content {
@@ -42,7 +42,7 @@ footer {
 }
 
 h2, h3, h4 {
-  color: #333;
+  color: var(--heading);
 }
 
 .home-mosaic-container {
@@ -53,10 +53,10 @@ h2, h3, h4 {
     top: -7px;
     border-style: none none solid solid;
     border-width: 0 0 3px 3px;
-    border-color: rgb(255, 255, 255);
+    border-color: var(--bg);
     right: -$content-padding;
-    background-color: black;
-    color: white;
+    background-color: var(--chip-bg);
+    color: var(--chip-text);
     padding: 5px;
     padding-right: $content-padding;
   }
@@ -81,6 +81,7 @@ h2, h3, h4 {
   min-width: 600px;
   max-width: 1200px;
   text-align: right;
+  .page-content-main,
   .blog-post-content {
     padding: $content-padding $content-padding 20px 18%;
     text-align: left;
@@ -128,7 +129,7 @@ h2, h3, h4 {
 
   .mobile-footer {
     display: none;
-    background-color: white;
+    background-color: var(--bg);
   }
 
   .copyright-footer, .mobile-footer {
@@ -170,8 +171,8 @@ h2, h3, h4 {
       opacity: 0;
     }
     button {
-      background-color: black;
-      color: white;
+      background-color: var(--chip-bg);
+      color: var(--chip-text);
       font-size: 1rem;
       // line-height: 1rem;
     }
@@ -248,10 +249,11 @@ h2, h3, h4 {
         }
       }
       
+      .page-content-main,
       .blog-post-content {
         padding: 0px 5px 20px 5px;
-        background: rgb(255,255,255);
-        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 200px, rgba(255,255,255,1) 500px, rgba(255,255,255,1) 100%);
+        background: var(--bg);
+        background: linear-gradient(180deg, rgba(var(--bg-rgb),0) 0%, rgba(var(--bg-rgb),0.7) 200px, rgba(var(--bg-rgb),1) 500px, rgba(var(--bg-rgb),1) 100%);
         .gatsby-resp-image-wrapper {
           width: 100% !important;
           left: initial !important;
@@ -269,12 +271,12 @@ h2, h3, h4 {
     }
     .copyright-footer {
       text-align: center;
-      background-color: white;
+      background-color: var(--bg);
       padding-right: 0px;
       padding-bottom:  130px;
     }
     .subscribe-form {
-      background-color: white;
+      background-color: var(--bg);
       position: relative;
       bottom: 0px;
       left: 0px;

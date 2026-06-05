@@ -17,9 +17,16 @@ export const metadata = {
   },
 }
 
+// Runs before first paint so the page never flashes the wrong theme.
+// Dark is the default; "light" is opted into via localStorage.
+const themeInitScript = `(function(){var t='dark';try{if(localStorage.getItem('theme')==='light')t='light';}catch(e){}document.documentElement.setAttribute('data-theme',t);})()`
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         <ClientLayout>
           {children}
