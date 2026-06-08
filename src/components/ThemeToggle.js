@@ -29,7 +29,8 @@ const ThemeToggle = () => {
       title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
       aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
     >
-      {theme === "dark" ? "☀" : "☾"}
+      <span className="theme-toggle__half theme-toggle__half--light" />
+      <span className="theme-toggle__half theme-toggle__half--dark" />
     </button>
   )
 }

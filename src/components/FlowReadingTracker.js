@@ -43,6 +43,7 @@ class ReadingTracker {
       "/blog/the_imagination_machine_today": "green_smoke",
       "/blog/about_the_method": "red_smoke",
       "/links": "red_smoke",
+      "/vj-loops": "nft",
       "/nft/planetarybridges": "nft",
       "/nft/terraforming": "nft",
       "/nft/harvester": "nft",

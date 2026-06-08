@@ -22,6 +22,9 @@
   --logo-tile-bg: #2c2c2c;
   --logo-tile-bg-alt: #3a3a3a;
   --frame: #2a2a2a;
+  // Single restrained accent (cool, to harmonize with the neon flow canvas).
+  --accent: #6fe0d2;
+  --accent-rgb: 111, 224, 210;
 }
 
 html[data-theme="light"] {
@@ -42,6 +45,8 @@ html[data-theme="light"] {
   --logo-tile-bg: #e9e9e9;
   --logo-tile-bg-alt: #d7d7d7;
   --frame: white;
+  --accent: #0c7d6e;
+  --accent-rgb: 12, 125, 110;
 }
 
 // In dark mode the flow animation colors are remapped to neon variants at
@@ -89,19 +94,44 @@ html[data-theme="light"] {
 
 // Theme toggle button
 .theme-toggle {
+  position: relative;
+  display: block;
   background: none;
-  border: 1px solid var(--rule);
-  border-radius: 50%;
-  color: var(--text);
+  border: none;
   cursor: pointer;
-  font-size: 0.8rem;
-  line-height: 1;
   width: 28px;
   height: 28px;
   padding: 0;
 
+  .theme-toggle__half {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  // Left semicircle: white fill, black outline. A large radius on the two
+  // outer corners clamps to a clean half-circle at any size.
+  .theme-toggle__half--light {
+    left: 0;
+    background: #fff;
+    border: 1.5px solid #000;
+    border-right: none;
+    border-radius: 999px 0 0 999px;
+  }
+
+  // Right semicircle: black fill, white outline.
+  .theme-toggle__half--dark {
+    right: 0;
+    background: #000;
+    border: 1.5px solid #fff;
+    border-left: none;
+    border-radius: 0 999px 999px 0;
+  }
+
   &:hover {
-    border-color: var(--text);
+    opacity: 0.8;
   }
 }
 
@@ -119,9 +149,10 @@ html[data-theme="light"] {
     width: auto;
     padding-right: 18px;
   }
+  // Match the social-icon row height (~16px) so the circle isn't clipped by the
+  // row's overflow, and reads at the same size as the icons beside it.
   .theme-toggle {
-    width: 22px;
-    height: 22px;
-    font-size: 0.7rem;
+    width: 16px;
+    height: 16px;
   }
 }

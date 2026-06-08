@@ -12,18 +12,17 @@
   }
 }
 
+// Flat, square, hairline media container — the house style shared with the
+// VJ-loops pages (no rounded corners, no drop shadow).
 .framed {
-  border: solid var(--frame);
-  border-width: 10px 10px;
-  -webkit-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.45); 
-  box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.45);
-  border-radius: 10px;
+  border: 1px solid var(--rule);
   & .player-wrapper {
     margin-bottom: 0px;
   }
   margin-bottom: 30px;
   & .caption {
     background-color: var(--frame);
+    border-top: 1px solid var(--rule); // hairline divider from the media
     padding: 20px;
     color: var(--muted);
     font-size: 0.9rem;
@@ -38,6 +37,6 @@
 
 @media only screen and (max-width: 800px) {
   .framed {
-    border-width: 10px 0px;
+    border-width: 1px 0; // full-bleed on small screens
   }
 }
