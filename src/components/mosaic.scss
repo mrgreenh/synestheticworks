@@ -61,6 +61,16 @@
       }
     }
   }
+  // Loops mosaic: a leading "See all" tile makes the count uneven, so the
+  // default flex-grow would stretch a lone wrapped tile to fill its row. Pin the
+  // tiles to a fixed width instead, so extra tiles fold to a new line at the
+  // same size.
+  &.loops-mosaic .project-thumb {
+    flex-grow: 0;
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+
   &.small-thumbs .project-thumb {
     max-width: 33%;
     &.website-logo {
@@ -97,6 +107,10 @@
       font-size: calc(10px + 10 * ((100vw - 320px) / (800 - 320)));
       max-width: 50%;
       min-width: 50%;
+    }
+    &.loops-mosaic .project-thumb {
+      flex-basis: 50%;
+      max-width: 50%;
     }
     &.small-thumbs .project-thumb {
       max-width: 33%;

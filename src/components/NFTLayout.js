@@ -5,7 +5,7 @@ import BlogHeader from "./blogHeader"
 import FramedPlayer from "./FramedPlayer"
 import LayerGrid from "./LayerGrid"
 import NFTsMosaic from "./mosaics/NFTsMosaic"
-import { layerCount, hasLayers } from "../data/vjLoops"
+import { layerCount, hasLayers, isForSale } from "../data/vjLoops"
 
 // Renders a single Original VJ Loop page from its config entry. The loop's
 // stats (layers, date) are mirrored from the same source the gallery cards
@@ -39,7 +39,7 @@ const NFTLayout = ({ loop }) => {
               </div>
             </dl>
 
-            {loop.gumroad && (
+            {isForSale(loop) && (
               <a
                 className="loop-buy"
                 href={loop.gumroad}
@@ -51,11 +51,13 @@ const NFTLayout = ({ loop }) => {
             )}
           </div>
 
-          <div className="loop-story">
-            {loop.story.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-          </div>
+          {loop.story && (
+            <div className="loop-story">
+              {loop.story.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+          )}
 
           {loop.making && (
             <div className="loop-making">

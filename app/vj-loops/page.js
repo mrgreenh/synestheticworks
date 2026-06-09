@@ -1,7 +1,7 @@
 import Layout from "../../src/components/layout"
 import BlogHeader from "../../src/components/blogHeader"
 import LoopCard from "../../src/components/LoopCard"
-import { vjLoops } from "../../src/data/vjLoops"
+import { publishedLoops } from "../../src/data/vjLoops"
 
 export const metadata = {
   title: "Original VJ Loops",
@@ -24,7 +24,7 @@ export default function VJLoopsPage() {
         </p>
 
         <div className="vj-gallery__grid">
-          {vjLoops.map((loop, i) => (
+          {publishedLoops.map((loop, i) => (
             <LoopCard key={loop.slug} loop={loop} index={i} />
           ))}
         </div>

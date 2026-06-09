@@ -27,9 +27,15 @@
 #                        already web-ready and re-encoding would only bloat it.
 #                        Still generates the re-encoded 640px preview.
 #                        Mutually exclusive with --top.
-#   --thumb <file>       Optional. Image/video to use as the gallery thumbnail.
-#                        If omitted and --top is given, the top video's first
-#                        frame is used. Produces public/images/nft_thumbs/<slug>.jpg
+#   --cover <file>       Optional. A short LOOP used for the gallery hover preview
+#                        and (its first frame) the still thumbnail — separate from
+#                        the hero top video. Use when the card should preview a
+#                        tighter cover loop rather than the full hero. Sources for
+#                        preview/thumb: --cover if given, else the top video.
+#   --thumb <file>       Optional. Image/video for the still gallery thumbnail.
+#                        Overrides --cover/--top for the thumbnail only. If omitted
+#                        the first frame of --cover (or the top) is used.
+#                        Produces public/images/nft_thumbs/<slug>.jpg
 #   --gumroad <url>      Optional. Purchase URL for the loop. Not an asset —
 #                        nothing is encoded; it's just added to the printed
 #                        config snippet as `gumroad: "<url>"`, which makes a Buy
@@ -71,6 +77,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 slug=""
 top=""
 top_copy=""
+cover=""
 thumb=""
 gumroad=""
 specs=()
@@ -80,6 +87,7 @@ while [[ $# -gt 0 ]]; do
     --slug)     slug="$2"; shift 2 ;;
     --top)      top="$2"; shift 2 ;;
     --top-copy) top_copy="$2"; shift 2 ;;
+    --cover)    cover="$2"; shift 2 ;;
     --thumb)    thumb="$2"; shift 2 ;;
     --gumroad)  gumroad="$2"; shift 2 ;;
     --layers)   shift; while [[ $# -gt 0 ]]; do specs+=("$1"); shift; done ;;
@@ -91,7 +99,10 @@ done
 if [[ -n "$top" && -n "$top_copy" ]]; then
   echo "ERROR: use either --top or --top-copy, not both" >&2; exit 1
 fi
-top_src="${top:-$top_copy}"   # whichever top source was provided
+top_src="${top:-$top_copy}"        # whichever top source was provided
+preview_src="${cover:-$top_src}"   # cover loop preferred for the hover preview
+# Still thumbnail source: explicit --thumb wins, else cover, else top.
+thumb_src="${thumb:-${cover:-$top_src}}"
 
 sanitize() { # -> lowercase, non-alphanumeric collapsed to single underscore
   echo "$1" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_+//; s/_+$//'
@@ -129,10 +140,10 @@ assert_no_audio() {
 
 layers_dir="$REPO_ROOT/public/nfts/layers/$slug"
 
-# --- top video + preview ----------------------------------------------------
+# --- top video --------------------------------------------------------------
 if [[ -n "$top_src" ]]; then
-  mkdir -p "$REPO_ROOT/public/nfts/previews"
   out_top="$REPO_ROOT/public/nfts/$slug.mp4"
+  mkdir -p "$REPO_ROOT/public/nfts"
   if [[ -n "$top_copy" ]]; then
     # No re-encode — copy the video stream and just drop the audio track.
     echo ">> top    public/nfts/$slug.mp4 (stream copy, audio stripped)" >&2
@@ -144,27 +155,29 @@ if [[ -n "$top_src" ]]; then
       -profile:v high -crf 20 -preset slow "$out_top"
   fi
   assert_no_audio "$out_top"
+fi
 
-  echo ">> preview public/nfts/previews/$slug.mp4" >&2
-  ffmpeg -y -loglevel error -i "$top_src" "${x264_common[@]}" \
+# --- gallery hover preview (from --cover if given, else the top) ------------
+if [[ -n "$preview_src" ]]; then
+  mkdir -p "$REPO_ROOT/public/nfts/previews"
+  echo ">> preview public/nfts/previews/$slug.mp4 ($([[ -n "$cover" ]] && echo "from --cover" || echo "from top"))" >&2
+  ffmpeg -y -loglevel error -i "$preview_src" "${x264_common[@]}" \
     -profile:v main -crf 30 -preset veryslow \
     -vf "scale=${PREVIEW_W}:-2:flags=lanczos" \
     "$REPO_ROOT/public/nfts/previews/$slug.mp4"
   assert_no_audio "$REPO_ROOT/public/nfts/previews/$slug.mp4"
 fi
 
-# --- gallery thumbnail ------------------------------------------------------
-thumb_out="$REPO_ROOT/public/images/nft_thumbs/$slug.jpg"
-if [[ -n "$thumb" ]]; then
+# --- gallery thumbnail (first frame of --thumb > --cover > top) -------------
+if [[ -n "$thumb_src" ]]; then
+  thumb_out="$REPO_ROOT/public/images/nft_thumbs/$slug.jpg"
   mkdir -p "$(dirname "$thumb_out")"
-  echo ">> thumb  public/images/nft_thumbs/$slug.jpg (from --thumb)" >&2
-  ffmpeg -y -loglevel error -i "$thumb" -frames:v 1 \
+  thumb_from="top"
+  [[ -n "$cover" ]] && thumb_from="--cover"
+  [[ -n "$thumb" ]] && thumb_from="--thumb"
+  echo ">> thumb  public/images/nft_thumbs/$slug.jpg (first frame of $thumb_from)" >&2
+  ffmpeg -y -loglevel error -i "$thumb_src" -frames:v 1 \
     -vf "scale='min(${THUMB_W},iw)':-2" -q:v 3 "$thumb_out"
-elif [[ -n "$top_src" ]]; then
-  mkdir -p "$(dirname "$thumb_out")"
-  echo ">> thumb  public/images/nft_thumbs/$slug.jpg (first frame of top)" >&2
-  ffmpeg -y -loglevel error -i "$top_src" -frames:v 1 \
-    -vf "scale=${THUMB_W}:-2" -q:v 3 "$thumb_out"
 fi
 
 # --- expand layer specs into a flat (path, name) list -----------------------
@@ -226,9 +239,11 @@ echo "" >&2
 echo "----- paste into the loop's entry in src/data/vjLoops.js -----"
 if [[ -n "$top_src" ]]; then
   echo "    video: \"/nfts/$slug.mp4\","
+fi
+if [[ -n "$preview_src" ]]; then
   echo "    preview: \"/nfts/previews/$slug.mp4\","
 fi
-if [[ -n "$thumb" || -n "$top_src" ]]; then
+if [[ -n "$thumb_src" ]]; then
   echo "    thumb: \"/images/nft_thumbs/$slug.jpg\","
 fi
 if [[ -n "$gumroad" ]]; then

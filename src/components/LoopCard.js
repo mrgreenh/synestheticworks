@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import HoverVideo from "./HoverVideo"
-import { loopHref, layerCount } from "../data/vjLoops"
+import { loopHref, layerCount, isForSale } from "../data/vjLoops"
 
 // A single catalog card for the Original VJ Loops gallery.
 //
@@ -88,7 +88,7 @@ const LoopCard = ({ loop, index }) => {
               &#x2192;
             </span>
           </span>
-          {loop.gumroad && (
+          {isForSale(loop) && (
             <a
               className="loop-card__buy"
               href={loop.gumroad}

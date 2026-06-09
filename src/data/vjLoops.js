@@ -4,7 +4,7 @@
 // Every place that needs to know about a looping artwork reads from here:
 //   - the "Original VJ Loops" mosaic on the home page (src/components/mosaics/NFTsMosaic.js)
 //   - the gallery index at /vj-loops (app/vj-loops/page.js)
-//   - each individual loop page at /nft/[slug] (app/nft/[slug]/page.js)
+//   - each individual loop page at /art/[slug] (app/art/[slug]/page.js)
 //
 // `layers` is an array of the individual layer videos that compose a loop
 // ({ name, video, thumb }); the displayed layer count derives from its length.
@@ -13,14 +13,140 @@
 // new assets and generate the `layers` snippet with the "add-loop-to-website"
 // skill (.claude/skills/add-loop-to-website). Keep this file their only home.
 //
-// `gumroad` is an optional purchase URL. When present, a "Buy" button appears on
-// both the gallery card and the loop's page; when absent, no button is shown.
+// `gumroad` is an optional purchase URL. When present (and `forSale` isn't
+// false) a "Buy" button appears on both the gallery card and the loop's page.
+//
+// Two optional visibility flags (both default to ON when omitted):
+//   - `published: false` hides the loop everywhere on the site — the gallery,
+//     the home mosaic, the "see also" rows, and its own generated page.
+//   - `forSale: false` keeps the loop visible but hides its Buy links (e.g. when
+//     the Gumroad product is temporarily unlisted), without deleting the url.
 // ---------------------------------------------------------------------------
 
 export const vjLoops = [
   {
+    slug: "dnaflow",
+    title: "DNA Flow",
+    thumb: "/images/nft_thumbs/dnaflow.jpg",
+    video: "/nfts/dnaflow.mp4",
+    preview: "/nfts/previews/dnaflow.mp4",
+    ogimage: "/images/nft_thumbs/dnaflow.jpg",
+    gumroad: "https://synwrks.gumroad.com/l/dnaflow",
+    forSale: false,
+    light: true,
+    date: "April 2026",
+    year: "2026",
+    making: (
+      <>
+        <p>
+          This loop was made with the intent to start creating art that could
+          better fit genres of music with more syncopated rhythms than
+          four-on-the-floor. As these shapes look like organisms swimming in an
+          organic ether, it could look more believable to make the flow itself
+          pulsate to the rhythm. The various shapes floating on the filaments
+          remind me of percussions being tied together by the rules of musical
+          composition.
+        </p>
+        <p>
+          I made this loop while developing <em>Stems</em> and{" "}
+          <em>Timewarping</em> in Vizloom; these features and the art came
+          together in visualizing genres that had been precluded to me before —
+          like, for example, a Drum &amp; Bass bassline.
+        </p>
+      </>
+    ),
+    layers: [
+      {
+        name: "Blue Squiggles",
+        video: "/nfts/layers/dnaflow/01_blue_squiggles.mp4",
+        thumb: "/nfts/layers/dnaflow/01_blue_squiggles.jpg",
+      },
+      {
+        name: "Depth",
+        video: "/nfts/layers/dnaflow/02_depth.mp4",
+        thumb: "/nfts/layers/dnaflow/02_depth.jpg",
+      },
+      {
+        name: "Filament 1",
+        video: "/nfts/layers/dnaflow/03_filament_1.mp4",
+        thumb: "/nfts/layers/dnaflow/03_filament_1.jpg",
+      },
+      {
+        name: "Filament 2",
+        video: "/nfts/layers/dnaflow/04_filament_2.mp4",
+        thumb: "/nfts/layers/dnaflow/04_filament_2.jpg",
+      },
+      {
+        name: "Filament 3",
+        video: "/nfts/layers/dnaflow/05_filament_3.mp4",
+        thumb: "/nfts/layers/dnaflow/05_filament_3.jpg",
+      },
+      {
+        name: "Filament 4",
+        video: "/nfts/layers/dnaflow/06_filament_4.mp4",
+        thumb: "/nfts/layers/dnaflow/06_filament_4.jpg",
+      },
+      {
+        name: "Floor",
+        video: "/nfts/layers/dnaflow/07_floor.mp4",
+        thumb: "/nfts/layers/dnaflow/07_floor.jpg",
+      },
+      {
+        name: "Gems 1",
+        video: "/nfts/layers/dnaflow/08_gems_1.mp4",
+        thumb: "/nfts/layers/dnaflow/08_gems_1.jpg",
+      },
+      {
+        name: "Gems 2",
+        video: "/nfts/layers/dnaflow/09_gems_2.mp4",
+        thumb: "/nfts/layers/dnaflow/09_gems_2.jpg",
+      },
+      {
+        name: "Gems 3",
+        video: "/nfts/layers/dnaflow/10_gems_3.mp4",
+        thumb: "/nfts/layers/dnaflow/10_gems_3.jpg",
+      },
+      {
+        name: "Gems 4",
+        video: "/nfts/layers/dnaflow/11_gems_4.mp4",
+        thumb: "/nfts/layers/dnaflow/11_gems_4.jpg",
+      },
+      {
+        name: "Green Squiggles",
+        video: "/nfts/layers/dnaflow/12_green_squiggles.mp4",
+        thumb: "/nfts/layers/dnaflow/12_green_squiggles.jpg",
+      },
+      {
+        name: "Pink Squiggles",
+        video: "/nfts/layers/dnaflow/13_pink_squiggles.mp4",
+        thumb: "/nfts/layers/dnaflow/13_pink_squiggles.jpg",
+      },
+      {
+        name: "Red Squiggles",
+        video: "/nfts/layers/dnaflow/14_red_squiggles.mp4",
+        thumb: "/nfts/layers/dnaflow/14_red_squiggles.jpg",
+      },
+      {
+        name: "Sky",
+        video: "/nfts/layers/dnaflow/15_sky.mp4",
+        thumb: "/nfts/layers/dnaflow/15_sky.jpg",
+      },
+      {
+        name: "Sunlight",
+        video: "/nfts/layers/dnaflow/16_sunlight.mp4",
+        thumb: "/nfts/layers/dnaflow/16_sunlight.jpg",
+      },
+      {
+        name: "Tripping Balls",
+        video: "/nfts/layers/dnaflow/17_tripping_balls.mp4",
+        thumb: "/nfts/layers/dnaflow/17_tripping_balls.jpg",
+      },
+    ],
+  },
+  {
     slug: "portalpeaks",
     title: "Portal Peaks",
+    forSale: false,
     // thumbnail still frame shown by default in mosaics and cards
     thumb: "/images/nft_thumbs/portal_peaks_daytime.jpg",
     // full-resolution loop shown at the top of the loop's own page
@@ -33,18 +159,16 @@ export const vjLoops = [
     date: "August 2022",
     year: "2022",
     story: [
-      "The Granting Voice's mandate required infrastructure built in all corners of the galaxy. Its functional design was made to survive through eons, while claiming no aesthetic aims on its surroundings.",
-      "You could stare at an unremarkable landscape for a century, or two, before it suddenly came to life to fullfill its task.",
+      "The Granting Voice's mandate required infrastructure built in all corners of the galaxy. Its functional design was made to survive through eons, while claiming no aesthetic aims on its surroundings. You could stare at an unremarkable landscape for a century, or two, before it suddenly came to life to fullfill its task.",
     ],
     // Optional "how it was made" block. A React node (JSX), so it accepts rich
     // formatting and components — paragraphs, lists, links, emphasis, etc.
     making: (
       <>
         <p>
-          Portal Peaks is composited from twelve independently rendered loops:
-          base passes for the terrain, water, crystals and ships, each paired
-          with a matching <em>glare</em> pass, then layered and blended for live
-          mixing.
+          Portal Peaks is composited from a stack of independently rendered
+          loops — base passes for the terrain, water, crystals and ships —
+          layered and blended for live mixing.
         </p>
       </>
     ),
@@ -94,21 +218,6 @@ export const vjLoops = [
         name: "Stars",
         video: "/nfts/layers/portalpeaks/09_stars.mp4",
         thumb: "/nfts/layers/portalpeaks/09_stars.jpg",
-      },
-      {
-        name: "Floor Glare Only",
-        video: "/nfts/layers/portalpeaks/10_floor_glare.mp4",
-        thumb: "/nfts/layers/portalpeaks/10_floor_glare.jpg",
-      },
-      {
-        name: "Shimmer Glare Only",
-        video: "/nfts/layers/portalpeaks/11_shimmer_glare.mp4",
-        thumb: "/nfts/layers/portalpeaks/11_shimmer_glare.jpg",
-      },
-      {
-        name: "Ships Glare Only",
-        video: "/nfts/layers/portalpeaks/12_ships_glare.mp4",
-        thumb: "/nfts/layers/portalpeaks/12_ships_glare.jpg",
       },
     ],
   },
@@ -162,8 +271,17 @@ export const vjLoops = [
   },
 ]
 
+// --- Visibility flags (both default ON when the field is omitted) -----------
+// Whether the loop is shown anywhere on the site.
+export const isPublished = loop => loop.published !== false
+// Whether to show Buy links: needs a gumroad url and `forSale` not turned off.
+export const isForSale = loop => !!loop.gumroad && loop.forSale !== false
+
+// The published subset — use this for every listing (gallery, mosaics, routes).
+export const publishedLoops = vjLoops.filter(isPublished)
+
 // Canonical route for a loop's own page.
-export const loopHref = loop => `/nft/${loop.slug}/`
+export const loopHref = loop => `/art/${loop.slug}/`
 
 // The gallery index page listing every loop.
 export const galleryHref = "/vj-loops/"

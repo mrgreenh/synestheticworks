@@ -1,38 +1,39 @@
 import Layout from "../../../src/components/layout"
-import NFTLayout from "../../../src/components/NFTLayout"
-import { vjLoops, getLoop } from "../../../src/data/vjLoops"
+import RedirectToArt from "./RedirectToArt"
+import { publishedLoops, getLoop, loopHref } from "../../../src/data/vjLoops"
+
+// Legacy alias: the loops used to live under /nft/<slug> before moving to
+// /art/<slug>. Keep the old URLs resolving by generating a redirect page for
+// each loop that bounces to its new home (see RedirectToArt for the why).
+export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return vjLoops.map(loop => ({ slug: loop.slug }))
+  return publishedLoops.map(loop => ({ slug: loop.slug }))
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
   const loop = getLoop(slug)
-  if (!loop) return { title: "Not Found" }
+  if (!loop) return { title: "Redirecting…" }
   return {
     title: loop.title,
-    openGraph: {
-      images: [{ url: `https://www.synestheticworks.com${loop.ogimage}` }],
+    // Point search engines at the canonical /art URL, and keep the alias out
+    // of the index.
+    alternates: {
+      canonical: `https://www.synestheticworks.com${loopHref(loop)}`,
     },
+    robots: { index: false, follow: true },
   }
 }
 
-export default async function NFTPage({ params }) {
+export default async function NftAliasPage({ params }) {
   const { slug } = await params
   const loop = getLoop(slug)
-
-  if (!loop) {
-    return (
-      <Layout>
-        <h1>Loop not found</h1>
-      </Layout>
-    )
-  }
+  const to = loop ? loopHref(loop) : "/vj-loops/"
 
   return (
     <Layout>
-      <NFTLayout loop={loop} />
+      <RedirectToArt to={to} />
     </Layout>
   )
 }

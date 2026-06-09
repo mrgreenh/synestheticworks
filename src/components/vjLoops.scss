@@ -373,12 +373,10 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
   }
 }
 
-// Second, optional block: how it was made — upright, with a labelled rule.
-// Accepts arbitrary rich content (the config provides a React node).
+// Second, optional block: how it was made — upright. Accepts arbitrary rich
+// content (the config provides a React node).
 .loop-making {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--rule-light);
+  margin-top: 18px;
   font-style: normal;
 
   &__title {
@@ -393,6 +391,14 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
   p:last-child {
     margin-bottom: 0;
   }
+}
+
+// Only separate making from a story above it with a rule — when making follows
+// the stats directly (no story), the meta-row's own border is the one divider.
+.loop-story + .loop-making {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule-light);
 }
 
 // --- Layers section on each loop page --------------------------------------
