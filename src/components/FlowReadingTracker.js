@@ -44,10 +44,6 @@ class ReadingTracker {
       "/blog/about_the_method": "red_smoke",
       "/links": "red_smoke",
       "/vj-loops": "nft",
-      "/nft/planetarybridges": "nft",
-      "/nft/terraforming": "nft",
-      "/nft/harvester": "nft",
-      "/nft/portalpeaks": "nft",
       "/bookings": "red_smoke",
       "/synesthetic_mixes/introspection": "red",
       "/synesthetic_mixes/just_weird": "green",
@@ -56,7 +52,10 @@ class ReadingTracker {
 
     // Normalize: strip trailing slash for consistent lookup (except root "/")
     const normalizedPage = page !== "/" ? page.replace(/\/+$/, "") : page
-    const name = pageToConfig[normalizedPage] ?? "triangles"
+    // Every individual loop page (/art/<slug>) shares the gallery's "nft" flow.
+    const name = normalizedPage.startsWith("/art/")
+      ? "nft"
+      : pageToConfig[normalizedPage] ?? "triangles"
 
     if (configurations[name]) {
       const dark = this.isDarkTheme()

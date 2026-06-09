@@ -10,11 +10,11 @@ description: >-
 # Adding a Loop to the Website
 
 Every loop on the site is driven by a single config entry in
-`src/data/vjLoops.js`. The pages (`/nft/[slug]`), the gallery (`/vj-loops`) and
+`src/data/vjLoops.js`. The pages (`/art/[slug]`), the gallery (`/vj-loops`) and
 the home-page mosaic all read from it. Adding a loop therefore means two things:
 
 1. **Encode the assets** with the pinned ffmpeg settings → `encode-loop.sh`.
-2. **Write the config entry** (curation: order, names, story) → done by hand.
+2. **Write the config entry** (curation: order, layer names, description) → by hand.
 
 ## What you need from the user
 
@@ -135,9 +135,12 @@ Add or update the loop's entry. A full entry looks like:
   ogimage: "/nfts/portalpeaks.jpg",
   light: true,                                   // light label on the mosaic tile
   gumroad: "https://synwrks.gumroad.com/l/portalpeaks", // optional → Buy button
+  // published: false,                           // optional → hide the loop everywhere
+  // forSale: false,                             // optional → keep the loop but hide Buy
   date: "June 2023",                             // month + year
   year: "2023",
-  story: [ "First paragraph…", "Second paragraph…" ],
+  making: ( <><p>How / why it was made…</p></> ), // the default description (JSX node)
+  // story: [ "Italic narrative…" ],             // ONLY if the user gives a story / lore
   layers: [   // paste the snippet printed by encode-loop.sh
     { name: "Floor",        video: "/nfts/layers/portalpeaks/01_floor.mp4",        thumb: "/nfts/layers/portalpeaks/01_floor.jpg" },
     { name: "Shimmer",      video: "/nfts/layers/portalpeaks/02_shimmer.mp4",      thumb: "/nfts/layers/portalpeaks/02_shimmer.jpg" },
@@ -151,11 +154,25 @@ Notes:
   length via `layerCount(loop)` — no separate number to keep in sync. Loops that
   haven't had their layers collected yet may still use a plain number for
   `layers` (a placeholder count); `layerCount` handles both.
-- `gumroad` is optional. When set, a "Buy" button appears on the gallery card
-  (accent outline) and on the loop page (solid accent CTA), both opening the URL
-  in a new tab; when omitted, no button is rendered.
+- `gumroad` is optional. When set (and `forSale` isn't false) a "Buy" button
+  appears on the gallery card (solid accent CTA) and on the loop page, both
+  opening the URL in a new tab; when omitted, no button is rendered.
+- Two optional visibility flags, both default ON (omit them to show everything):
+  - `published: false` hides the loop everywhere — gallery, home mosaic, "see
+    also" rows, and its own generated page (`isPublished`/`publishedLoops`).
+  - `forSale: false` keeps the loop listed but hides its Buy links — for when the
+    Gumroad product is temporarily unlisted — without dropping the url
+    (`isForSale`).
+- **Description — `making` vs `story`.** A description the user gives you is the
+  **`making`** by default (rendered under "How it was made"; a JSX node, so it
+  takes rich formatting). Only add a **`story`** (the italic narrative at the top)
+  if the user explicitly says they're giving you a "story" or "lore". **Never
+  invent either** — if no text was provided, leave both off. Both are optional and
+  a loop can have one, the other, or neither.
 - The dynamic route, gallery card and layers grid pick the new entry up
-  automatically — no per-page code to add.
+  automatically — no per-page code to add. Every `/art/<slug>` page also shares
+  the gallery's "nft" side flow animation automatically (handled generically in
+  `FlowReadingTracker.js`) — there's nothing to register per loop.
 - Every loop page shows the layers grid (when `layers` is an array) and the
   standing disclaimer: *"This art can be utilized in any video-mixing software,
   but try it out in Vizloom for best results."*
@@ -163,12 +180,12 @@ Notes:
 ## Step 3 — Verify
 
 ```bash
-npm run dev   # then open /nft/<slug> and /vj-loops
+npm run dev   # then open /art/<slug> and /vj-loops
 ```
 
 Check: top loop plays, the stats bar shows the right layer count and date, the
 layers grid renders and each tile animates on hover, and — if a `gumroad` link
 was set — the Buy button shows on both the card and the page and opens the URL.
 Use the `test-with-agent-browser` skill to confirm visually. For a production check,
-`npm run build` (static export) should list `/nft/<slug>` under the generated
+`npm run build` (static export) should list `/art/<slug>` under the generated
 routes.
