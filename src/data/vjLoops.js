@@ -32,6 +32,7 @@ export const vjLoops = [
     preview: "/nfts/previews/dnaflow.mp4",
     ogimage: "/images/nft_thumbs/dnaflow.jpg",
     gumroad: "https://synwrks.gumroad.com/l/dnaflow",
+    forSale: false,
     light: true,
     date: "April 2026",
     year: "2026",
