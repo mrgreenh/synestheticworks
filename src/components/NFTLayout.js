@@ -70,11 +70,7 @@ const NFTLayout = ({ loop }) => {
 
       {hasLayers(loop) && (
         <section className="layers-section">
-          <h3 className="layers-section__title">The Layers</h3>
-          <p className="layers-section__note">
-            This art can be utilized in any video-mixing software, but try it
-            out in Vizloom for best results.
-          </p>
+          <h3 className="layers-section__title">Layers</h3>
           <LayerGrid layers={loop.layers} />
         </section>
       )}

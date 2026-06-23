@@ -98,14 +98,14 @@ All re-encodes are H.264, `yuv420p`, faststart, **audio stripped** (`-an`). The
 numbers below are the house style; change them in `encode-loop.sh` only, so all
 future loops follow.
 
-| Asset | Size | ffmpeg video args | Output |
-|-------|------|-------------------|--------|
-| Top (full, `--top`) | source res | `-crf 20 -preset slow -profile:v high` | `public/nfts/<slug>.mp4` |
-| Top (`--top-copy`) | source res | `-map 0:v -c:v copy -an` (no re-encode) | `public/nfts/<slug>.mp4` |
-| Hover preview (gallery) | width 640 | `-vf scale=640:-2:flags=lanczos -crf 30 -preset veryslow` | `public/nfts/previews/<slug>.mp4` |
-| Layer | **320×180** | `-vf "scale=320:180:force_original_aspect_ratio=decrease,pad=320:180:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1" -crf 30 -preset veryslow` | `public/nfts/layers/<slug>/NN_<name>.mp4` |
-| Layer thumb | ≤320×180 | first frame: `-frames:v 1 -vf "scale=320:180:force_original_aspect_ratio=decrease" -q:v 3` | `public/nfts/layers/<slug>/NN_<name>.jpg` |
-| Gallery thumb | width ≤640 | first frame (or `--thumb`): `-frames:v 1 -vf scale=640:-2 -q:v 3` | `public/images/nft_thumbs/<slug>.jpg` |
+| Asset                   | Size        | ffmpeg video args                                                                                                                        | Output                                    |
+| ----------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| Top (full, `--top`)     | source res  | `-crf 20 -preset slow -profile:v high`                                                                                                   | `public/nfts/<slug>.mp4`                  |
+| Top (`--top-copy`)      | source res  | `-map 0:v -c:v copy -an` (no re-encode)                                                                                                  | `public/nfts/<slug>.mp4`                  |
+| Hover preview (gallery) | width 640   | `-vf scale=640:-2:flags=lanczos -crf 30 -preset veryslow`                                                                                | `public/nfts/previews/<slug>.mp4`         |
+| Layer                   | **320×180** | `-vf "scale=320:180:force_original_aspect_ratio=decrease,pad=320:180:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1" -crf 30 -preset veryslow` | `public/nfts/layers/<slug>/NN_<name>.mp4` |
+| Layer thumb             | ≤320×180    | first frame: `-frames:v 1 -vf "scale=320:180:force_original_aspect_ratio=decrease" -q:v 3`                                               | `public/nfts/layers/<slug>/NN_<name>.jpg` |
+| Gallery thumb           | width ≤640  | first frame (or `--thumb`): `-frames:v 1 -vf scale=640:-2 -q:v 3`                                                                        | `public/images/nft_thumbs/<slug>.jpg`     |
 
 ### Folder structure produced
 
@@ -150,6 +150,7 @@ Add or update the loop's entry. A full entry looks like:
 ```
 
 Notes:
+
 - `layers` is an **array**; the displayed layer count is derived from its
   length via `layerCount(loop)` — no separate number to keep in sync. Loops that
   haven't had their layers collected yet may still use a plain number for
@@ -173,9 +174,7 @@ Notes:
   automatically — no per-page code to add. Every `/art/<slug>` page also shares
   the gallery's "nft" side flow animation automatically (handled generically in
   `FlowReadingTracker.js`) — there's nothing to register per loop.
-- Every loop page shows the layers grid (when `layers` is an array) and the
-  standing disclaimer: *"This art can be utilized in any video-mixing software,
-  but try it out in Vizloom for best results."*
+- Every loop page shows the layers grid (when `layers` is an array).
 
 ## Step 3 — Verify
 
