@@ -700,6 +700,52 @@ var configurations = {
     ],
     speedOffset: -0.5,
   },
+  blessed_ones: {
+    visualConfig: {
+      padding: [0, 0, 5, 0],
+      stroke: [0, 0, 0, 0],
+      pointsColor: [0, 0, 0, 0],
+      pattern: TilesFlow.PATTERNS.cells,
+    },
+    forces: [
+      {
+        x: 90,
+        y: 50,
+        decay: "superGentle",
+        intensity: 50,
+        influencePosition: true,
+        influenceColor: true,
+        color: [120, 40, 200, 150],
+      },
+      {
+        x: 30,
+        y: 70,
+        decay: "gentle",
+        intensity: 100,
+        influencePosition: true,
+        influenceColor: true,
+        color: [40, 220, 220, 250],
+      },
+      {
+        x: 0,
+        y: 30,
+        decay: "superGentle",
+        intensity: 30,
+        influencePosition: true,
+        influenceColor: true,
+        color: [255, 60, 180, 250],
+      },
+      {
+        x: 30,
+        y: 0,
+        decay: "gentle",
+        intensity: -30,
+        influenceColor: true,
+        color: [255, 200, 40, 200],
+      },
+    ],
+    speedOffset: -0.5,
+  },
   nft: {
     visualConfig: {
       padding: [0, 0, 5, 0],

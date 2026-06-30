@@ -145,6 +145,7 @@ export const vjLoops = [
   },
   {
     slug: "portalpeaks",
+    collection: "granting_voice",
     title: "Portal Peaks",
     forSale: false,
     // thumbnail still frame shown by default in mosaics and cards
@@ -223,6 +224,7 @@ export const vjLoops = [
   },
   {
     slug: "terraforming",
+    collection: "granting_voice",
     title: "Terraforming",
     thumb: "/images/nft_thumbs/ancient_path_purple.jpg",
     video: "/nfts/ancient_path_purple_ffmpeg.mp4",
@@ -239,6 +241,7 @@ export const vjLoops = [
   },
   {
     slug: "planetarybridges",
+    collection: "granting_voice",
     title: "Planetary Bridges",
     thumb: "/images/nft_thumbs/planetary_bridges_full.png",
     video: "/nfts/planetary_tunnels_full_ffmpeg.mp4",
@@ -255,6 +258,7 @@ export const vjLoops = [
   },
   {
     slug: "harvester",
+    collection: "granting_voice",
     title: "Harvester",
     thumb: "/images/nft_thumbs/harvester_full.png",
     video: "/nfts/harvester_full_ffmpeg.mp4",

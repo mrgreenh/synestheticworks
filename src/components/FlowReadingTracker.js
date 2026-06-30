@@ -42,6 +42,7 @@ class ReadingTracker {
       "/blog/2120_imagination_machine": "smoke",
       "/blog/the_imagination_machine_today": "green_smoke",
       "/blog/about_the_method": "red_smoke",
+      "/blog/blessed_ones_backstory": "blessed_ones",
       "/links": "red_smoke",
       "/vj-loops": "nft",
       "/bookings": "red_smoke",

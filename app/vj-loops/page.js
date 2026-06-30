@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Layout from "../../src/components/layout"
 import BlogHeader from "../../src/components/blogHeader"
 import LoopCard from "../../src/components/LoopCard"
@@ -17,16 +18,41 @@ export default function VJLoopsPage() {
 
       <section className="vj-gallery">
         <p className="vj-gallery__intro">
-          Seamless windows on 3D Sculpted and procedural worlds, I made these
-          layered animations to assemble my visual DJ sets and VJ performances.
-          From here you can explore the full collection of loops, each with
-          their composing layers and notes on their creation.
+          I made these animations to assemble my visual DJ sets and VJ
+          performances. I explain my process{" "}
+          <Link
+            href="https://youtu.be/hgfgBuqa5Mg?si=LcK07w-GW1vuQvSw"
+            target="_blank"
+          >
+            in this video
+          </Link>
+          .
         </p>
 
+        <h3>Granting Voice Series</h3>
+        <p className="vj-gallery__collection_intro">
+          These loops are forward-scrolling animations taking place in an
+          imaginary galaxy where a super-intelligent AI divides all life forms
+          into two groups: the Blessed Ones, and everyone else. I described this
+          backstory in{" "}
+          <Link href="/blog/blessed_ones_backstory">this blog article</Link>.
+        </p>
         <div className="vj-gallery__grid">
-          {publishedLoops.map((loop, i) => (
-            <LoopCard key={loop.slug} loop={loop} index={i} />
-          ))}
+          {publishedLoops
+            .filter(l => l.collection === "granting_voice")
+            .map((loop, i) => (
+              <LoopCard key={loop.slug} loop={loop} index={i} />
+            ))}
+        </div>
+
+        <hr />
+        <h3>Others</h3>
+        <div className="vj-gallery__grid">
+          {publishedLoops
+            .filter(l => l.collection == null)
+            .map((loop, i) => (
+              <LoopCard key={loop.slug} loop={loop} index={i} />
+            ))}
         </div>
       </section>
     </Layout>
