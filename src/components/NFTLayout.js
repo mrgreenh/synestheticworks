@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Link from "next/link"
 import BlogHeader from "./blogHeader"
 import FramedPlayer from "./FramedPlayer"
 import LayerGrid from "./LayerGrid"
@@ -56,6 +57,9 @@ const NFTLayout = ({ loop }) => {
               {loop.story.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
+              <Link className="loop-story__more" href="/blog/blessed_ones_backstory">
+                Read the Background Story →
+              </Link>
             </div>
           )}
 

@@ -16,11 +16,11 @@ This civilization however disappeared for unknown reasons, leaving behind only a
 
 As the Blessed Children slowly went through the stages of cultural development of any early civilization, a class of religious figures quickly emerged to be the most respected and affluent cast among them. These were tribe members who, by pure chance, had emitted sounds that resembled long forgotten words, that in turn triggered incredible and unexpected powers. Some of them could materialize one specific type of food over and over. Some others could light up the entire forest with a fluorescent glow, in the middle of the night... And so on.
 
-[![Terraforming](/nfts/ancient_path_purple.jpg)](/art/terraforming/)
+[![Ancient Path](/nfts/ancient_path_purple.jpg)](/art/ancientpath/)
 
 Over time ancient phonetic research turned into something of a science, which was slowly enriched by the discovery of old artifacts and remains carrying incisions and symbols of the same language spoken by what they had now come to call "the Granting Voice". As their understanding of this language grew, so did their powers and the magnitude of their requests. Entire cities were willed into being, and an unprecedented population boom rode the wave of new "magic words" being unlocked every day. The Blessed Children lived lavish lives of unparalleled happiness and riches. Oftentimes, their lack of scientific understanding would be cause for outlandish asks, and the Granting Voice would figure out a way to make these possible regardless: bridges extending infinitely into the sky, spaceships made of marble, entire ring worlds built for a family of four.
 
-[![Planetary Bridges](/nfts/planetary_bridges_full.png)](/art/planetarybridges/)
+[![Time Temple](/images/nft_thumbs/timetemple.jpg)](/art/timetemple/)
 
 There was a downside to this, which they were never allowed to see by the very nature of their status: the Granting Voice was no magic, it was instead a machine of now cosmic proportions. Entire planets were built or destroyed to mine resources to fulfill its mandate. From the AI's point of view, nothing mattered but the desires of the Blessed Ones, which led to the trampling and destruction of innumerable other civilizations and natural habitats across the galaxy. Entire planets would be repurposed for the growing of alien crops, entire solar systems would be seeded with factories and artificial habitats.
 

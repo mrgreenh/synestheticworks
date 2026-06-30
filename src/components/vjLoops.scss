@@ -371,8 +371,25 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
 .loop-story {
   font-style: italic;
   font-size: 0.85rem;
-  p:last-child {
+  p:last-of-type {
     margin-bottom: 0;
+  }
+
+  // Small link out to the series backstory blog article (only shown when the
+  // loop has a story/lore block).
+  &__more {
+    display: inline-block;
+    margin-top: 12px;
+    font-style: normal;
+    font-family: $mono;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    color: var(--accent);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
