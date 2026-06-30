@@ -245,7 +245,7 @@ export const vjLoops = [
         thumb: "/nfts/layers/ancientpath/05_holo.jpg",
       },
       {
-        name: "Intricate Holos",
+        name: "Intricate Holos (AI Layer)",
         video: "/nfts/layers/ancientpath/06_intricate_holos.mp4",
         thumb: "/nfts/layers/ancientpath/06_intricate_holos.jpg",
       },
@@ -304,6 +304,15 @@ export const vjLoops = [
           <li>
             A 180 degrees / stereo 3D version of this loop was also rendered for
             VR.
+          </li>
+          <li>
+            If a layer is marked as 'AI Layer', it means that I took one of the
+            3D-rendered layers and, in the summer of 2022, passed it through an
+            image-to-image stable diffusion AI model frame-by-frame via a python
+            script. This was before AI videos were a thing, so the results
+            aren't perfect and by all counts very experimental, but they were
+            often good enough to add some variation to the layers I could then
+            play with in compositing.
           </li>
         </ul>
         <p className="loop-making__inspiration">
@@ -562,16 +571,6 @@ export const vjLoops = [
         video: "/nfts/layers/interplanetarypollen/06_nighttime.mp4",
         thumb: "/nfts/layers/interplanetarypollen/06_nighttime.jpg",
       },
-      {
-        name: "Rave",
-        video: "/nfts/layers/interplanetarypollen/07_rave.mp4",
-        thumb: "/nfts/layers/interplanetarypollen/07_rave.jpg",
-      },
-      {
-        name: "Rave2",
-        video: "/nfts/layers/interplanetarypollen/08_rave2.mp4",
-        thumb: "/nfts/layers/interplanetarypollen/08_rave2.jpg",
-      },
     ],
     date: "2021",
     year: "2021",
@@ -620,7 +619,7 @@ export const vjLoops = [
     light: true,
     layers: [
       {
-        name: "Alien Portrait",
+        name: "Alien Portrait (AI Layer)",
         video: "/nfts/layers/harvester/01_alien_portrait.mp4",
         thumb: "/nfts/layers/harvester/01_alien_portrait.jpg",
       },
@@ -630,7 +629,7 @@ export const vjLoops = [
         thumb: "/nfts/layers/harvester/02_base.jpg",
       },
       {
-        name: "Cyberpunk Street",
+        name: "Cyberpunk Street (AI Layer)",
         video: "/nfts/layers/harvester/03_cyberpunk_street.mp4",
         thumb: "/nfts/layers/harvester/03_cyberpunk_street.jpg",
       },
@@ -645,7 +644,7 @@ export const vjLoops = [
         thumb: "/nfts/layers/harvester/05_eyes.jpg",
       },
       {
-        name: "Godzilla Portrait",
+        name: "Godzilla Portrait (AI Layer)",
         video: "/nfts/layers/harvester/06_godzilla_portrait.mp4",
         thumb: "/nfts/layers/harvester/06_godzilla_portrait.jpg",
       },
@@ -660,12 +659,12 @@ export const vjLoops = [
         thumb: "/nfts/layers/harvester/08_laser.jpg",
       },
       {
-        name: "Robot Face",
+        name: "Robot Face (AI Layer)",
         video: "/nfts/layers/harvester/09_robot_face.mp4",
         thumb: "/nfts/layers/harvester/09_robot_face.jpg",
       },
       {
-        name: "Street",
+        name: "Street (AI Layer)",
         video: "/nfts/layers/harvester/10_street.mp4",
         thumb: "/nfts/layers/harvester/10_street.jpg",
       },
@@ -675,12 +674,12 @@ export const vjLoops = [
         thumb: "/nfts/layers/harvester/11_tech.jpg",
       },
       {
-        name: "Woman Face",
+        name: "Woman Face (AI Layer)",
         video: "/nfts/layers/harvester/12_woman_face.mp4",
         thumb: "/nfts/layers/harvester/12_woman_face.jpg",
       },
       {
-        name: "Eyes",
+        name: "Eyes (emission + glare)",
         video: "/nfts/layers/harvester/13_eyes.mp4",
         thumb: "/nfts/layers/harvester/13_eyes.jpg",
       },
@@ -717,6 +716,15 @@ export const vjLoops = [
           <li>
             A 180 degrees / stereo 3D version of this loop was also rendered for
             VR.
+          </li>
+          <li>
+            If a layer is marked as 'AI Layer', it means that I took one of the
+            3D-rendered layers and, in the summer of 2022, passed it through an
+            image-to-image stable diffusion AI model frame-by-frame via a python
+            script. This was before AI videos were a thing, so the results
+            aren't perfect and by all counts very experimental, but they were
+            often good enough to add some variation to the layers I could then
+            play with in compositing.
           </li>
         </ul>
       </>
@@ -931,27 +939,27 @@ export const vjLoops = [
         thumb: "/nfts/layers/timetemple/16_tron_grid4.jpg",
       },
       {
-        name: "Grid 1",
+        name: "Grid 1 (emission + glare)",
         video: "/nfts/layers/timetemple/17_grid_1.mp4",
         thumb: "/nfts/layers/timetemple/17_grid_1.jpg",
       },
       {
-        name: "Grid 2",
+        name: "Grid 2 (emission + glare)",
         video: "/nfts/layers/timetemple/18_grid_2.mp4",
         thumb: "/nfts/layers/timetemple/18_grid_2.jpg",
       },
       {
-        name: "Grid 3",
+        name: "Grid 3 (emission + glare)",
         video: "/nfts/layers/timetemple/19_grid_3.mp4",
         thumb: "/nfts/layers/timetemple/19_grid_3.jpg",
       },
       {
-        name: "Grid 4",
+        name: "Grid 4 (emission + glare)",
         video: "/nfts/layers/timetemple/20_grid_4.mp4",
         thumb: "/nfts/layers/timetemple/20_grid_4.jpg",
       },
       {
-        name: "Spheres",
+        name: "Spheres (emission + glare)",
         video: "/nfts/layers/timetemple/21_spheres.mp4",
         thumb: "/nfts/layers/timetemple/21_spheres.jpg",
       },
@@ -1093,22 +1101,22 @@ export const vjLoops = [
         thumb: "/nfts/layers/scavengers/15_sun.jpg",
       },
       {
-        name: "Lighting 1",
+        name: "Lighting 1 (emission + glare)",
         video: "/nfts/layers/scavengers/16_lighting_1.mp4",
         thumb: "/nfts/layers/scavengers/16_lighting_1.jpg",
       },
       {
-        name: "Lighting 2",
+        name: "Lighting 2 (emission + glare)",
         video: "/nfts/layers/scavengers/17_lighting_2.mp4",
         thumb: "/nfts/layers/scavengers/17_lighting_2.jpg",
       },
       {
-        name: "Lighting 3",
+        name: "Lighting 3 (emission + glare)",
         video: "/nfts/layers/scavengers/18_lighting_3.mp4",
         thumb: "/nfts/layers/scavengers/18_lighting_3.jpg",
       },
       {
-        name: "Lighting 4",
+        name: "Lighting 4 (emission + glare)",
         video: "/nfts/layers/scavengers/19_lighting_4.mp4",
         thumb: "/nfts/layers/scavengers/19_lighting_4.jpg",
       },
@@ -1246,12 +1254,12 @@ export const vjLoops = [
         thumb: "/nfts/layers/laserstunnel/03_circuits.jpg",
       },
       {
-        name: "Electric Lasers",
+        name: "Electric Lasers (AI Layer)",
         video: "/nfts/layers/laserstunnel/04_electric_lasers.mp4",
         thumb: "/nfts/layers/laserstunnel/04_electric_lasers.jpg",
       },
       {
-        name: "Flowers",
+        name: "Flowers (AI Layer)",
         video: "/nfts/layers/laserstunnel/05_flowers.mp4",
         thumb: "/nfts/layers/laserstunnel/05_flowers.jpg",
       },
@@ -1261,17 +1269,12 @@ export const vjLoops = [
         thumb: "/nfts/layers/laserstunnel/06_glass_emission.jpg",
       },
       {
-        name: "Godzilla Mouth",
-        video: "/nfts/layers/laserstunnel/07_godzilla_mouth.mp4",
-        thumb: "/nfts/layers/laserstunnel/07_godzilla_mouth.jpg",
-      },
-      {
         name: "Lasers",
         video: "/nfts/layers/laserstunnel/08_lasers.mp4",
         thumb: "/nfts/layers/laserstunnel/08_lasers.jpg",
       },
       {
-        name: "Plasma Lasers",
+        name: "Plasma Lasers (AI Layer)",
         video: "/nfts/layers/laserstunnel/09_plasma_lasers.mp4",
         thumb: "/nfts/layers/laserstunnel/09_plasma_lasers.jpg",
       },
@@ -1286,7 +1289,7 @@ export const vjLoops = [
         thumb: "/nfts/layers/laserstunnel/11_sun.jpg",
       },
       {
-        name: "Water",
+        name: "Water (AI Layer)",
         video: "/nfts/layers/laserstunnel/12_water.mp4",
         thumb: "/nfts/layers/laserstunnel/12_water.jpg",
       },
@@ -1308,6 +1311,15 @@ export const vjLoops = [
           <li>
             A 180 degrees / stereo 3D version of this loop was also rendered for
             VR.
+          </li>
+          <li>
+            If a layer is marked as 'AI Layer', it means that I took one of the
+            3D-rendered layers and, in the summer of 2022, passed it through an
+            image-to-image stable diffusion AI model frame-by-frame via a python
+            script. This was before AI videos were a thing, so the results
+            aren't perfect and by all counts very experimental, but they were
+            often good enough to add some variation to the layers I could then
+            play with in compositing.
           </li>
         </ul>
       </>
@@ -1545,9 +1557,89 @@ export const vjLoops = [
         thumb: "/nfts/layers/rasrailway/32_stars.jpg",
       },
       {
-        name: "Eclipse",
+        name: "Arch Holos 1 (emission + glare)",
+        video: "/nfts/layers/rasrailway/33_arch_holos_1_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/33_arch_holos_1_glare.jpg",
+      },
+      {
+        name: "Arch Holos 2 (emission + glare)",
+        video: "/nfts/layers/rasrailway/34_arch_holos_2_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/34_arch_holos_2_glare.jpg",
+      },
+      {
+        name: "Arch Holos 3 (emission + glare)",
+        video: "/nfts/layers/rasrailway/35_arch_holos_3_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/35_arch_holos_3_glare.jpg",
+      },
+      {
+        name: "Arch Holos 4 (emission + glare)",
+        video: "/nfts/layers/rasrailway/36_arch_holos_4_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/36_arch_holos_4_glare.jpg",
+      },
+      {
+        name: "Eclipse (emission + glare)",
         video: "/nfts/layers/rasrailway/37_eclipse.mp4",
         thumb: "/nfts/layers/rasrailway/37_eclipse.jpg",
+      },
+      {
+        name: "Holo 1 (emission + glare)",
+        video: "/nfts/layers/rasrailway/38_holo_1_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/38_holo_1_glare.jpg",
+      },
+      {
+        name: "Holo 2 (emission + glare)",
+        video: "/nfts/layers/rasrailway/39_holo_2_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/39_holo_2_glare.jpg",
+      },
+      {
+        name: "Holo 3 (emission + glare)",
+        video: "/nfts/layers/rasrailway/40_holo_3_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/40_holo_3_glare.jpg",
+      },
+      {
+        name: "Holo 4 (emission + glare)",
+        video: "/nfts/layers/rasrailway/41_holo_4_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/41_holo_4_glare.jpg",
+      },
+      {
+        name: "Square Holos 1 (emission + glare)",
+        video: "/nfts/layers/rasrailway/42_square_holos_1_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/42_square_holos_1_glare.jpg",
+      },
+      {
+        name: "Square Holos 2 (emission + glare)",
+        video: "/nfts/layers/rasrailway/43_square_holos_2_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/43_square_holos_2_glare.jpg",
+      },
+      {
+        name: "Square Holos 3 (emission + glare)",
+        video: "/nfts/layers/rasrailway/44_square_holos_3_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/44_square_holos_3_glare.jpg",
+      },
+      {
+        name: "Square Holos 4 (emission + glare)",
+        video: "/nfts/layers/rasrailway/45_square_holos_4_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/45_square_holos_4_glare.jpg",
+      },
+      {
+        name: "Stargate Holos 1 (emission + glare)",
+        video: "/nfts/layers/rasrailway/46_stargate_holos_1_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/46_stargate_holos_1_glare.jpg",
+      },
+      {
+        name: "Stargate Holos 2 (emission + glare)",
+        video: "/nfts/layers/rasrailway/47_stargate_holos_2_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/47_stargate_holos_2_glare.jpg",
+      },
+      {
+        name: "Stargate Holos 3 (emission + glare)",
+        video: "/nfts/layers/rasrailway/48_stargate_holos_3_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/48_stargate_holos_3_glare.jpg",
+      },
+      {
+        name: "Stargate Holos 4 (emission + glare)",
+        video: "/nfts/layers/rasrailway/49_stargate_holos_4_glare.mp4",
+        thumb: "/nfts/layers/rasrailway/49_stargate_holos_4_glare.jpg",
       },
     ],
     date: "2023",
@@ -1735,6 +1827,71 @@ export const vjLoops = [
         name: "Tripping Balls",
         video: "/nfts/layers/filaments/17_tripping_balls.mp4",
         thumb: "/nfts/layers/filaments/17_tripping_balls.jpg",
+      },
+      {
+        name: "Blue Squiggles (emission + glare)",
+        video: "/nfts/layers/filaments/18_blue_squiggles.mp4",
+        thumb: "/nfts/layers/filaments/18_blue_squiggles.jpg",
+      },
+      {
+        name: "Filament 1 (emission + glare)",
+        video: "/nfts/layers/filaments/19_filament_1.mp4",
+        thumb: "/nfts/layers/filaments/19_filament_1.jpg",
+      },
+      {
+        name: "Filament 2 (emission + glare)",
+        video: "/nfts/layers/filaments/20_filament_2.mp4",
+        thumb: "/nfts/layers/filaments/20_filament_2.jpg",
+      },
+      {
+        name: "Filament 3 (emission + glare)",
+        video: "/nfts/layers/filaments/21_filament_3.mp4",
+        thumb: "/nfts/layers/filaments/21_filament_3.jpg",
+      },
+      {
+        name: "Filament 4 (emission + glare)",
+        video: "/nfts/layers/filaments/22_filament_4.mp4",
+        thumb: "/nfts/layers/filaments/22_filament_4.jpg",
+      },
+      {
+        name: "Gems 1 (emission + glare)",
+        video: "/nfts/layers/filaments/23_gems_1.mp4",
+        thumb: "/nfts/layers/filaments/23_gems_1.jpg",
+      },
+      {
+        name: "Gems 2 (emission + glare)",
+        video: "/nfts/layers/filaments/24_gems_2.mp4",
+        thumb: "/nfts/layers/filaments/24_gems_2.jpg",
+      },
+      {
+        name: "Gems 3 (emission + glare)",
+        video: "/nfts/layers/filaments/25_gems_3.mp4",
+        thumb: "/nfts/layers/filaments/25_gems_3.jpg",
+      },
+      {
+        name: "Gems 4 (emission + glare)",
+        video: "/nfts/layers/filaments/26_gems_4.mp4",
+        thumb: "/nfts/layers/filaments/26_gems_4.jpg",
+      },
+      {
+        name: "Green Squiggles (emission + glare)",
+        video: "/nfts/layers/filaments/27_green_squiggles.mp4",
+        thumb: "/nfts/layers/filaments/27_green_squiggles.jpg",
+      },
+      {
+        name: "Pink Squiggles (emission + glare)",
+        video: "/nfts/layers/filaments/28_pink_squiggles.mp4",
+        thumb: "/nfts/layers/filaments/28_pink_squiggles.jpg",
+      },
+      {
+        name: "Red Squiggles (emission + glare)",
+        video: "/nfts/layers/filaments/29_red_squiggles.mp4",
+        thumb: "/nfts/layers/filaments/29_red_squiggles.jpg",
+      },
+      {
+        name: "Tripping Balls (emission + glare)",
+        video: "/nfts/layers/filaments/30_tripping_balls.mp4",
+        thumb: "/nfts/layers/filaments/30_tripping_balls.jpg",
       },
     ],
   },
