@@ -13,6 +13,11 @@
 // new assets and generate the `layers` snippet with the "add-loop-to-website"
 // skill (.claude/skills/add-loop-to-website). Keep this file their only home.
 //
+// `templates` is an optional array of the loop's Vizloom Templates — the
+// ready-made Vizloom scenes built from it ({ name, video, thumb }, same shape
+// as a layer). When present the page grows a "Vizloom Templates" section above
+// the layers, whose tiles carry the Vizloom logo over the still thumbnail.
+//
 // `gumroad` is an optional purchase URL. When present (and `forSale` isn't
 // false) a "Buy" button appears on both the gallery card and the loop's page.
 //
@@ -740,7 +745,6 @@ export const vjLoops = [
     ogimage: "/images/nft_thumbs/portalpeaks.jpg",
     light: true,
     gumroad: "https://synwrks.gumroad.com/l/portalpeaks",
-    forSale: false,
     date: "2022",
     year: "2022",
     story: [
@@ -800,6 +804,23 @@ export const vjLoops = [
         </p>
       </>
     ),
+    templates: [
+      {
+        name: "House",
+        video: "/nfts/templates/portalpeaks/01_house.mp4",
+        thumb: "/nfts/templates/portalpeaks/01_house.jpg",
+      },
+      {
+        name: "Psytrance",
+        video: "/nfts/templates/portalpeaks/02_psytrance.mp4",
+        thumb: "/nfts/templates/portalpeaks/02_psytrance.jpg",
+      },
+      {
+        name: "Breaks",
+        video: "/nfts/templates/portalpeaks/03_breaks.mp4",
+        thumb: "/nfts/templates/portalpeaks/03_breaks.jpg",
+      },
+    ],
     layers: [
       {
         name: "Floor",
@@ -1695,8 +1716,24 @@ export const vjLoops = [
     preview: "/nfts/previews/filaments.mp4",
     ogimage: "/images/nft_thumbs/filaments.jpg",
     gumroad: "https://synwrks.gumroad.com/l/dnaflow",
-    forSale: false,
     light: true,
+    templates: [
+      {
+        name: "Drum and Bass",
+        video: "/nfts/templates/filaments/01_drum_and_bass.mp4",
+        thumb: "/nfts/templates/filaments/01_drum_and_bass.jpg",
+      },
+      {
+        name: "House",
+        video: "/nfts/templates/filaments/02_house.mp4",
+        thumb: "/nfts/templates/filaments/02_house.jpg",
+      },
+      {
+        name: "Psytrance",
+        video: "/nfts/templates/filaments/03_psytrance.mp4",
+        thumb: "/nfts/templates/filaments/03_psytrance.jpg",
+      },
+    ],
     date: "2026",
     year: "2026",
     making: (
@@ -1923,5 +1960,9 @@ export const layerCount = loop =>
 
 export const hasLayers = loop =>
   Array.isArray(loop.layers) && loop.layers.length > 0
+
+// Whether the loop ships Vizloom Templates (drives the section on its page).
+export const hasTemplates = loop =>
+  Array.isArray(loop.templates) && loop.templates.length > 0
 
 export default vjLoops

@@ -6,7 +6,10 @@ import BlogHeader from "./blogHeader"
 import FramedPlayer from "./FramedPlayer"
 import LayerGrid from "./LayerGrid"
 import NFTsMosaic from "./mosaics/NFTsMosaic"
-import { layerCount, hasLayers, isForSale } from "../data/vjLoops"
+import { layerCount, hasLayers, hasTemplates, isForSale } from "../data/vjLoops"
+
+// Badge shown over each Vizloom Template thumbnail, where the play button sits.
+const VIZLOOM_LOGO = "/images/vizloom_logo.png"
 
 // Renders a single Original VJ Loop page from its config entry. The loop's
 // stats (layers, date) are mirrored from the same source the gallery cards
@@ -57,7 +60,10 @@ const NFTLayout = ({ loop }) => {
               {loop.story.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
-              <Link className="loop-story__more" href="/blog/blessed_ones_backstory">
+              <Link
+                className="loop-story__more"
+                href="/blog/blessed_ones_backstory"
+              >
                 Read the Background Story →
               </Link>
             </div>
@@ -71,6 +77,27 @@ const NFTLayout = ({ loop }) => {
           )}
         </FramedPlayer>
       </div>
+
+      {hasTemplates(loop) && (
+        <section className="layers-section">
+          <h3 className="layers-section__title">
+            <a
+              className="layers-section__title-link"
+              href="https://vizloom.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vizloom
+            </a>{" "}
+            Templates
+          </h3>
+          <LayerGrid
+            layers={loop.templates}
+            badge={VIZLOOM_LOGO}
+            numbered={false}
+          />
+        </section>
+      )}
 
       {hasLayers(loop) && (
         <section className="layers-section">

@@ -40,12 +40,22 @@
 #                        nothing is encoded; it's just added to the printed
 #                        config snippet as `gumroad: "<url>"`, which makes a Buy
 #                        button appear on the card and the loop page.
-#   --layers <spec ...>  Everything after --layers is treated as a layer spec.
-#                        A spec is either:
+#   --layers <spec ...>  Every following argument (up to the next --option) is a
+#                        layer spec. A spec is either:
 #                          a FOLDER  -> every *.mp4/*.mov inside is a layer
 #                          a FILE    -> that single file
 #                        and may carry an explicit display name with "::Name":
 #                          "/path/Glare.mp4::Floor Glare"
+#                        Append "@<seconds>" to take the still thumbnail from
+#                        that point instead of frame one — for clips that fade
+#                        in from black: "/path/Breaks.mp4::Breaks@20"
+#   --templates <spec ...>
+#                        Same spec syntax, but for the loop's Vizloom Templates —
+#                        the ready-made Vizloom scenes built from this loop. They
+#                        encode exactly like layers but land in their own folder:
+#                          public/nfts/templates/<slug>/NN_<name>.mp4 (+ .jpg)
+#                        and print a `templates: [...]` snippet, which renders the
+#                        page's "Vizloom Templates" section above the layers.
 #
 # Layer specs may also be passed as bare positional args (no --layers needed).
 #
@@ -58,6 +68,10 @@
 #   # A brand new loop, top video + a whole folder of layers:
 #   encode-loop.sh --slug watery --top "/exports/water_top.mp4" \
 #     --layers "/exports/Water Planet"
+#
+#   # Just the Vizloom Templates for an existing loop:
+#   encode-loop.sh --slug portalpeaks \
+#     --templates "/Vizloom Templates/Portal Peaks/House_faded.mp4::House"
 #
 set -euo pipefail
 
@@ -81,7 +95,10 @@ cover=""
 thumb=""
 gumroad=""
 specs=()
+template_specs=()
 
+# --layers/--templates each swallow every following argument until the next
+# --option, so both lists can be given in one invocation.
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --slug)     slug="$2"; shift 2 ;;
@@ -90,7 +107,12 @@ while [[ $# -gt 0 ]]; do
     --cover)    cover="$2"; shift 2 ;;
     --thumb)    thumb="$2"; shift 2 ;;
     --gumroad)  gumroad="$2"; shift 2 ;;
-    --layers)   shift; while [[ $# -gt 0 ]]; do specs+=("$1"); shift; done ;;
+    --layers)
+      shift
+      while [[ $# -gt 0 && "$1" != --* ]]; do specs+=("$1"); shift; done ;;
+    --templates)
+      shift
+      while [[ $# -gt 0 && "$1" != --* ]]; do template_specs+=("$1"); shift; done ;;
     *)          specs+=("$1"); shift ;;
   esac
 done
@@ -139,6 +161,7 @@ assert_no_audio() {
 }
 
 layers_dir="$REPO_ROOT/public/nfts/layers/$slug"
+templates_dir="$REPO_ROOT/public/nfts/templates/$slug"
 
 # --- top video --------------------------------------------------------------
 if [[ -n "$top_src" ]]; then
@@ -180,59 +203,85 @@ if [[ -n "$thumb_src" ]]; then
     -vf "scale='min(${THUMB_W},iw)':-2" -q:v 3 "$thumb_out"
 fi
 
-# --- expand layer specs into a flat (path, name) list -----------------------
-paths=(); names=()
-add_layer() {
-  local p="$1" n="$2"
-  paths+=("$p"); names+=("$n")
+# --- expand specs into a flat (path, name) list -----------------------------
+# Fills the globals `paths`/`names`. Used for both layers and templates, which
+# share the spec syntax (folder | file, optional "::Display Name").
+paths=(); names=(); times=()
+expand_specs() {
+  paths=(); names=(); times=()
+  local spec name path ts f
+  for spec in "$@"; do
+    [[ -z "$spec" ]] && continue
+    name=""; ts=""
+    # Optional "@<seconds>" suffix: take the still thumbnail from that point in
+    # the clip instead of frame one — for videos that fade in from black.
+    if [[ "$spec" =~ ^(.+)@([0-9]+([.][0-9]+)?)$ ]]; then
+      spec="${BASH_REMATCH[1]}"; ts="${BASH_REMATCH[2]}"
+    fi
+    path="$spec"
+    if [[ "$spec" == *"::"* ]]; then
+      path="${spec%%::*}"
+      name="${spec##*::}"
+    fi
+    if [[ -d "$path" ]]; then
+      # a folder: every video inside, sorted, humanized names
+      while IFS= read -r f; do
+        paths+=("$f"); names+=("$(humanize "$(basename "$f")")"); times+=("$ts")
+      done < <(find "$path" -maxdepth 1 -type f \( -iname '*.mp4' -o -iname '*.mov' -o -iname '*.webm' \) | sort)
+    elif [[ -f "$path" ]]; then
+      [[ -z "$name" ]] && name="$(humanize "$(basename "$path")")"
+      paths+=("$path"); names+=("$name"); times+=("$ts")
+    else
+      echo "WARNING: skipping missing spec: $path" >&2
+    fi
+  done
 }
-for spec in "${specs[@]:-}"; do
-  [[ -z "$spec" ]] && continue
-  name=""
-  path="$spec"
-  if [[ "$spec" == *"::"* ]]; then
-    path="${spec%%::*}"
-    name="${spec##*::}"
-  fi
-  if [[ -d "$path" ]]; then
-    # a folder: every video inside, sorted, humanized names
-    while IFS= read -r f; do
-      add_layer "$f" "$(humanize "$(basename "$f")")"
-    done < <(find "$path" -maxdepth 1 -type f \( -iname '*.mp4' -o -iname '*.mov' -o -iname '*.webm' \) | sort)
-  elif [[ -f "$path" ]]; then
-    [[ -z "$name" ]] && name="$(humanize "$(basename "$path")")"
-    add_layer "$path" "$name"
-  else
-    echo "WARNING: skipping missing layer spec: $path" >&2
-  fi
-done
 
-# --- encode layers ----------------------------------------------------------
-snippet_layers=""
-if [[ ${#paths[@]} -gt 0 ]]; then
-  # Re-runs are authoritative: clear stale layer files so renamed/removed
-  # layers don't linger.
-  rm -rf "$layers_dir"
-  mkdir -p "$layers_dir"
-  i=0
+# --- encode a set of tiles (layers or templates) ----------------------------
+# encode_tiles <kind> <out_dir> <url_dir> — encodes the current paths/names into
+# 320x180 tiles + first-frame thumbs, and leaves the config snippet in the
+# global `snippet`. Re-runs are authoritative: the output folder is cleared
+# first so renamed or removed entries don't linger.
+snippet=""
+encode_tiles() {
+  local kind="$1" out_dir="$2" url_dir="$3"
+  snippet=""
+  [[ ${#paths[@]} -gt 0 ]] || return 0
+  rm -rf "$out_dir"
+  mkdir -p "$out_dir"
+  local i=0 idx nn src name base
+  local -a seek
   for idx in "${!paths[@]}"; do
     i=$((i + 1))
     nn=$(printf "%02d" "$i")
     src="${paths[$idx]}"
     name="${names[$idx]}"
+    seek=()
+    if [[ -n "${times[$idx]}" ]]; then seek=(-ss "${times[$idx]}"); fi
     base="${nn}_$(sanitize "$name")"
-    echo ">> layer  public/nfts/layers/$slug/$base.mp4  ($name)" >&2
+    echo ">> $kind  $url_dir/$base.mp4  ($name)" >&2
     ffmpeg -y -loglevel error -i "$src" "${x264_common[@]}" \
       -profile:v main -crf 30 -preset veryslow \
       -vf "scale=${LAYER_W}:${LAYER_H}:force_original_aspect_ratio=decrease,pad=${LAYER_W}:${LAYER_H}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1" \
-      "$layers_dir/$base.mp4"
-    assert_no_audio "$layers_dir/$base.mp4"
-    ffmpeg -y -loglevel error -i "$src" -frames:v 1 \
+      "$out_dir/$base.mp4"
+    assert_no_audio "$out_dir/$base.mp4"
+    # ${seek[@]+...} keeps bash 3.2 from tripping over an empty array under -u.
+    ffmpeg -y -loglevel error ${seek[@]+"${seek[@]}"} -i "$src" -frames:v 1 \
       -vf "scale=${LAYER_W}:${LAYER_H}:force_original_aspect_ratio=decrease" -q:v 3 \
-      "$layers_dir/$base.jpg"
-    snippet_layers+="      { name: \"$name\", video: \"/nfts/layers/$slug/$base.mp4\", thumb: \"/nfts/layers/$slug/$base.jpg\" },"$'\n'
+      "$out_dir/$base.jpg"
+    snippet+="      { name: \"$name\", video: \"$url_dir/$base.mp4\", thumb: \"$url_dir/$base.jpg\" },"$'\n'
   done
-fi
+}
+
+expand_specs "${specs[@]:-}"
+layer_count=${#paths[@]}
+encode_tiles "layer   " "$layers_dir" "/nfts/layers/$slug"
+snippet_layers="$snippet"
+
+expand_specs "${template_specs[@]:-}"
+template_count=${#paths[@]}
+encode_tiles "template" "$templates_dir" "/nfts/templates/$slug"
+snippet_templates="$snippet"
 
 # --- print a config snippet -------------------------------------------------
 echo "" >&2
@@ -249,7 +298,12 @@ fi
 if [[ -n "$gumroad" ]]; then
   echo "    gumroad: \"$gumroad\","
 fi
-if [[ ${#paths[@]} -gt 0 ]]; then
+if [[ $template_count -gt 0 ]]; then
+  echo "    templates: ["
+  printf "%s" "$snippet_templates"
+  echo "    ],"
+fi
+if [[ $layer_count -gt 0 ]]; then
   echo "    layers: ["
   printf "%s" "$snippet_layers"
   echo "    ],"
