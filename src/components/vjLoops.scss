@@ -433,6 +433,23 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     margin: 0 0 6px;
   }
 
+  // "Vizloom" in the templates heading links out to vizloom.com. It keeps the
+  // heading's colour so the title still reads as one phrase; the accent
+  // underline marks it as a link and fills in on hover.
+  &__title-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    text-decoration-color: rgba(var(--accent-rgb), 0.45);
+    transition: color 0.25s ease, text-decoration-color 0.25s ease;
+
+    &:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+  }
+
   // The standing "use it in Vizloom" disclaimer.
   &__note {
     margin: 0 0 22px;
@@ -499,6 +516,25 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     margin-left: 3px; // optical centering of the triangle
   }
 
+  // Vizloom Templates: the logo sits in the play button's spot while the tile
+  // shows its still, and gets out of the way once the video runs. Decorative
+  // only — clicks fall through to the media below.
+  &__badge {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 56px;
+    height: 56px;
+    pointer-events: none;
+    z-index: 3;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.55));
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  &__media.is-playing &__badge {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
   &__name {
     display: flex;
     align-items: baseline;
@@ -537,6 +573,14 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
   }
   .layer-tile__media.is-playing .layer-tile__play {
     display: none;
+  }
+  // The play button now owns the centre, so the Vizloom badge steps aside into
+  // the corner rather than sitting under it.
+  .layer-tile__badge {
+    inset: 8px auto auto 8px;
+    margin: 0;
+    width: 34px;
+    height: 34px;
   }
 }
 

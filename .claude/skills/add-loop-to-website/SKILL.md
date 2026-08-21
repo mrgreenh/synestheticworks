@@ -4,7 +4,8 @@ description: >-
   Add an Original VJ Loop (or its composing layers) to the website: encode the
   web-optimised video assets with ffmpeg, place them in the conventional folder
   structure, and wire them into the centralized config. Use when the user wants
-  to publish a new loop, or add the layer breakdown to an existing loop page.
+  to publish a new loop, or add the layer breakdown or the Vizloom Templates
+  section to an existing loop page.
 ---
 
 # Adding a Loop to the Website
@@ -31,6 +32,12 @@ Ask for any of these that are missing before starting:
   individual layer videos that compose the loop. Example for Portal Peaks:
   - `/Users/perfs/Movies/Vizloom Loops/Portal Peaks` (Floor, Shimmer)
   - `/Users/perfs/Movies/Vizloom Loops/Portal Peaks Glares` (the glare passes)
+- **Vizloom Templates** (optional) — the ready-made Vizloom scenes built from
+  this loop. Ask for a **name** and a **preview video** for each; they live
+  under `~/Library/CloudStorage/Dropbox/Documents/Vizloom_Creatives/Vizloom Templates/<Loop Name>/`,
+  where the `_faded` variants are the ones to use. Pass them as
+  `--templates` (see Step 1); they produce the "Vizloom Templates" section that
+  renders above the layers.
 - **Thumbnail** (optional) — a specific image for the gallery tile. If not
   given, the first frame of the top video is used.
 - **Gumroad link** (optional) — the loop's purchase URL, e.g.
@@ -53,7 +60,12 @@ rather than calling ffmpeg by hand.**
 A `LAYER_SPEC` is a folder (every `*.mp4/*.mov/*.webm` inside becomes a layer,
 names humanised from filenames) or a single file. Append `::Display Name` to set
 the label explicitly — useful when source filenames are ugly
-(`floor_glare_render_loop.mp4::Floor Glare`).
+(`floor_glare_render_loop.mp4::Floor Glare`). Append `@<seconds>` to take the
+still thumbnail from that point in the clip instead of frame one — needed for
+sources that fade in from black (`Breaks.mp4::Breaks@30`).
+
+`--layers` and `--templates` each swallow every following argument up to the
+next `--option`, so one invocation can carry both lists.
 
 **Layers only** (top video & thumbnail already exist — e.g. Portal Peaks):
 
@@ -72,6 +84,17 @@ the label explicitly — useful when source filenames are ugly
   --top "/exports/water_top.mp4" \
   --thumb "/exports/water_cover.png" \
   --layers "/exports/Water Planet" "/exports/Water Planet Glares"
+```
+
+**Vizloom Templates only** (adding the templates section to an existing loop):
+
+```bash
+V="/Users/carloandreaconte/Library/CloudStorage/Dropbox/Documents/Vizloom_Creatives/Vizloom Templates/Portal Peaks"
+.claude/skills/add-loop-to-website/encode-loop.sh --slug portalpeaks \
+  --templates \
+  "$V/Portal Peaks House - Preview_faded.mp4::House" \
+  "$V/Portal Peaks Psytrance - Preview_faded.mp4::Psytrance" \
+  "$V/Portal Peaks Breaks - Preview_faded.mp4::Breaks@30"
 ```
 
 **Top already web-ready** — keep the file as-is, just drop its audio (no
@@ -105,6 +128,7 @@ future loops follow.
 | Hover preview (gallery) | width 640   | `-vf scale=640:-2:flags=lanczos -crf 30 -preset veryslow`                                                                                | `public/nfts/previews/<slug>.mp4`         |
 | Layer                   | **320×180** | `-vf "scale=320:180:force_original_aspect_ratio=decrease,pad=320:180:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1" -crf 30 -preset veryslow` | `public/nfts/layers/<slug>/NN_<name>.mp4` |
 | Layer thumb             | ≤320×180    | first frame: `-frames:v 1 -vf "scale=320:180:force_original_aspect_ratio=decrease" -q:v 3`                                               | `public/nfts/layers/<slug>/NN_<name>.jpg` |
+| Template (+ thumb)      | **320×180** | identical to a layer and its thumb                                                                                                       | `public/nfts/templates/<slug>/NN_<name>.mp4` (+ `.jpg`) |
 | Gallery thumb           | width ≤640  | first frame (or `--thumb`): `-frames:v 1 -vf scale=640:-2 -q:v 3`                                                                        | `public/images/nft_thumbs/<slug>.jpg`     |
 
 ### Folder structure produced
@@ -118,8 +142,20 @@ public/
       01_floor.mp4   01_floor.jpg
       02_shimmer.mp4 02_shimmer.jpg
       ...
+    templates/<slug>/              # Vizloom Templates, same shape as layers
+      01_house.mp4   01_house.jpg
+      02_psytrance.mp4 02_psytrance.jpg
+      ...
   images/nft_thumbs/<slug>.jpg     # gallery thumbnail
+  images/vizloom_logo.png          # badge drawn over template thumbnails
 ```
+
+The Vizloom badge is a one-off asset, already committed — it doesn't need
+re-making per loop. It was exported from
+`~/Library/CloudStorage/Dropbox/Documents/Vizloom_Creatives/graphics/VizLoom_logo2_splash.png`
+with `magick <src> -resize 256x256 -strip -colors 200 PNG8:public/images/vizloom_logo.png`
+(256px covers the 56px tile badge at 3× DPR; the alpha channel must survive, as
+the logo sits over the thumbnail).
 
 ## Step 2 — Wire up `src/data/vjLoops.js`
 
@@ -141,6 +177,10 @@ Add or update the loop's entry. A full entry looks like:
   year: "2023",
   making: ( <><p>How / why it was made…</p></> ), // the default description (JSX node)
   // story: [ "Italic narrative…" ],             // ONLY if the user gives a story / lore
+  templates: [ // optional → adds the "Vizloom Templates" section above Layers
+    { name: "House",     video: "/nfts/templates/portalpeaks/01_house.mp4",     thumb: "/nfts/templates/portalpeaks/01_house.jpg" },
+    { name: "Psytrance", video: "/nfts/templates/portalpeaks/02_psytrance.mp4", thumb: "/nfts/templates/portalpeaks/02_psytrance.jpg" },
+  ],
   layers: [   // paste the snippet printed by encode-loop.sh
     { name: "Floor",        video: "/nfts/layers/portalpeaks/01_floor.mp4",        thumb: "/nfts/layers/portalpeaks/01_floor.jpg" },
     { name: "Shimmer",      video: "/nfts/layers/portalpeaks/02_shimmer.mp4",      thumb: "/nfts/layers/portalpeaks/02_shimmer.jpg" },
@@ -170,6 +210,13 @@ Notes:
   if the user explicitly says they're giving you a "story" or "lore". **Never
   invent either** — if no text was provided, leave both off. Both are optional and
   a loop can have one, the other, or neither.
+- `templates` is optional and has the same shape as `layers`. When present the
+  loop page grows a **Vizloom Templates** section *above* the Layers section,
+  rendered by the same `LayerGrid` component — hover (or tap, on touch) plays
+  each preview. Its tiles differ in two ways: they carry the Vizloom logo over
+  the still thumbnail (it fades out once the video runs) and their captions have
+  no `01`/`02` index, since templates aren't a stack. `hasTemplates(loop)` gates
+  the section; templates do **not** count toward the page's Layers stat.
 - The dynamic route, gallery card and layers grid pick the new entry up
   automatically — no per-page code to add. Every `/art/<slug>` page also shares
   the gallery's "nft" side flow animation automatically (handled generically in
@@ -185,6 +232,9 @@ npm run dev   # then open /art/<slug> and /vj-loops
 Check: top loop plays, the stats bar shows the right layer count and date, the
 layers grid renders and each tile animates on hover, and — if a `gumroad` link
 was set — the Buy button shows on both the card and the page and opens the URL.
+If `templates` were added, confirm the Vizloom Templates section sits above the
+Layers section, each tile shows the Vizloom logo at rest, and the logo fades out
+when the preview starts playing.
 Use the `test-with-agent-browser` skill to confirm visually. For a production check,
 `npm run build` (static export) should list `/art/<slug>` under the generated
 routes.
