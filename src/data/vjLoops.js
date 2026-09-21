@@ -19,12 +19,12 @@
 // the layers, whose tiles carry the Vizloom logo over the still thumbnail.
 //
 // `gumroad` is an optional purchase URL. When present (and `forSale` isn't
-// false) a "Buy" button appears on both the gallery card and the loop's page.
+// false) a "Get" button appears on both the gallery card and the loop's page.
 //
 // Two optional visibility flags (both default to ON when omitted):
 //   - `published: false` hides the loop everywhere on the site — the gallery,
 //     the home mosaic, the "see also" rows, and its own generated page.
-//   - `forSale: false` keeps the loop visible but hides its Buy links (e.g. when
+//   - `forSale: false` keeps the loop visible but hides its Get links (e.g. when
 //     the Gumroad product is temporarily unlisted), without deleting the url.
 // ---------------------------------------------------------------------------
 
@@ -1937,7 +1937,7 @@ export const vjLoops = [
 // --- Visibility flags (both default ON when the field is omitted) -----------
 // Whether the loop is shown anywhere on the site.
 export const isPublished = loop => loop.published !== false
-// Whether to show Buy links: needs a gumroad url and `forSale` not turned off.
+// Whether to show Get links: needs a gumroad url and `forSale` not turned off.
 export const isForSale = loop => !!loop.gumroad && loop.forSale !== false
 
 // The published subset — use this for every listing (gallery, mosaics, routes).

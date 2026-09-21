@@ -50,7 +50,7 @@ const NFTLayout = ({ loop }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Buy on Gumroad
+                Get on Gumroad
               </a>
             )}
           </div>

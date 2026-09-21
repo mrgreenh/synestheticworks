@@ -95,7 +95,7 @@ const LoopCard = ({ loop, index }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Buy
+              Get
             </a>
           )}
         </div>
