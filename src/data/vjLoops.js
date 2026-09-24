@@ -621,7 +621,25 @@ export const vjLoops = [
     video: "/nfts/harvester.mp4",
     preview: "/nfts/previews/harvester.mp4",
     ogimage: "/images/nft_thumbs/harvester.jpg",
+    gumroad: "https://synwrks.gumroad.com/l/harvester",
     light: true,
+    templates: [
+      {
+        name: "House",
+        video: "/nfts/templates/harvester/01_house.mp4",
+        thumb: "/nfts/templates/harvester/01_house.jpg",
+      },
+      {
+        name: "Psytrance",
+        video: "/nfts/templates/harvester/02_psytrance.mp4",
+        thumb: "/nfts/templates/harvester/02_psytrance.jpg",
+      },
+      {
+        name: "Breaks",
+        video: "/nfts/templates/harvester/03_breaks.mp4",
+        thumb: "/nfts/templates/harvester/03_breaks.jpg",
+      },
+    ],
     layers: [
       {
         name: "Alien Portrait (AI Layer)",
