@@ -1,0 +1,5 @@
+{
+  "setup": ["npm ci"],
+  "teardown": ["rm -rf .next out"],
+  "run": ["npm run dev"]
+}
