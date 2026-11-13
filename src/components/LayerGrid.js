@@ -11,7 +11,11 @@ import HoverVideo from "./HoverVideo"
 // `badge` is an optional image shown over the still thumbnail, in the spot the
 // play button occupies — used to mark the Vizloom Templates row. It fades out
 // as soon as the tile starts playing.
-const LayerTile = ({ layer, index, tapped, onToggle, badge, numbered }) => {
+//
+// `href` optionally makes the preview a link (opened in a new tab) — used by
+// the Vizloom Templates row to point at the loop's Get link. On touch the first
+// tap starts the preview and a further tap follows the link, like a LoopCard.
+const LayerTile = ({ layer, index, tapped, onToggle, badge, numbered, href }) => {
   const [hovered, setHovered] = useState(false)
   const active = hovered || tapped
   const name = layer.name || `Layer ${index + 1}`
@@ -49,6 +53,23 @@ const LayerTile = ({ layer, index, tapped, onToggle, badge, numbered }) => {
           imgWidth={320}
           imgHeight={180}
         />
+        {href && (
+          <a
+            className="layer-tile__link"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Get the ${name} template`}
+            onClick={e => {
+              // Don't let the media's tap-to-play handler also fire.
+              e.stopPropagation()
+              if (mql("(hover: none)") && !active) {
+                e.preventDefault()
+                onToggle()
+              }
+            }}
+          />
+        )}
         {badge && (
           <Image
             className="layer-tile__badge"
@@ -85,8 +106,9 @@ const LayerTile = ({ layer, index, tapped, onToggle, badge, numbered }) => {
 
 // A grid of hover-to-play video tiles. Used twice on a loop page: for the
 // individual layers that compose the loop (numbered, in compositing order) and
-// for its Vizloom Templates (unnumbered, badged with the Vizloom logo).
-const LayerGrid = ({ layers = [], badge, numbered = true }) => {
+// for its Vizloom Templates (unnumbered, badged with the Vizloom logo, and
+// linked via `href` to where they can be had).
+const LayerGrid = ({ layers = [], badge, numbered = true, href }) => {
   // Index of the tile currently tapped-to-play (touch); only one at a time.
   const [tappedIndex, setTappedIndex] = useState(null)
 
@@ -103,6 +125,7 @@ const LayerGrid = ({ layers = [], badge, numbered = true }) => {
           onToggle={() => setTappedIndex(prev => (prev === i ? null : i))}
           badge={badge}
           numbered={numbered}
+          href={href}
         />
       ))}
     </div>

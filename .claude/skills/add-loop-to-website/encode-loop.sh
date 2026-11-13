@@ -38,7 +38,7 @@
 #                        Produces public/images/nft_thumbs/<slug>.jpg
 #   --gumroad <url>      Optional. Purchase URL for the loop. Not an asset —
 #                        nothing is encoded; it's just added to the printed
-#                        config snippet as `gumroad: "<url>"`, which makes a Buy
+#                        config snippet as `gumroad: "<url>"`, which makes a Get
 #                        button appear on the card and the loop page.
 #   --layers <spec ...>  Every following argument (up to the next --option) is a
 #                        layer spec. A spec is either:
