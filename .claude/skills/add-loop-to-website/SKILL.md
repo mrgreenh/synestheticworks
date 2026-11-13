@@ -34,15 +34,23 @@ Ask for any of these that are missing before starting:
   - `/Users/perfs/Movies/Vizloom Loops/Portal Peaks Glares` (the glare passes)
 - **Vizloom Templates** (optional) — the ready-made Vizloom scenes built from
   this loop. Ask for a **name** and a **preview video** for each; they live
-  under `~/Library/CloudStorage/Dropbox/Documents/Vizloom_Creatives/Vizloom Templates/<Loop Name>/`,
-  where the `_faded` variants are the ones to use. Pass them as
+  under `~/Library/CloudStorage/Dropbox/Documents/Vizloom_Creatives/Vizloom Templates/<Series>/<Piece>/`
+  as `<Piece>_ <Genre> - Preview.mp4` (the Dropbox piece name can differ from
+  the loop's title — e.g. The Ancestors lives in `Aliens Corridor`; the
+  vizloom-website repo's `.claude/skills/vizloom-template/reels.json` maps
+  folder → slug). A `_faded` variant only fades the *audio*, and every encode
+  strips audio, so either file gives the same result. Pass them as
   `--templates` (see Step 1); they produce the "Vizloom Templates" section that
-  renders above the layers.
+  renders above the layers. A template being released on vizloom.com/templates
+  is the usual cue to add it here.
 - **Thumbnail** (optional) — a specific image for the gallery tile. If not
   given, the first frame of the top video is used.
 - **Gumroad link** (optional) — the loop's purchase URL, e.g.
-  `https://synwrks.gumroad.com/l/portalpeaks`. When provided it becomes a "Buy"
-  button on both the gallery card and the loop page; omit it and no button shows.
+  `https://synwrks.gumroad.com/l/portalpeaks`. When provided it becomes a "Get"
+  button on both the gallery card and the loop page, and the template tiles link
+  to it. Without one, a loop that has `templates` still gets the Get button,
+  pointing at `https://vizloom.com/templates` (templates offered there as free
+  downloads have no Gumroad product); a loop with neither shows no button.
   It isn't an asset to encode — it's just a config value (see Step 2). You can
   pass it to the script as `--gumroad <url>` to have it included in the printed
   snippet, or simply add the `gumroad:` line by hand.
@@ -170,9 +178,9 @@ Add or update the loop's entry. A full entry looks like:
   preview: "/nfts/previews/portalpeaks.mp4",     // gallery hover preview
   ogimage: "/nfts/portalpeaks.jpg",
   light: true,                                   // light label on the mosaic tile
-  gumroad: "https://synwrks.gumroad.com/l/portalpeaks", // optional → Buy button
+  gumroad: "https://synwrks.gumroad.com/l/portalpeaks", // optional → Get button
   // published: false,                           // optional → hide the loop everywhere
-  // forSale: false,                             // optional → keep the loop but hide Buy
+  // forSale: false,                             // optional → drop the Gumroad link
   date: "June 2023",                             // month + year
   year: "2023",
   making: ( <><p>How / why it was made…</p></> ), // the default description (JSX node)
@@ -195,15 +203,25 @@ Notes:
   length via `layerCount(loop)` — no separate number to keep in sync. Loops that
   haven't had their layers collected yet may still use a plain number for
   `layers` (a placeholder count); `layerCount` handles both.
-- `gumroad` is optional. When set (and `forSale` isn't false) a "Buy" button
-  appears on the gallery card (solid accent CTA) and on the loop page, both
-  opening the URL in a new tab; when omitted, no button is rendered.
+- `gumroad` is optional. Where the loop's **Get** links point is decided in one
+  place, `getLink(loop)`:
+  1. the `gumroad` url, when set and `forSale` isn't false (page button reads
+     "Get on Gumroad");
+  2. otherwise `https://vizloom.com/templates` (`VIZLOOM_TEMPLATES_URL`), when
+     the loop has `templates` ("Get on Vizloom");
+  3. otherwise nothing — no button is rendered.
+
+  The link shows as a "Get" button on the gallery card (solid accent CTA) and
+  on the loop page, and makes every Vizloom Template tile clickable; all open
+  in a new tab. So a loop whose templates are free downloads on vizloom.com
+  needs no extra config: adding `templates` is enough.
 - Two optional visibility flags, both default ON (omit them to show everything):
   - `published: false` hides the loop everywhere — gallery, home mosaic, "see
     also" rows, and its own generated page (`isPublished`/`publishedLoops`).
-  - `forSale: false` keeps the loop listed but hides its Buy links — for when the
-    Gumroad product is temporarily unlisted — without dropping the url
-    (`isForSale`).
+  - `forSale: false` keeps the loop listed but drops its Gumroad link — for when
+    the product is temporarily unlisted — without deleting the url
+    (`isForSale`). A loop with templates then falls back to the Vizloom link;
+    one without shows no Get button.
 - **Description — `making` vs `story`.** A description the user gives you is the
   **`making`** by default (rendered under "How it was made"; a JSX node, so it
   takes rich formatting). Only add a **`story`** (the italic narrative at the top)
@@ -215,7 +233,10 @@ Notes:
   rendered by the same `LayerGrid` component — hover (or tap, on touch) plays
   each preview. Its tiles differ in two ways: they carry the Vizloom logo over
   the still thumbnail (it fades out once the video runs) and their captions have
-  no `01`/`02` index, since templates aren't a stack. `hasTemplates(loop)` gates
+  no `01`/`02` index, since templates aren't a stack. The preview itself is a
+  link to the loop's `getLink` target (on touch the first tap plays the preview,
+  a second tap follows the link; the play button only toggles playback).
+  `hasTemplates(loop)` gates
   the section; templates do **not** count toward the page's Layers stat.
 - The dynamic route, gallery card and layers grid pick the new entry up
   automatically — no per-page code to add. Every `/art/<slug>` page also shares
@@ -231,10 +252,11 @@ npm run dev   # then open /art/<slug> and /vj-loops
 
 Check: top loop plays, the stats bar shows the right layer count and date, the
 layers grid renders and each tile animates on hover, and — if a `gumroad` link
-was set — the Buy button shows on both the card and the page and opens the URL.
+was set or `templates` were added — the Get button shows on both the card and
+the page and opens the right URL (Gumroad, else vizloom.com/templates).
 If `templates` were added, confirm the Vizloom Templates section sits above the
-Layers section, each tile shows the Vizloom logo at rest, and the logo fades out
-when the preview starts playing.
+Layers section, each tile shows the Vizloom logo at rest, the logo fades out
+when the preview starts playing, and clicking a tile opens the Get link.
 Use the `test-with-agent-browser` skill to confirm visually. For a production check,
 `npm run build` (static export) should list `/art/<slug>` under the generated
 routes.

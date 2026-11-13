@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import HoverVideo from "./HoverVideo"
-import { loopHref, layerCount, isForSale } from "../data/vjLoops"
+import { loopHref, layerCount, getLink } from "../data/vjLoops"
 
 // A single catalog card for the Original VJ Loops gallery.
 //
@@ -13,6 +13,7 @@ import { loopHref, layerCount, isForSale } from "../data/vjLoops"
 // "hover" cue); a second tap follows the link to the loop page.
 const LoopCard = ({ loop, index }) => {
   const href = loopHref(loop)
+  const link = getLink(loop)
   const [hovered, setHovered] = useState(false)
   const [tapped, setTapped] = useState(false)
   const active = hovered || tapped
@@ -88,10 +89,10 @@ const LoopCard = ({ loop, index }) => {
               &#x2192;
             </span>
           </span>
-          {isForSale(loop) && (
+          {link && (
             <a
               className="loop-card__buy"
-              href={loop.gumroad}
+              href={link.href}
               target="_blank"
               rel="noopener noreferrer"
             >
