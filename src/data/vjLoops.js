@@ -18,14 +18,18 @@
 // as a layer). When present the page grows a "Vizloom Templates" section above
 // the layers, whose tiles carry the Vizloom logo over the still thumbnail.
 //
-// `gumroad` is an optional purchase URL. When present (and `forSale` isn't
-// false) a "Get" button appears on both the gallery card and the loop's page.
+// `gumroad` is an optional purchase URL. The loop's "Get" links — a button on
+// the gallery card and on the loop's page, plus a click on any template tile —
+// point at it when present (and `forSale` isn't false); otherwise, if the loop
+// has `templates`, they point at vizloom.com/templates; otherwise no Get link
+// is shown. See `getLink()`.
 //
 // Two optional visibility flags (both default to ON when omitted):
 //   - `published: false` hides the loop everywhere on the site — the gallery,
 //     the home mosaic, the "see also" rows, and its own generated page.
-//   - `forSale: false` keeps the loop visible but hides its Get links (e.g. when
-//     the Gumroad product is temporarily unlisted), without deleting the url.
+//   - `forSale: false` keeps the loop visible but drops its Gumroad link (e.g.
+//     when the product is temporarily unlisted), without deleting the url. A
+//     loop with templates then falls back to linking vizloom.com/templates.
 // ---------------------------------------------------------------------------
 
 export const vjLoops = [
@@ -223,6 +227,23 @@ export const vjLoops = [
     preview: "/nfts/previews/ancientpath.mp4",
     ogimage: "/images/nft_thumbs/ancientpath.jpg",
     light: true,
+    templates: [
+      {
+        name: "House",
+        video: "/nfts/templates/ancientpath/01_house.mp4",
+        thumb: "/nfts/templates/ancientpath/01_house.jpg",
+      },
+      {
+        name: "Psytrance",
+        video: "/nfts/templates/ancientpath/02_psytrance.mp4",
+        thumb: "/nfts/templates/ancientpath/02_psytrance.jpg",
+      },
+      {
+        name: "Breaks",
+        video: "/nfts/templates/ancientpath/03_breaks.mp4",
+        thumb: "/nfts/templates/ancientpath/03_breaks.jpg",
+      },
+    ],
     layers: [
       {
         name: "Atmosphere",
@@ -1373,6 +1394,23 @@ export const vjLoops = [
     preview: "/nfts/previews/theancestors.mp4",
     ogimage: "/images/nft_thumbs/theancestors.jpg",
     light: true,
+    templates: [
+      {
+        name: "House",
+        video: "/nfts/templates/theancestors/01_house.mp4",
+        thumb: "/nfts/templates/theancestors/01_house.jpg",
+      },
+      {
+        name: "Psytrance",
+        video: "/nfts/templates/theancestors/02_psytrance.mp4",
+        thumb: "/nfts/templates/theancestors/02_psytrance.jpg",
+      },
+      {
+        name: "Breaks",
+        video: "/nfts/templates/theancestors/03_breaks.mp4",
+        thumb: "/nfts/templates/theancestors/03_breaks.jpg",
+      },
+    ],
     layers: [
       {
         name: "Depth",
@@ -1955,8 +1993,20 @@ export const vjLoops = [
 // --- Visibility flags (both default ON when the field is omitted) -----------
 // Whether the loop is shown anywhere on the site.
 export const isPublished = loop => loop.published !== false
-// Whether to show Get links: needs a gumroad url and `forSale` not turned off.
+// Whether the Gumroad link is live: needs a url and `forSale` not turned off.
 export const isForSale = loop => !!loop.gumroad && loop.forSale !== false
+
+// Where a loop's templates can be had when it has no (live) Gumroad product.
+export const VIZLOOM_TEMPLATES_URL = "https://vizloom.com/templates"
+
+// Where the loop's Get links (gallery card, loop page, template tiles) point:
+// its Gumroad product when for sale, else the Vizloom templates gallery when
+// the loop ships templates, else nowhere (null → no Get link is rendered).
+export const getLink = loop => {
+  if (isForSale(loop)) return { href: loop.gumroad, store: "Gumroad" }
+  if (hasTemplates(loop)) return { href: VIZLOOM_TEMPLATES_URL, store: "Vizloom" }
+  return null
+}
 
 // The published subset — use this for every listing (gallery, mosaics, routes).
 export const publishedLoops = vjLoops.filter(isPublished)

@@ -6,7 +6,7 @@ import BlogHeader from "./blogHeader"
 import FramedPlayer from "./FramedPlayer"
 import LayerGrid from "./LayerGrid"
 import NFTsMosaic from "./mosaics/NFTsMosaic"
-import { layerCount, hasLayers, hasTemplates, isForSale } from "../data/vjLoops"
+import { layerCount, hasLayers, hasTemplates, getLink } from "../data/vjLoops"
 
 // Badge shown over each Vizloom Template thumbnail, where the play button sits.
 const VIZLOOM_LOGO = "/images/vizloom_logo.png"
@@ -15,6 +15,7 @@ const VIZLOOM_LOGO = "/images/vizloom_logo.png"
 // stats (layers, date) are mirrored from the same source the gallery cards
 // read, so the catalog and the page can never drift apart.
 const NFTLayout = ({ loop }) => {
+  const link = getLink(loop)
   return (
     <>
       <BlogHeader title={loop.title} date={loop.date} ogimage={loop.ogimage} />
@@ -43,14 +44,14 @@ const NFTLayout = ({ loop }) => {
               </div>
             </dl>
 
-            {isForSale(loop) && (
+            {link && (
               <a
                 className="loop-buy"
-                href={loop.gumroad}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get on Gumroad
+                Get on {link.store}
               </a>
             )}
           </div>
@@ -95,6 +96,7 @@ const NFTLayout = ({ loop }) => {
             layers={loop.templates}
             badge={VIZLOOM_LOGO}
             numbered={false}
+            href={link?.href}
           />
         </section>
       )}

@@ -482,7 +482,17 @@ $mono: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     .hover-video {
       position: absolute;
       inset: 0;
+      // Own stacking context, so the playing video can't paint over the link.
+      z-index: 1;
     }
+  }
+
+  // Optional link covering the preview (Vizloom Templates → the Get link).
+  // Sits under the badge and the touch play button.
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
   }
 
   // Tap-to-play affordance — only shown on devices without hover (see the
